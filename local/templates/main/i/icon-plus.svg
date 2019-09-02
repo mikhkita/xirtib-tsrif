@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 39</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Карточка-товара" transform="translate(-713.000000, -784.000000)" fill="#D5D9E4">
+            <g id="Group-54" transform="translate(635.000000, 443.000000)">
+                <g id="Group-43" transform="translate(0.000000, 342.000000)">
+                    <g id="Group-40">
+                        <g id="Group-39" transform="translate(79.000000, 0.000000)">
+                            <g id="Group-41" transform="translate(8.000000, 8.000000)">
+                                <rect id="Rectangle" x="0" y="7" width="16" height="2.08695652" rx="1.04347826"></rect>
+                                <g id="Group-38" transform="translate(6.000000, 0.000000)">
+                                    <rect id="Rectangle" transform="translate(2.000000, 8.043478) rotate(90.000000) translate(-2.000000, -8.043478) " x="-6" y="7" width="16" height="2.08695652" rx="1.04347826"></rect>
+                                </g>
+                            </g>
+                            <path d="M16,33 C6.61115925,33 -1,25.3888407 -1,16 C-1,6.61115925 6.61115925,-1 16,-1 C25.3888407,-1 33,6.61115925 33,16 C33,25.3888407 25.3888407,33 16,33 Z M16,31 C24.2842712,31 31,24.2842712 31,16 C31,7.71572875 24.2842712,1 16,1 C7.71572875,1 1,7.71572875 1,16 C1,24.2842712 7.71572875,31 16,31 Z" id="Oval" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+body {
+	min-width: 750px;
+}
+@media screen and (max-width: 960px){
+	.b-block{
+		max-width: 736px;
+	}
+	.jq-selectbox__select{
+		min-width: 200px;
+	}
+	.b-preview-block .b-block-1{
+		width: 100%;
+	}
+	.b-input.b-mkad-input, .b-input.b-metro-input{
+		margin-top: 0;
+	}
+	.b-preview-block .b-block-2{
+		width: 100%;
+	}
+	.b-input{
+	    width: calc(50% - 12px);
+	    margin-bottom: 40px;
+	}
+	.b-input:nth-child(2n){
+		margin-right: 0;
+	}
+	.b-input.b-time-input{
+		margin-right: 24px;
+		margin-left: 0px;
+	}
+	.b-pickpoint{
+		margin-top: 0;
+	}
+	.b-cdek-punkt{
+		margin-top: 0;
+	}
+	.b-input-row{
+		margin-bottom: 0;
+	}
+	.b-first-input-row{
+		margin-bottom: -32px;
+	}
+	.b-delivery-input-row{
+		margin-bottom: 32px;
+	}
+	.b-order-addr{
+		margin: 0;
+		margin-bottom: 20px;
+	}
+	.b-delivery-price{
+		margin-top: 18px;
+		margin-bottom: 32px;
+	}
+	.b-order-addr-new .b-addresss-item__room{
+		margin-right: 24px;
+	}
+	.order-adress-map-form .b-addresss-item__metro{
+		margin-left: 24px;
+	}
+	.order-adress-map-form-content .b-addresss-item__metro{
+		margin-top: 0;
+	}
+	.b-textarea{
+	    margin-bottom: 16px;
+	}
+	.b-for-payment{
+		margin-bottom: 16px;
+	}
+	.b-last-input-row .b-input{
+		margin-bottom: 20px;
+	}
+}

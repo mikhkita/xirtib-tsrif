@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.18">
+
+  
+  <!-- Spot Style - Default Polygon Spot Style 1 -->
+  <style name="PolygonDefaultPolygonSpotStyle1"
+           visible="false"
+           bordercolor="0xffffff"
+           fillcolor="0xffffff"
+           borderwidth="1.0"
+           borderalpha="1"
+           fillalpha="0.4"
+           capture="false"
+           onhover="onhoverPolygonDefaultPolygonSpotStyle1"
+           onover="onoverPolygonDefaultPolygonSpotStyle1"
+           onout="onoutPolygonDefaultPolygonSpotStyle1"
+           />
+  <action name="onhoverPolygonDefaultPolygonSpotStyle1">
+    showTooltip('hotspot');
+  </action>
+  <action name="onoverPolygonDefaultPolygonSpotStyle1">
+    set(borderwidth, 4.0);
+  </action>
+  <action name="onoutPolygonDefaultPolygonSpotStyle1">
+    set(borderwidth, 1.0);
+    hideTooltip();
+  </action>
+
+
+
+
+<!-- ********* -->
+<!-- Gyroscope -->
+<!-- ********* -->
+<plugin name="gyroscope"
+        url="graphics/gyro.js"
+        keep="true"
+        devices="no-desktop.and.html5"
+
+
+        friction="0.5"
+        onavailable="delayedcall(1, checkGyroAvailability(););"
+        enabled="false"
+        activated="false"
+        />
+
+<events name="gyroscopeEvents" onnewpano="planarGyroscopeTest();" keep="true" />
+
+<action name="planarGyroscopeTest">
+  if(plugin[gyroscope],
+    ifnot (plugin[gyroscope].available === undefined, 
+      if (plugin[gyroscope].available,
+        if(scene[get(xml.scene)].planar,
+          if(plugin[gyroscope].enabled,
+            switch(plugin[gyroscope].enabled);
+            if (plugin[gyroscope].enabled, events.dispatch(ongyroscopeon);, events.dispatch(ongyroscopeoff););
+          );
+        ,
+          if(plugin[gyroscope].activated,
+            ifnot(plugin[gyroscope].enabled,
+              switch(plugin[gyroscope].enabled);
+              if (plugin[gyroscope].enabled, events.dispatch(ongyroscopeon);, events.dispatch(ongyroscopeoff););
+            );
+          );
+        );
+      );
+    );
+  );
+</action>
+
+<action name="changeGyroscopeState">
+  if(plugin[gyroscope],
+    ifnot (plugin[gyroscope].available === undefined,
+      if (plugin[gyroscope].available,
+        if(%1,
+          set(plugin[gyroscope].activated,true);
+        );
+        if (%1 !=  plugin[gyroscope].enabled,
+          if(plugin[gyroscope].activated,
+            switch(plugin[gyroscope].enabled);
+          ,
+            set(plugin[gyroscope].enabled, false);
+          );
+          if (plugin[gyroscope].enabled, events.dispatch(ongyroscopeon);, events.dispatch(ongyroscopeoff););
+        );
+      );
+    );
+  );
+</action>
+
+<action name="checkGyroAvailability">
+  if(plugin[gyroscope],
+    ifnot (plugin[gyroscope].available === undefined, 
+      if (plugin[gyroscope].available,
+        ifnot(scene[get(xml.scene)].planar,
+          switch(plugin[gyroscope].enabled);
+          set(plugin[gyroscope].activated,true);
+        );
+        set(tour_gyroscopedevices, true);
+        events.dispatch(ongyroscopeavailable);
+      ,
+        set(tour_gyroscopedevices, false);
+      );
+    ,
+      set(tour_gyroscopedevices, false);
+    );
+    if (plugin[gyroscope].enabled, events.dispatch(ongyroscopeon);, events.dispatch(ongyroscopeoff););
+  );
+</action>
+
+<!-- ************ -->
+<!-- Double click -->
+<!-- ************ -->
+  <plugin name="doubleclick" url="%FIRSTXML%/graphics/doubleclick/fieldofview_dc.swf" alturl="%FIRSTXML%/graphics/doubleclick/fieldofview_dc.js" keep="true" ondblclick="ondoubleclick();"/>
+  <action name="ondoubleclick">switchFullscreen();
+
+
+  </action>
+
+<!-- ************ -->
+<!-- Context Menu -->
+<!-- ************ -->
+  <contextmenu fullscreen="false" versioninfo="false" touch="true">
+    <item name="author" onclick="getmessage(urltoopen,project_author_url);openurl(get(urltoopen),_blank);" />
+    <item name="fullscreenentry" onclick="enterFullscreen();
+" separator="true"/>
+  </contextmenu>
+
+  <events name="contextmenuevents" keep="true" onenterfullscreen="updateContextMenu" onexitfullscreen="updateContextMenu" onxmlcomplete="updateContextMenu"/>
+  <action name="updateContextMenu">
+    getmessage(contextmenu.item[author].caption, project_author_name);
+    if (device.fullscreensupport,
+      if(tour_fullscreen,
+        getmessage(contextmenu.item[fullscreenentry].caption, contextmenucloseFsLabel);
+        set(contextmenu.item[fullscreenentry].onclick, exitFullscreen();
+);
+       ,
+        getmessage(contextmenu.item[fullscreenentry].caption, contextmenuopenFsLabel);
+        set(contextmenu.item[fullscreenentry].onclick, enterFullscreen();
+);
+      );
+     ,
+      set(contextmenu.item[fullscreenentry].visible, false);
+    );
+  </action>
+
+
+  <!-- ************************* -->
+  <!-- Progress Bar and Loopings -->
+  <!-- ************************* -->
+  <progress showload="none"
+			showwait="loopings(
+				0xffffff,
+				15,15,
+				0,0,
+				0xffffff,8,
+				0,0,center
+				)"
+			showreloads="false"
+			parent=""
+			/>
+
+  <!-- ************************************************** -->
+  <!-- Toggle Button : bottomright -->
+  <!-- ************************************************** -->
+
+
+
+  <layer name="togglebutton"
+         keep="true"
+         url="%FIRSTXML%/graphics/togglebutton/full.png" 
+         align="bottomright"
+         x="14"
+         y="14"
+         zorder="4"
+         state="true"
+         onclick="togglebuttonOnClick"
+         onout=""
+         height="40"
+         width="40"
+         visible="false"
+         />
+
+  <action name="togglebuttonOnClick">
+    if (state,
+      set(state, false);enterFullscreen();
+
+
+      set(url,%FIRSTXML%/graphics/togglebutton/full2.png);
+     ,
+      set(state, true);exitFullscreen();
+
+
+      set(url,%FIRSTXML%/graphics/togglebutton/full.png);
+    );
+  </action>
+
+  <events name="togglebuttonevents" 
+    onTourStart="showtogglebutton();"
+    hidetourcontrols="hidetogglebutton();" 
+    showtourcontrols="showtogglebutton();" 
+    keep="true" />
+  <action name="hidetogglebutton">set(layer[togglebutton].visible, false);</action>
+  <action name="showtogglebutton">set(layer[togglebutton].visible, true);</action>
+
+
+
+  <!-- ************************************************** -->
+  <!-- Toggle Button : bottomright -->
+  <!-- ************************************************** -->
+
+
+
+  <layer name="togglebutton1"
+         keep="true"
+         url="%FIRSTXML%/graphics/togglebutton1/pause.png" 
+         align="bottomright"
+         x="60"
+         y="24"
+         zorder="5"
+         state="true"
+         onclick="togglebutton1OnClick"
+         onout=""
+         height="19"
+         width="19"
+         visible="false"
+         />
+
+  <action name="togglebutton1OnClick">
+    if (state,
+      set(state, false);pauseautorotation();
+
+
+      set(url,%FIRSTXML%/graphics/togglebutton1/play.png);
+     ,
+      set(state, true);startautorotation();
+
+
+      set(url,%FIRSTXML%/graphics/togglebutton1/pause.png);
+    );
+  </action>
+
+  <events name="togglebutton1events" 
+    onTourStart="showtogglebutton1();"
+    hidetourcontrols="hidetogglebutton1();" 
+    showtourcontrols="showtogglebutton1();" 
+    keep="true" />
+  <action name="hidetogglebutton1">set(layer[togglebutton1].visible, false);</action>
+  <action name="showtogglebutton1">set(layer[togglebutton1].visible, true);</action>
+
+
+
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+</krpano>

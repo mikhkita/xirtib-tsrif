@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-contacts-soc-3</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Контакты" transform="translate(-576.000000, -731.000000)">
+            <g id="Group-11" transform="translate(441.000000, 625.000000)">
+                <g id="icon-contacts-soc-3" transform="translate(135.000000, 106.000000)">
+                    <circle id="Oval" fill="#41B4E6" cx="14.9998242" cy="15" r="14.9998242"></circle>
+                    <path d="M30,15.0001758 C30,14.634668 29.9862305,14.2725 29.9605664,13.9134961 L23.7438281,7.696875 L6.25617188,14.5757227 L12.9470508,21.2666602 L13.0348242,21.5825977 L13.1484375,21.4680469 L13.1489062,21.4685156 L13.0348242,21.5825977 L20.4362109,28.9839844 C26.0330859,26.8066406 30,21.3669727 30,15.0001758 Z" id="Path" fill="#0091C8"></path>
+                    <polygon id="Path" fill="#FFFFFF" points="13.5432422 17.1855469 20.3220117 22.3035352 23.7438281 7.696875 6.25611328 14.5757227 11.5774219 16.3382813 21.2889258 9.8240625"></polygon>
+                    <polygon id="Path" fill="#D2D2D7" points="11.5774219 16.3382812 13.0348242 21.5826562 13.5432422 17.1855469 21.2889258 9.8240625"></polygon>
+                    <polygon id="Path" fill="#B9B9BE" points="15.7463672 18.8489062 13.0348242 21.5826562 13.5432422 17.1855469"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

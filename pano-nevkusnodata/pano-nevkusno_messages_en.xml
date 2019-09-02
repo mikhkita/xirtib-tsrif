@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano>
+
+<!-- ************************ -->
+<!--         Messages         -->
+<!-- ************************ -->
+
+  <data name="en_project_title"><![CDATA[Вкусный магазин]]></data>
+  <data name="en_project_author_name"><![CDATA[color360.ru]]></data>
+  <data name="en_project_author_url"><![CDATA[http://www.color360.ru/]]></data>
+
+
+
+  <data name="en_pano18_title"><![CDATA[Вкусный магазин]]></data>
+  <data name="en_spotpolygon20openurlwebsiteurl"><![CDATA[http://www.nevkusno.ru]]></data>
+
+
+
+
+
+
+  <data name="en_contextmenuopenFsLabel"><![CDATA[На весь экран]]></data>
+  <data name="en_contextmenucloseFsLabel"><![CDATA[Свернуть]]></data>
+  <data name="en_togglebuttonfirsttooltip"><![CDATA[]]></data>
+  <data name="en_togglebuttonsecondtooltip"><![CDATA[]]></data>
+  <data name="en_togglebutton1firsttooltip"><![CDATA[]]></data>
+  <data name="en_togglebutton1secondtooltip"><![CDATA[]]></data>
+
+
+
+
+
+</krpano>

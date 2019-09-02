@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="300px" viewBox="0 0 1440 300" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Slice</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M1.13686838e-13,-89 L1440,-89 L1440,239.527344 C1360.79427,208.503906 1279.31901,192.992188 1195.57422,192.992188 C1069.95703,192.992188 1023.65295,219.097656 879.953125,219.097656 C736.253296,219.097656 707.726563,189.992188 544.226563,189.992188 C380.726562,189.992188 315.023437,226.558594 209.414062,226.558594 C139.007812,226.558594 69.203125,196.313802 1.13686838e-13,135.824219 L1.13686838e-13,-89 Z" id="path-1"></path>
+        <filter x="-3.1%" y="-9.1%" width="106.2%" height="127.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.392156863   0 0 0 0 0.392156863   0 0 0 0 0.392156863  0 0 0 0.06 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Rectangle-5" transform="translate(720.000000, 75.263672) scale(-1, 1) translate(-720.000000, -75.263672) ">
+            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

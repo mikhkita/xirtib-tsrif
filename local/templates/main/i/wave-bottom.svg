@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2560px" height="209px" viewBox="0 0 2560 209" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M2.04659757e-12,534.684606 L2560,534.684606 C2560,543.950231 2560,569.950231 2560,612.684606 C2417.82422,700.684606 2242.63279,700.583044 2111.3125,688.684606 C1979.99221,676.786169 1881.19141,616.676794 1755.57422,616.676794 C1629.95703,616.676794 1583.65295,642.782263 1439.95313,642.782263 C1296.2533,642.782263 1267.72656,613.676794 1104.22656,613.676794 C940.726563,613.676794 875.023438,650.2432 769.414063,650.2432 C663.804688,650.2432 506.046875,582.684606 423.6875,564.684606 C341.328125,546.684606 192.074219,546.684606 -1.29149709e-12,584.684606 C-1.6720723e-12,536.76794 -5.59374074e-13,520.101273 2.04659757e-12,534.684606 Z" id="path-1"></path>
+        <filter x="-1.8%" y="-17.7%" width="103.5%" height="154.2%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="15" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="12.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.392156863   0 0 0 0 0.392156863   0 0 0 0 0.392156863  0 0 0 0.07 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy-3" transform="translate(0.000000, -2446.000000)">
+            <g id="Новости" transform="translate(0.000000, 1921.000000)">
+                <g id="Group-50">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Rectangle-5" transform="translate(1280.000000, 611.910463) scale(-1, 1) translate(-1280.000000, -611.910463) ">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-1"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
