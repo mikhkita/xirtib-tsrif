@@ -131,6 +131,46 @@ if( isset($_REQUEST["action"]) ){
 			}
 
 			break;
+		case "updateUser":
+
+			$userID = $USER->GetID();
+
+			$rsUser = CUser::GetByID($userID);
+			$arUser = $rsUser->Fetch();
+
+			$user = new CUser;
+			$arFields = $_REQUEST['user'];
+
+			if (empty($arFields['PASSWORD']) || $_REQUEST['change_pass'] !== 'on') {
+				unset($arFields['PASSWORD']);
+				unset($arFields['CONFIRM_PASSWORD']);
+			}
+
+			if ($arFields['PERSONAL_PHOTO']) {
+				$arFile = CFile::MakeFileArray($_SERVER['DOCUMENT_ROOT'].'/upload/tmp/'.$arFields['PERSONAL_PHOTO']);
+		        $arFile['del'] = "Y";           
+		        $arFile['old_file'] = $arUser['PERSONAL_PHOTO']; 
+		        $arFile["MODULE_ID"] = "main";
+		        $arFields['PERSONAL_PHOTO'] = $arFile;	
+			}
+
+			if( $user->Update($userID, $arFields) ){
+				// echo "1";
+				echo json_encode(array(
+					"result" => "success",
+					"action" => "redirect",
+					"redirect" => "/personal/"
+				));
+			}else{
+				echo "0";
+				// echo json_encode(array(
+				// 	"error" => 1,
+				// 	"message" => $arResult["MESSAGE"],
+				// 	"message" => "Ошибка."
+				// ));
+			}
+
+			break;
 		case "logout":
 			$USER->Logout();
 			LocalRedirect($_REQUEST["redirect"]);

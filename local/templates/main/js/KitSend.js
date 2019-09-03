@@ -56,23 +56,24 @@ $(document).ready(function(){
 			rules: {
 				email: 'email',
 				phone: 'customPhone',
+				'user[PERSONAL_PHONE]': 'customPhone',
 				ORDER_PROP_3: 'email',
 				ORDER_PROP_4: 'customPhone',
-				"store-quality":{
-                    required: true
-                },
-                "goods-quality":{
-                    required: true
-                },
-                "manager-quality":{
-                    required: true
-                },
-                "pack-quality":{
-                    required: true
-                },
-                "courier-quality":{
-                    required: true
-                }
+				// "store-quality":{
+				//     required: true
+				// },
+				// "goods-quality":{
+				//     required: true
+				// },
+				// "manager-quality":{
+				//     required: true
+				// },
+				// "pack-quality":{
+				//     required: true
+				// },
+				// "courier-quality":{
+				//     required: true
+				// }
 			},
 			errorPlacement: function(error, element) {
                 error.appendTo(element.parents(".b-review-input").addClass("error"));
@@ -81,25 +82,21 @@ $(document).ready(function(){
 			    label.parents(".b-review-input").removeClass("error");
 			},
 			errorElement : "span",
-			highlight: function(element, errorClass) {
-			    $(element).addClass("error").parents(".b-input").addClass("error");
-			},
-			unhighlight: function(element) {
-			    $(element).removeClass("error").parents(".b-input").removeClass("error");
-			}
+			// highlight: function(element, errorClass) {
+			//     $(element).addClass("error").parents(".b-input").addClass("error");
+			// },
+			// unhighlight: function(element) {
+			//     $(element).removeClass("error").parents(".b-input").removeClass("error");
+			// }
 		});
-		if( $(this).find("input[name=phone], input[name=addressee-phone], input[name=ORDER_PROP_4], input[name=PERSONAL_PHONE]").length ){
-			$(this).find("input[name=phone], input[name=addressee-phone], input[name=ORDER_PROP_4], input[name=PERSONAL_PHONE]").each(function(){
+		if( $(this).find("input[name=phone], input[name=addressee-phone], input[name=ORDER_PROP_4], input[name=PERSONAL_PHONE], input[name='user[PERSONAL_PHONE]']").length ){
+			$(this).find("input[name=phone], input[name=addressee-phone], input[name=ORDER_PROP_4], input[name=PERSONAL_PHONE], input[name='user[PERSONAL_PHONE]']").each(function(){
 				if (typeof IMask == 'function') {
 					var phoneMask = new IMask($(this)[0], {
 			        	mask: '+{7} (000) 000-00-00',
 			        	prepare: function(value, masked){
 					    	if( value == 8 && masked._value.length == 0 ){
 					    		return "+7 (";
-					    	}
-
-					    	if( value == 8 && masked._value == "+7 (" ){
-					    		return "";
 					    	}
 
 					    	tmp = value.match(/[\d\+]*/g);
@@ -117,15 +114,15 @@ $(document).ready(function(){
 			});
 		}
 
-		if( $(this).hasClass("b-data-order-form") ){
-			$(this).find("input[type='text'], input[type='tel'], input[type='email'], textarea, select").blur(function(){
-			   // $(this).valid();
-			});
+		// if( $(this).hasClass("b-data-order-form") ){
+		// 	$(this).find("input[type='text'], input[type='tel'], input[type='email'], textarea, select").blur(function(){
+		// 	   // $(this).valid();
+		// 	});
 
-			$(this).find("input[type='text'], input[type='tel'], input[type='email'], textarea, select").keyup(function(){
-			   // $(this).valid();
-			});
-		}
+		// 	$(this).find("input[type='text'], input[type='tel'], input[type='email'], textarea, select").keyup(function(){
+		// 	   // $(this).valid();
+		// 	});
+		// }
 	});
 
 	function whenScroll(){
@@ -233,6 +230,31 @@ $(document).ready(function(){
 			$(".b-cdek-punkt").after("<p class='red b-postamat-error'>Вам нужно выбрать пункт самовывоза, в котором вы хотите получить вашу посылку.</p>");
 		}
 
+		if ($('#change_pass').prop('checked') == true){
+			$form.find('.pass-error').addClass('hide').html('');
+			var html = '';
+			var error = false;
+
+			if($form.find("#pass").val() !== $form.find("#confpass").val()){
+				error = true;
+				$form.find("#confpass").addClass('error');
+				html = '<p>Введённые пароли не&nbsp;совпадают</p>';
+			}
+
+			if($form.find("#pass").val().length < 6){
+				error = true;
+				$form.find("#pass").addClass('error');
+				html = '<p>Минимальная длина пароля - 6&nbsp;символов</p>' + html;
+			}
+
+			if (error) {
+				$form.find('.pass-error').removeClass('hide').html(html);
+				$form.find('.b-btn-save').parent().removeClass('after-load');
+			}
+		} else {
+			$form.find('.pass-error').addClass('hide');
+		}
+
   		if( $(this).find("input.error,select.error,textarea.error,.b-postamat-error").length == 0 ){
   			var $this = $(this),
   				$thanks = $($this.attr("data-block"));
@@ -272,6 +294,10 @@ $(document).ready(function(){
 				            switch (json.action) {
 				                case "reload":
 				                    document.location.reload(true);
+				                    $.fancybox.close();
+				                break;
+				                case "redirect":
+				                    document.location.href = json.redirect;
 				                    $.fancybox.close();
 				                break;
 				            }

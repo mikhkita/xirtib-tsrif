@@ -1649,6 +1649,32 @@ $(document).ready(function(){
         return rv == -1 ? false: true;
     }
 
+    $('.b-addressee-switch').on('click', function(){
+        if($('.b-addressee-left').hasClass("active")){//Вход
+            $('.b-addressee-left').removeClass("active");
+            $('.b-addressee-right').addClass("active");
+            $('#b-form-auth').addClass("hide");
+            $('#b-form-reg').removeClass("hide");
+        }else{//Регистрация
+            $('.b-addressee-right').removeClass("active");
+            $('.b-addressee-left').addClass("active");
+            $('#b-form-reg').addClass("hide");
+            $('#b-form-auth').removeClass("hide");
+        }
+        return false;
+    });
+
+    $('.edit-checkbox').on('change', function(){
+        if ($('.edit-pass-cont').hasClass('hide')) {
+            $('.edit-pass-cont').removeClass('hide');
+            $('.edit-pass-cont').find('input').prop({disabled: false, required: true});
+        } else {
+            $('.edit-pass-cont').addClass('hide');
+            $('.edit-pass-cont').find('input').prop({disabled: false, required: true}).removeClass('error valid').val('');
+            $('.pass-error').addClass('hide');
+        }
+    });
+
     // // Первая анимация элементов в слайде
     // $(".b-step-slide[data-slick-index='0'] .slider-anim").addClass("show");
 

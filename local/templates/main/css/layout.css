@@ -362,7 +362,7 @@ input[name="MAIL"]{
 			}
 			input.error, textarea.error{
 				border-bottom:none;
-				border: 1px solid #F00;
+				border: 1px solid #F00 !important;
 			}
 			.b-popup-input::-webkit-input-placeholder {
 				font-family: 'ProximaNova-Regular';
@@ -850,20 +850,21 @@ input[name="MAIL"]{
 		color: #282828;
 		text-align: center;
 	}
-	.b-popup-soc{
+	.b-form-auth .b-soc{
 		text-align: center;
-		margin-top: 10px;
+		margin: 16px 0;
 	}
-		.b-popup-soc .b-soc-item{
+		.b-form-auth .b-soc .b-soc-item{
 			border-color: #D5D9E4;
 		}
-		.b-popup-soc .icon-facebook:before{
+		.b-form-auth .b-soc .icon-facebook:before{
 			font-size: 21px;
 		}
-		.b-popup-soc .icon-vk:before{
+		.b-form-auth .b-soc .icon-vk:before{
 			font-size: 19px;
 		}
-	.b-form-auth{
+	.b-form-auth,
+	.b-form-reg{
 		margin-top: 25px;
 	}
 		.b-popup .b-input-string{
@@ -6576,6 +6577,18 @@ select{
 	text-align: left;
 	padding-bottom: 122px;
 }
+	.b-cabinet-profile{
+		display: inline-block;
+		vertical-align: top;
+		width: 267px;
+		margin-right: 24px;
+	}
+	.b-cabinet-content{
+		display: inline-block;
+		vertical-align: top;
+		width: calc(100% - 296px);
+	}
+		
 .b-cabinet:after{
 	bottom: -20px;
 }
@@ -6996,6 +7009,21 @@ select{
 		.b-cabinet .b-faq-list{
 			margin-top: 0;
 		}
+
+	.b-cabinet .b-input,
+	.b-cabinet .b-checkbox{
+		margin-bottom: 24px;
+	}
+	.b-cabinet .b-input-btn{
+		text-align: center;
+	}
+		.b-cabinet .b-input-btn .b-btn{
+			width: 100%;
+		}
+		.pass-error{
+			margin-bottom: 24px;
+		}
+
 .b-cart-block{
 	text-align: left;
 	padding-bottom: 100px;
@@ -8061,6 +8089,29 @@ h4.b-delivery-price{
 	.b-input.error > label{
 		color: #dc0000 !important;
 	}
+
+/*===2 инпута в строке===*/
+.b-inputs-2 .b-input{
+	width: calc(50% - 12px);
+}
+.b-inputs-2 .b-input:nth-child(2n){
+	margin-right: 0;
+}
+/*===3 инпута в строке===*/
+.b-inputs-3 .b-input{
+	width: calc(100%/3 - 16px);
+}
+.b-inputs-3 .b-input:nth-child(3n){
+	margin-right: 0;
+}
+/*===4 инпута в строке===*/
+.b-inputs-4 .b-input{
+	width: calc(25% - 24px);
+}
+.b-inputs-4 .b-input:nth-child(4n){
+	margin-right: 0;
+}
+
 #no_price_to_pocikpoint{
 	max-width: calc(50% - 12px);
 	display: block;

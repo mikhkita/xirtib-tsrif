@@ -26,47 +26,37 @@ if (isAuth()):
 		<form action="/personal/?action=updateUser" method="POST" id="editForm" data-file-action="/addFile.php">
 			<div class="b-inputs-3 clearfix">
 				<div class="b-input">
-					<p>Ф.И.О.</p>
-					<input type="text" name="user[NAME]" placeholder="Фамилия Имя Отчество" value="<?=$fullName?>">
+					<input type="text" name="user[NAME]" placeholder="Фамилия Имя Отчество" value="<?=$fullName?>" required>
 				</div>
 				<div class="b-input">
-					<p>Номер телефона</p>
-					<input type="text" name="user[PERSONAL_PHONE]" placeholder="+7 (999) 999 0000" value="<?=convertPhoneNumber($arUser['PERSONAL_PHONE'])?>">
+					<input type="text" name="user[PERSONAL_PHONE]" placeholder="+7 (999) 999 0000" value="<?=convertPhoneNumber($arUser['PERSONAL_PHONE'])?>" required>
 				</div>
 				<div class="b-input">
-					<p>Электронная почта</p>
-					<input type="text" name="user[EMAIL]" placeholder="example@yandex.ru" value="<?=$arUser['EMAIL']?>">
+					<input type="text" name="user[EMAIL]" placeholder="example@yandex.ru" value="<?=$arUser['EMAIL']?>" required>
 				</div>
 			</div>
 			<div class="b-inputs-3 clearfix">
-				<div class="b-input">
-					<div class="b-checkbox edit-checkbox">
-						<input type="checkbox" id="change_pass" name="change_pass">
-						<label for="change_pass">
-							<div class="b-checked icon-checked"></div>
-							<p>Хочу сменить пароль</p>
-						</label>
-					</div>
+				<div class="b-checkbox edit-checkbox">
+					<input type="checkbox" id="change_pass" name="change_pass">
+					<label for="change_pass">Хочу сменить пароль</label>
 				</div>
-				<div class="b-input pass-error red hide">
+				<div class="pass-error red hide">
 					<p>Минимальная длина пароля - 6&nbsp;символов</p>
 				</div>
 			</div>
 			<div class="b-inputs-3 clearfix edit-pass-cont hide">
 				<div class="b-input">
-					<p>Новый пароль</p>
-					<input type="password" id="pass" name="user[PASSWORD]" placeholder="" required>
+					<input type="password" id="pass" name="user[PASSWORD]" placeholder="Новый пароль" disabled>
 				</div>
 				<div class="b-input">
-					<p>Подтверждение пароля</p>
-					<input type="password" id="confpass" name="user[CONFIRM_PASSWORD]" placeholder="" required>
+					<input type="password" id="confpass" name="user[CONFIRM_PASSWORD]" placeholder="Подтверждение пароля" disabled>
 				</div>
 			</div>
 			<div class="b-inputs-3 clearfix">
-				<div class="b-input">
+				<div class="b-input b-input-btn">
 					<a href="#" class="b-btn b-btn-save ajax">Сохранить изменения</a>
 				</div>
-				<div class="b-input">
+				<div class="b-input b-input-btn">
 					<a href="/personal/" class="b-btn b-btn-not-save">Вернуться</a>
 				</div>
 			</div>

@@ -10,4 +10,26 @@ body {
 	.jq-selectbox__select{
 		min-width: 200px;
 	}
+	.b-inputs-3 .b-input{
+		width: calc(100%/2 - 12px);
+	}
+	.b-inputs-3 .b-input:nth-child(3n){
+		margin-right: 24px;
+	}
+	.b-inputs-3 .b-input:nth-child(2n){
+		margin-right: 0;
+	}
+	.b-cabinet .b-input-btn .b-btn{
+		padding: 15px 24px 17px 24px;
+	}
+		.b-cabinet-profile {
+		    width: 230px;
+		}
+			.b-profile-photo{
+				max-width: 230px;
+				height: 230px;
+			}
+		.b-cabinet-content {
+		    width: calc(100% - 260px);
+		}
 }
