@@ -122,6 +122,7 @@
 			</div>
 		</div>
 
+		<?/*?>
 		<div class="b-popup b-popup-auth" id="b-popup-auth">
 			<div class="b-popup-header"><h3>Войдите</h3> или <a href="#b-popup-reg" onclick="$.fancybox.close();" class="fancy dashed">зарегистрируйтесь</a></div>
 			<form action="/personal/?action=authSite&login=yes" method="POST" id="b-form-auth">
@@ -147,6 +148,7 @@
 				</div>
 			</form>
 		</div>
+
 		<div class="b-popup" id="b-popup-reg">
 			<div class="b-popup-header"><h3>Регистрация</h3></div>
 			<form action="kitsend.php"method="POST" id="b-form-reg">
@@ -166,22 +168,24 @@
 				</div>
 			</form>
 		</div>
-		<div class="b-popup" id="b-popup-ask">
+		<?*/?>
+
+		<div class="b-popup" id="b-popup-question">
 			<div class="b-popup-header"><h3>У Вас есть вопрос?</h3>Спросите - мы обязательно вам ответим!</div>
 			<form action="/ajax/?action=ASK" method="POST" id="b-form-ask">
 				<div class="b-popup-form">
 					<div class="b-input-container">
 						<div class="b-input-string">
-							<input type="text" id="name" name="name" placeholder="Имя" required/>
+							<input class="b-popup-input" type="text" name="ask-name" placeholder="Имя" required/>
 						</div>
 						<div class="b-input-string">
-							<input type="text" id="email" name="email" placeholder="E-mail" required/>
+							<input class="b-popup-input" type="text" name="ask-email" placeholder="E-mail" required/>
 						</div>
 						<div class="b-input-string">
-							<input type="text" id="phone" name="phone" placeholder="Телефон" required/>
+							<input class="b-popup-input" type="text" name="ask-phone" placeholder="Телефон" required/>
 						</div>
 						<div class="b-input-string">
-							<textarea name="question" id="question" placeholder="Ваш вопрос" rows="5"></textarea>
+							<textarea name="question" class="b-popup-input" placeholder="Ваш вопрос" rows="5"></textarea>
 						</div>
 						<input type="text" name="MAIL">
 					</div>
@@ -193,16 +197,17 @@
 				</div>
 			</form>
 		</div>
+
 		<div class="b-popup" id="b-popup-phone">
 			<div class="b-popup-header"><h3>Не дозвонились?</h3>Оставьте заявку - мы обязательно вам перезвоним!</div>
-			<form action="/ajax/?action=PHONE" method="POST" id="b-form-ask">
+			<form action="/ajax/?action=PHONE" method="POST" id="b-form-phone">
 				<div class="b-popup-form">
 					<div class="b-input-container">
 						<div class="b-input-string">
-							<input type="text" id="name" name="name" placeholder="Имя" required/>
+							<input type="text" class="b-popup-input" name="phone-name" placeholder="Имя" required/>
 						</div>
 						<div class="b-input-string">
-							<input type="text" id="phone" name="phone" placeholder="Телефон" required/>
+							<input type="text" class="b-popup-input" name="phone-phone" placeholder="Телефон" required/>
 						</div>
 						<input type="text" name="MAIL">
 					</div>
@@ -216,21 +221,22 @@
 		</div>
 		<div class="b-popup b-popup-forget-password" id="b-popup-forget-password">
 			<div class="b-popup-header"><h3>Восстановление пароля</h3></div>
-			<form action="kitsend.php"method="POST" id="b-form-ask">
+			<form action="kitsend.php"method="POST" id="b-form-forget-pass">
 				<div class="b-popup-form">
 					<div class="b-input-container">
 						<div class="b-input-string">
-							<input type="text" id="name" name="name" placeholder="Имя или e-mail" required/>
+							<input type="text" name="name" placeholder="Имя или e-mail" required/>
 						</div>
 					</div>
 					<input type="submit" style="display:none;">
 					<div class="b-btn-container">
 						<a href="#" class="b-btn not-ajax">Отправить</a>
 					</div>
-					<!-- <a href="#b-popup-success" class="b-thanks-link fancy" style="display:none;"></a> -->
 				</div>
 			</form>
 		</div>
+		
+		<?/*?>
 		<div class="b-popup b-review-popup" id="b-review-form">
 			<div class="b-popup-header"><h3>Оставьте отзыв</h3></div>
 			<?if ($urlArr[2] == "assortment"):?>
@@ -341,6 +347,8 @@
 				</div>
 			</form>
 		</div>
+		<?*/?>
+
 		<div class="b-thanks b-popup" id="b-popup-success">
 			<div class="b-popup-header">
 				<h3>Спасибо!</h3>
@@ -476,7 +484,7 @@
 				</div>
 				<div class="b-popup-add-work-block">
 					<div class="b-input-string">
-						<input type="text" class="b-popup-input" name="name" placeholder="Название работы*" required/>
+						<input type="text" class="b-popup-input" name="work-name" placeholder="Название работы*" required/>
 					</div>
 					<div class="b-input-string">
 						<textarea name="text" id="work-comment" rows="5" class="b-popup-input" placeholder="Описание работы"></textarea>

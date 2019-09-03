@@ -362,7 +362,7 @@ $(document).ready(function(){
         var $this = $(this);
 
         if ($(document).find('.detail-select-block select').length == 2) {
-            var color = $('#colorSelect option:selected').attr('data-color-id');
+            var color = $('#colorSelect option:selected').attr('data-id');
 
             if ($this.attr('id') == 'colorSelect'){
                 console.log('1');
@@ -371,7 +371,7 @@ $(document).ready(function(){
                 });
 
                 for (size in offers[color]){
-                    $('#sizeSelect option[data-size-id='+size+']').prop('disabled', false);
+                    $('#sizeSelect option[data-id='+size+']').prop('disabled', false);
                 }
 
                 $('#sizeSelect option:not([disabled]):first').prop('selected', true).trigger('chosen:updated');
@@ -380,14 +380,37 @@ $(document).ready(function(){
                 console.log('2');
             }
 
-            var size = $('#sizeSelect option:selected').attr('data-size-id');
+            var size = $('#sizeSelect option:selected').attr('data-id');
             showPhotoColor(offers[color][size].OFFER_ID);
             $('.b-btn-to-cart').attr('data-id', offers[color][size].OFFER_ID);
             $('.quantity-input').attr('data-quantity', offers[color][size].QUANTITY).val(1).trigger('change');
             $('#quantity-info').text(offers[color][size].QUANTITY);
 
-        } else {
+            if (parseInt(offers[color][size].PRICE) !== parseInt(offers[color][size].DISCOUNT_PRICE)){
+                $('.price-container').addClass('b-discount-price');
+            } else {
+                $('.price-container').removeClass('b-discount-price');
+            }
 
+            $('.old-price').text(new Intl.NumberFormat('ru-RU').format(offers[color][size].PRICE));
+            $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[color][size].DISCOUNT_PRICE));
+
+        } else {
+            var option = $this.find('option:selected').attr('data-id');
+            showPhotoColor(offers[option].OFFER_ID);
+            
+            $('.b-btn-to-cart').attr('data-id', offers[option].OFFER_ID);
+            $('.quantity-input').attr('data-quantity', offers[option].QUANTITY).val(1).trigger('change');
+            $('#quantity-info').text(offers[option].QUANTITY);
+
+            if (parseInt(offers[option].PRICE) !== parseInt(offers[option].DISCOUNT_PRICE)){
+                $('.price-container').addClass('b-discount-price');
+            } else {
+                $('.price-container').removeClass('b-discount-price');
+            }
+
+            $('.old-price').text(new Intl.NumberFormat('ru-RU').format(offers[option].PRICE));
+            $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[option].DISCOUNT_PRICE));
         }
     });
 
@@ -424,28 +447,30 @@ $(document).ready(function(){
         return false;
     }
 
-    $(document).on('beforeChange', '.b-detail-bottom-slider', function(event, slick, currentSlide, nextSlide){
-        var id = $(".b-detail-small-pic[data-slick-index='"+nextSlide+"']").attr('data-color-id');
-        $("#colorSelect option[data-color-id='"+id+"']").prop('selected', true);
-    });
+    // $(document).on('beforeChange', '.b-detail-bottom-slider', function(event, slick, currentSlide, nextSlide){
+    //     var id = $(".b-detail-small-pic[data-slick-index='"+nextSlide+"']").attr('data-color-id');
+    //     $("#colorSelect option[data-color-id='"+id+"']").prop('selected', true);
+    // });
 
     // Добавление в корзину
     var cartTimeout = 0,
         successTimeout = 0;
-    $("body").on("click", ".b-btn-to-cart", function(){
+    $("body").on("click", ".b-btn-to-cart:not(.b-to-detail)", function(){
 
-        if ($(this).hasClass('cap')) {
+        if ($(this).hasClass('unavailable')) {
             return false;
         }
 
         var $this = $(this),
+            $cap = $this.siblings('.b-btn-to-cart-cap'),
             href = $(this).attr("href"),
             id = $(this).attr("data-id"),
-            quantity = $('.quantity-input').val();
+            quantity = $(this).parent().find('input[name=count]').val();
         
         clearTimeout(cartTimeout);
         progress.start(1.5);
-        $this.addClass('cap');
+        $cap.removeClass('hide').addClass('after-load');
+        $this.addClass('hide');
 
         url = href+"&element_id="+id+"&quantity="+quantity;
         $.ajax({
@@ -461,8 +486,6 @@ $(document).ready(function(){
                         }else{
                             updateBasket(json.count, json.sum);
                         }
-                        $this.removeClass('cap');
-                        $this.addClass('hide');
                         $cap.removeClass('error');
                         $cap.find('.b-cap-text').text('Товар успешно добавлен');
                     }else{

@@ -1715,7 +1715,7 @@ function getElementImages($arResult, $isList = false){
 					$arDetailPhoto = resizePhotos($offer["PREVIEW_PICTURE"], $isList);
 					$flag = true;
 				} else {
-					$arDetailPhoto['BIG'] = $arDetailPhoto['SMALL'] = SITE_TEMPLATE_PATH.'/i/hank.svg';
+					$arDetailPhoto['BIG'] = $arDetailPhoto['SMALL'] = SITE_TEMPLATE_PATH.'/i/logo.svg';
 				}
 			}
 
@@ -1723,7 +1723,7 @@ function getElementImages($arResult, $isList = false){
 				$arColorPhoto = resizePhotos($offer["PREVIEW_PICTURE"], $isList);
 				$colorFlag = true;
 			} else {
-				$arColorPhoto['BIG'] = $arColorPhoto['SMALL'] = SITE_TEMPLATE_PATH.'/i/hank.svg';
+				$arColorPhoto['BIG'] = $arColorPhoto['SMALL'] = SITE_TEMPLATE_PATH.'/i/logo.svg';
 			}	
 
 			array_push($arImg['DETAIL_PHOTO'], $arDetailPhoto);
@@ -1744,7 +1744,7 @@ function getElementImages($arResult, $isList = false){
 		if ($arResult["DETAIL_PICTURE"]){
 			$arPhoto = resizePhotos($arResult["DETAIL_PICTURE"]);
 		} else {
-			$arPhoto['BIG'] = $arPhoto['SMALL'] = SITE_TEMPLATE_PATH.'/i/hank.svg';
+			$arPhoto['BIG'] = $arPhoto['SMALL'] = SITE_TEMPLATE_PATH.'/i/logo.svg';
 		}
 		array_push($arImg['DETAIL_PHOTO'], $arPhoto);
 	}
@@ -1755,7 +1755,7 @@ function getElementImages($arResult, $isList = false){
 function resizePhotos($photo, $isList){
 	$tmpBig = CFile::ResizeImageGet($photo, Array("width" => 692, "height" => 692), BX_RESIZE_IMAGE_PROPORTIONAL, false, $arFilters);
 	$tmpOriginal = CFile::ResizeImageGet($photo, Array("width" => 2048, "height" => 2048), BX_RESIZE_IMAGE_PROPORTIONAL, false, $arFilters);
-	$smallSize = $isList ? Array("width" => 270, "height" => 270) : Array("width" => 146, "height" => 146);
+	$smallSize = $isList ? Array("width" => 180, "height" => 180) : Array("width" => 146, "height" => 146);
 	$tmpSmall = CFile::ResizeImageGet($photo, $smallSize, BX_RESIZE_IMAGE_PROPORTIONAL, false, $arFilters);
 	$arPhoto['ORIGINAL'] = $tmpOriginal['src'];
 	$arPhoto['BIG'] = $tmpBig['src'];

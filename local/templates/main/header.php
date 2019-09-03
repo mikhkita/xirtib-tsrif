@@ -80,8 +80,8 @@ CModule::IncludeModule('iblock');
 			<p class="icon-clock">пн-пт: с 10:00 до 19:00, сб: с 10:00 до 18:00, вс – выходной</p>
 		</div>
 		<div class="b-phone">
-			<a href="#" class="phone">+ 7 495 922 50 55</a>
-			<a href="#" class="pink dashed">Заказать звонок</a>
+			<a href="tel:+74959225055" class="phone">+ 7 495 922 50 55</a>
+			<a href="#b-popup-phone" class="pink dashed fancy">Заказать звонок</a>
 		</div>
 	</div>
 	<div id="panel-page">
@@ -122,8 +122,8 @@ CModule::IncludeModule('iblock');
 					</ul>
 				</div>
 				<div class="b-phone clearfix">
-					<a href="#" class="phone">+7 (495) 922-50-55</a>
-					<a href="#b-popup-phone" class="pink dashed">Заказать звонок</a>
+					<a href="tel:+74959225055" class="phone">+7 (495) 922-50-55</a>
+					<a href="#b-popup-phone" class="pink dashed fancy">Заказать звонок</a>
 				</div>
 				<? $basketInfo = getBasketCount(); ?>
 				<a href="/cart" class="b-cart b-mobile-cart">
@@ -174,7 +174,7 @@ CModule::IncludeModule('iblock');
 						false
 					);?>
 				</div>
-				<a href="#b-popup-question" class="dashed">Задать вопрос</a>
+				<a href="#b-popup-question" class="dashed fancy">Задать вопрос</a>
 				<a href="/cart" class="b-cart">
 					<div class="b-cart-img icon-cart"></div>
 					<div class="b-cart-text">

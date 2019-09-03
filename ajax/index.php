@@ -274,7 +274,7 @@ switch ($action) {
 	case 'ASK':
 
 		if (empty($_POST["MAIL"])){
-			if (empty($_POST['name']) || empty($_POST['email']) || empty($_POST['phone'])) {
+			if (empty($_POST['ask-name']) || empty($_POST['ask-email']) || empty($_POST['ask-phone'])) {
 				$spam = true;
 			}
 			else {
@@ -286,9 +286,9 @@ switch ($action) {
 
 		if (!$spam) {
 
-			$name = $_POST['name'];
-			$email = $_POST['email'];
-			$phone = $_POST['phone'];
+			$name = $_POST['ask-name'];
+			$email = $_POST['ask-email'];
+			$phone = $_POST['ask-phone'];
 			$question = $_POST['question'];
 
 			if(CEvent::Send("NEW_ASK", "s1", array('NAME' => $name, 'EMAIL' => $email, 'PHONE' => $phone, 'QUESTION' => $question,))){
@@ -305,7 +305,7 @@ switch ($action) {
 	case 'PHONE':
 
 		if (empty($_POST["MAIL"])){
-			if (empty($_POST['name']) || empty($_POST['phone'])) {
+			if (empty($_POST['phone-name']) || empty($_POST['phone-phone'])) {
 				$spam = true;
 			}
 			else {
@@ -317,8 +317,8 @@ switch ($action) {
 
 		if (!$spam) {
 
-			$name = $_POST['name'];
-			$phone = $_POST['phone'];
+			$name = $_POST['phone-name'];
+			$phone = $_POST['phone-phone'];
 
 			if(CEvent::Send("NEW_PHONE", "s1", array('NAME' => $name, 'PHONE' => $phone))){
 				echo "1";
@@ -475,7 +475,7 @@ switch ($action) {
 		  "MODIFIED_BY"    => $USER->GetID(),
 		  "IBLOCK_ID"      => 11,
 		  "PROPERTY_VALUES"=> $PROP,
-		  "NAME"           => $_POST["name"],
+		  "NAME"           => $_POST["work-name"],
 		  "CODE"		   => $name,
 		  "ACTIVE"         => "Y",
 		  "PREVIEW_TEXT"   => $_POST['text'],

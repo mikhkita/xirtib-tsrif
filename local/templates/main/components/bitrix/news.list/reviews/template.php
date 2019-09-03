@@ -10,52 +10,36 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(true);
+$this->setFrameMode(true);?>
 
-?>
 <? if(count($arResult["ITEMS"])): ?>
-	<div class="b-detail-reviews">
-		<h3>Отзывы покупателей</h3>
-		<div class="b-reviews">
-			<?foreach($arResult["ITEMS"] as $arItem):?>
-				<?
-				$renderImage = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"], Array("width" => 150, "height" => 150), BX_RESIZE_IMAGE_EXACT, false, $arFilters );
-				$renderBigImage = CFile::ResizeImageGet($arItem["PREVIEW_PICTURE"], Array("width" => 1920, "height" => 1400), BX_RESIZE_IMAGE_PROPORTIONAL, false, $arFilters );
-				$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-				$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-				?>
-				<div class="b-review" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-					<div class="b-review-info">
-						<? if (isset($arItem['PROPERTIES']["STORE_QUALITY"])){
-							$stars = round(($arItem['PROPERTIES']["STORE_QUALITY"]["VALUE"] + $arItem['PROPERTIES']["GOODS_QUALITY"]["VALUE"] + $arItem['PROPERTIES']["MANAGER_QUALITY"]["VALUE"] + $arItem['PROPERTIES']["PACK_QUALITY"]["VALUE"] + $arItem['PROPERTIES']["COURIER_QUALITY"]["VALUE"])/5);
-						} else {
-							$stars = $arItem["PROPERTIES"]["RATING"]["VALUE"];
-						} ?>
-						<div class="b-stars b-stars-<?=$stars?>">
-							<div class="b-star"></div>
-							<div class="b-star"></div>
-							<div class="b-star"></div>
-							<div class="b-star"></div>
-							<div class="b-star"></div>
-						</div>
-						<div class="b-review-name"><?=$arItem["NAME"]?></div>
-						<div class="b-review-date"><?=$arItem["DATE_CREATE"]?></div>
-					</div>
-					<div class="b-review-text">
-						<div class="b-review-text-wrap<? if( !$arItem["PREVIEW_PICTURE"] ): ?> b-review-text-without-image<? endif; ?>">
-							<p><?=$arItem["PREVIEW_TEXT"]?></p>
-						</div>
-						<div class="b-review-image">
-							<? if( $arItem["PREVIEW_PICTURE"] ): ?>
-								<a href="<?=$renderBigImage["src"]?>" data-fancybox-href="<?=$renderBigImage["src"]?>" class="fancy-img"><img src="<?=$renderImage["src"]?>" alt=""></a>
-							<? endif; ?>
-						</div>
-					</div>
+	<div class="b-review-list">
+		<?foreach($arResult["ITEMS"] as $arItem):
+
+			$rsUser = CUser::GetByID($arItem['CODE']);
+			$arUser = $rsUser->Fetch();
+
+			if ($arUser["PERSONAL_PHOTO"]) {
+				$renderImage = CFile::ResizeImageGet($arUser["PERSONAL_PHOTO"], Array("width" => 85, "height" => 85), BX_RESIZE_IMAGE_EXACT, false, $arFilters );
+			} else {
+				$renderImage['src'] = SITE_TEMPLATE_PATH.'/i/icon-man.svg';
+			}
+
+			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));?>
+
+			<div class="b-comment-item clearfix parrent-comment">
+				<div class="b-comment-author-photo" style="background-image: url('<?=$renderImage['src']?>');"></div>
+				<div class="b-comment-body clearfix">
+					<div class="b-comment-author-name"><?=$arItem['NAME']?></div>
+					<div class="b-comment-text"><?=$arItem['PREVIEW_TEXT']?></div>
 				</div>
-			<?endforeach;?>
-		</div>
-		<? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
-			<?=$arResult["NAV_STRING"];?>
-		<?endif;?>
+			</div>
+		<?endforeach;?>
 	</div>
+	<? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
+		<div class="b-load-more-container">
+			<?=$arResult["NAV_STRING"];?>
+		</div>
+	<?endif;?>
 <? endif; ?>
