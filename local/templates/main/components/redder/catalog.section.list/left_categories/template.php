@@ -21,8 +21,8 @@ $this->setFrameMode(true);
 			<? if( !$arItem["PICTURE"] ): ?>
 				<? $isSectionActive = isSectionActive($arItem["ID"]); ?>
 				<li>
-					<a href="<?=detailPageUrl($arItem["SECTION_PAGE_URL"])?>" class="clearfix <? if( $GLOBALS["SECTION_ID"] == $arItem["ID"] ): ?>active icon-tick<? endif; ?><?=(($arItem["UF_HIGHLIGHT"])?" highlight":"")?>">
-						<span><?=$arItem["NAME"]?></span>	
+					<a href="<?=detailPageUrl($arItem["SECTION_PAGE_URL"])?>" class="<? if( $GLOBALS["SECTION_ID"] == $arItem["ID"] ): ?>active<? endif; ?><?=(($arItem["UF_HIGHLIGHT"])?" highlight":"")?>">
+						<?=$arItem["NAME"]?>
 					</a>
 					<?
 					if( $isSectionActive ){

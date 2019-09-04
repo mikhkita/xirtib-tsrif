@@ -3863,11 +3863,11 @@ select{
 		margin-bottom: 41px;
 	}
 		.b-subcategory .b-1-by-3-blocks .b-block-1{
-			position: sticky;
-			top: 10px;
+			/*position: sticky;*/
+			/*top: 10px;*/
 			vertical-align: top;
-			padding-left: 20px;
-			padding-right: 16px;
+			/*padding-left: 20px;*/
+			padding-right: 0;
 			background: #FFFFFF;
 			box-shadow: 0 16px 30px 0 rgba(82,15,15,0.08);
 			margin-right: 18px;
@@ -3886,17 +3886,45 @@ select{
 				font-family: 'ProximaNova-Semibold';
 				line-height: 24px;
 			}
-				.b-category-left-list ul{
-					padding-top: 2px;
-					padding-bottom: 4px;
+				.b-category-left-list a{
+					display: block;
+					padding: 14px 16px;
 				}
-					.b-category-left-list ul>li{
-						padding-top: 11px; 
-						padding-bottom: 16px;
-						border-bottom: 1px solid #D5D9E4;
+				.b-category-left-list ul{
+					/*padding-top: 2px;*/
+					/*padding-bottom: 4px;*/
+				}
+					.b-category-left-list ul li{
+						/*padding-top: 11px; */
+						/*padding-bottom: 16px;*/
+						/*border-bottom: 1px solid #D5D9E4;*/
 					}
 					.b-category-left-list ul>li:last-child{
 						border-bottom: 0;
+					}
+					.b-category-left-list li > ul{
+						/*border-top: 1px solid #D5D9E4;*/
+						background-color: #F2F3F8;
+					    padding-left: 12px;
+    					/*margin-top: 10px;*/
+    					/*margin-bottom: -16px;*/
+					}
+					.b-category-left-list li > ul a{
+					    /*padding: 14px 12px;*/
+					}
+					.b-category-left-list li:before{
+					    position: absolute;
+					    content: '';
+					    width: calc(100%/4 - 48px);
+					    height: 1px;
+					    background: #d5d9e4;
+					    left: 16px;
+					}
+					.b-category-left-list > ul > li:first-child:before{
+						background: none;
+					}
+					.b-category-left-list > ul > li > a.active:after{
+						background-color: #FFF;
 					}
 		.b-block-2 .b-catalog-item{
 			width: calc(100%/3 - 15px);
@@ -4890,6 +4918,33 @@ select{
 	}
 	.b-category-left-list .active{
 		color: #FF345F;
+		position: relative;
+	}
+	.b-category-left-list .active:before{
+		content: '';
+		position: absolute;
+		top: 50%;
+		width: 7px;
+		height: 7px;
+		background-color: #FF345F;
+		-webkit-transform: translateY(-50%) rotate(45deg);
+		-ms-transform: translateY(-50%) rotate(45deg);
+		-o-transform: translateY(-50%) rotate(45deg);
+		transform: translateY(-50%) rotate(45deg);
+		left: 2px;
+	}
+	.b-category-left-list .active:after{
+		content: '';
+		position: absolute;
+		top: 50%;
+		width: 5px;
+		height: 10px;
+		background-color: #f2f3f8;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		-o-transform: translateY(-50%);
+		transform: translateY(-50%);
+		left: 0px;
 	}
 	.b-category-left-list a:hover{
 		text-decoration: underline;

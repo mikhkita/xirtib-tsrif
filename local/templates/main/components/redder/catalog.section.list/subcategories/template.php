@@ -21,23 +21,29 @@ $this->setFrameMode(true);
 				$ar_res = $res->GetNext();
 				?>
 				<div class="b-category-left-list">
-					<ul>
-						<li><a href="#">Кондитерские мешки</a></li>
-						<li><a href="#">Насадки кондитерские</a></li>
-						<li><a href="#">Насадка тюльран</a></li>
-						<li><a href="#">Насадки для айсинга</a></li>
-						<li><a href="#">Насадка роза</a></li>
-						<li><a href="#">Насадка сфера</a></li>
-						<li><a href="#">Наборы кондитерских насадок</a></li>
-						<li><a href="#">Насадки Вилтон</a></li>
-						<li><a href="#">Кондитерские шприцы</a></li>
-						<li><a href="#">Переходники для насадок</a></li>
-						<li><a href="#">Подставки для мешков</a></li>
-						<li><a href="#">Специальные насадки</a></li>
-						<li><a href="#">Круглые насадки</a></li>
-						<li><a href="#">Насадки цветы</a></li>
-						<li><a href="#">Насадки открытая звезда</a></li>
-					</ul>
+					<?$APPLICATION->IncludeComponent("redder:catalog.section.list", "left_categories", Array(
+						"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+							"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+							"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+							"CACHE_TYPE" => "N",	// Тип кеширования
+							"COUNT_ELEMENTS" => "Y",	// Показывать количество элементов в разделе
+							"IBLOCK_ID" => "1",	// Инфоблок
+							"IBLOCK_TYPE" => "content",	// Тип инфоблока
+							"SECTION_CODE" => "",	// Код раздела
+							"SECTION_FIELDS" => array(	// Поля разделов
+								0 => "NAME",
+							),
+							"SECTION_ID" => $arItem["ID"],	// ID раздела
+							"SECTION_URL" => "",	// URL, ведущий на страницу с содержимым раздела
+							"SECTION_USER_FIELDS" => array(	// Свойства разделов
+							),
+							"SHOW_PARENT_NAME" => "Y",	// Показывать название раздела
+							"TOP_DEPTH" => "1",	// Максимальная отображаемая глубина разделов
+							"VIEW_MODE" => "LINE",	// Вид списка подразделов
+							"PROPERTY" => $property,
+						),
+						false
+					);?>
 				</div>
 			</div>
 			<div class="b-block-2">
