@@ -794,7 +794,7 @@ input[name="MAIL"]{
 				position: absolute;
 				left: 0;
 				z-index: 1;
-				padding: 13px 48px;
+				padding: 13px 41px;
 				border-radius: 30px;
 				font-size: 18px;
 				line-height: 26px;
@@ -822,7 +822,7 @@ input[name="MAIL"]{
 			position: absolute;
 			top: 0;
 			left: 0;
-			width: 130px;
+			width: 122px;
 			height: 52px;
 			border-radius: 30px;
 			border: 1px solid #FF345F;
@@ -887,6 +887,13 @@ input[name="MAIL"]{
 		.b-popup-auth .icon-eye.active:before{
 			color: #282828;
 		}
+
+	.b-popup-auth .b-msg-error{
+		margin-bottom: 16px;
+	    font-size: 16px;
+	    color: #FF345F;
+	}
+	
 /****POPUP*****/
 
 .burger-menu{
