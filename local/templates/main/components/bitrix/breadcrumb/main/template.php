@@ -14,6 +14,11 @@ global $APPLICATION;
 if(empty($arResult))
 	return "";
 
+foreach ($arResult as $key => $arItem) {
+	if (empty($arItem["TITLE"]) && empty($arItem["LINK"])) {
+		unset($arResult[$key]);
+	}
+}
 // if( $GLOBALS["isWholesale"] ){
 // 	foreach ($arResult as $i => $arItem) {
 // 		if( $i == 0 ){

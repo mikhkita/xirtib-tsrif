@@ -4,10 +4,6 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 use Bitrix\Main\Localization\Loc,
 	Bitrix\Main\Page\Asset;
 
-
-// vardump($arResult);
-
-
 if ($arParams['GUEST_MODE'] !== 'Y')
 {
 	Asset::getInstance()->addJs("/bitrix/components/bitrix/sale.order.payment.change/templates/.default/script.js");
@@ -56,17 +52,9 @@ else
 		$arDate = explode(".", $date);
 		$date = $arDate[0]." ".getRusMonth($arDate[1])." ".$arDate[2];
 
-		if( intval($arResult["ID"]) < 300000 ){
-			foreach($arResult["BASKET"] as $item){
-				$price += $item["BASE_PRICE"]*$item["QUANTITY"];
-				$discount += $item["DISCOUNT_VALUE"]*$item["QUANTITY"];
-			}
-			$price = $price + $discount;
-		}else{
-			foreach($arResult["BASKET"] as $item){
-				$price += $item["BASE_PRICE"]*$item["QUANTITY"];
-				$discount += $item["DISCOUNT_PRICE"]*$item["QUANTITY"];
-			}
+		foreach($arResult["BASKET"] as $item){
+			$price += $item["BASE_PRICE"]*$item["QUANTITY"];
+			$discount += $item["DISCOUNT_PRICE"]*$item["QUANTITY"];
 		}
 		
 		$discount = round($discount);
@@ -114,12 +102,12 @@ else
 					Статус: <div class="b-history-status"><?=$status?></div>
 				</div>
 				<div class="b-order-history-column-bottom">
-					Сумма без скидки: <?=round($price)?> руб.<br>
+					Сумма без скидки: <?=convertPrice($price)?> <span class="icon-rub"></span><br>
 					<? if ($discount != 0 ): ?>
-						Скидка: <?=$discount?> руб.<br>
+						Скидка: <?=convertPrice($discount)?> <span class="icon-rub"></span><br>
 					<? endif; ?>
-					Стоимость доставки: <?=round($arResult['SHIPMENT'][0]["PRICE_DELIVERY"])?> руб.<br>
-					Итого: <b><?=round($arResult["PRICE"])?> руб.</b>
+					Стоимость доставки: <?=convertPrice($arResult['SHIPMENT'][0]["PRICE_DELIVERY"])?> <span class="icon-rub"></span><br>
+					Итого: <b><?=convertPrice($arResult["PRICE"])?>&nbsp;<span class="icon-rub"></span></b>
 				</div>
 			</div>
 		</div>
@@ -231,13 +219,7 @@ else
 															<?= Loc::getMessage('SPOD_PRICE')?>
 														</div>
 														<div class="sale-order-detail-order-item-td-text">
-															<strong class="bx-price">
-																<? if( intval($arResult["ID"]) < 300000 ): ?>
-																<?=(round($basketItem['PRICE'] + intval($basketItem["DISCOUNT_VALUE"]))." руб.")?>
-																<? else: ?>
-																	<?=$basketItem['BASE_PRICE_FORMATED']?>
-																<? endif; ?>
-																</strong>
+															<strong class="bx-price"><?=convertPrice($basketItem['BASE_PRICE'])?>&nbsp;<span class="icon-rub"></span></strong>
 														</div>
 													</div>
 													<?/*
@@ -289,13 +271,7 @@ else
 													<div class="sale-order-detail-order-item-td sale-order-detail-order-item-properties bx-text-right">
 														<div class="sale-order-detail-order-item-td-title col-xs-7 col-sm-5 visible-xs visible-sm"><?= Loc::getMessage('SPOD_ORDER_PRICE')?></div>
 														<div class="sale-order-detail-order-item-td-text">
-															<strong class="bx-price all">
-																<? if( intval($arResult["ID"]) < 300000 ): ?>
-																<?=round(($basketItem['PRICE'] + intval($basketItem["DISCOUNT_VALUE"])) * $basketItem["QUANTITY"])?> руб.
-																<? else: ?>
-																	<?=round($basketItem['BASE_PRICE'] * $basketItem["QUANTITY"])?> руб.
-																<? endif; ?>
-															</strong>
+															<strong class="bx-price all"><?=convertPrice($basketItem['BASE_PRICE'] * $basketItem["QUANTITY"])?>&nbsp;<span class="icon-rub"></span></strong>
 														</div>
 													</div>
 												</div>
@@ -370,29 +346,29 @@ else
 							{
 
 								?>
-								<li class="sale-order-detail-total-payment-list-right-item"><?=round($price)?> руб.</li>
+								<li class="sale-order-detail-total-payment-list-right-item order-item-pr"><?=convertPrice($price)?>&nbsp;<span class="icon-rub"></span></li>
 							<?
 							}
 							?>
 							<? if ($discount != 0 ): ?>
-									<li class="sale-order-detail-total-payment-list-right-item"><?=round($discount)?> руб.</li>
+									<li class="sale-order-detail-total-payment-list-right-item order-item-pr"><?=convertPrice($discount)?>&nbsp;<span class="icon-rub"></span></li>
 							<? endif; ?>
 							<?
 							if (strlen($arResult["PRICE_DELIVERY_FORMATED"]))
 							{
 								?>
-								<li class="sale-order-detail-total-payment-list-right-item"><?= $arResult["PRICE_DELIVERY_FORMATED"] ?></li>
+								<li class="sale-order-detail-total-payment-list-right-item order-item-pr"><?=convertPrice($arResult["PRICE_DELIVERY"]);?>&nbsp;<span class="icon-rub"></span></li>
 								<?
 							}
 
 							if ((float)$arResult["TAX_VALUE"] > 0)
 							{
 								?>
-								<li class="sale-order-detail-total-payment-list-right-item"><?= $arResult["TAX_VALUE_FORMATED"] ?></li>
+								<li class="sale-order-detail-total-payment-list-right-item order-item-pr"><?=convertPrice($arResult["TAX_VALUE"]);?>&nbsp;<span class="icon-rub"></span></li>
 								<?
 							}
 							?>
-							<li class="sale-order-detail-total-payment-list-right-item"><?=round($arResult['PRICE'])?> руб.</li>
+							<li class="sale-order-detail-total-payment-list-right-item order-item-pr"><?=convertPrice($arResult['PRICE'])?>&nbsp;<span class="icon-rub"></span></li>
 						</ul>
 					</div>
 				</div>
