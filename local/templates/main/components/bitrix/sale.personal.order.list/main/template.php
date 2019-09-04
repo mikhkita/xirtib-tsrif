@@ -69,17 +69,17 @@ else
 		if ($nothing || $_REQUEST["filter_history"] == 'N')
 		{
 			?>
-			<a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("filter_history=Y", $clearFromLink, false)?>">
+			<!-- <a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("filter_history=Y", $clearFromLink, false)?>">
 				<?echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_HISTORY")?>
-			</a>
+			</a> -->
 			<?
 		}
 		if ($_REQUEST["filter_history"] == 'Y')
 		{
 			?>
-			<a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("", $clearFromLink, false)?>">
+			<!-- <a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("", $clearFromLink, false)?>">
 				<?echo Loc::getMessage("SPOL_TPL_CUR_ORDERS")?>
-			</a>
+			</a> -->
 			<?
 			if ($_REQUEST["show_canceled"] == 'Y')
 			{
@@ -159,7 +159,7 @@ else
 			}
 
 			?>
-			<a href="<?=$order["ORDER"]["URL_TO_DETAIL"]?>" class="b-order-history-item">
+			<a href="orders/<?=$order["ORDER"]["ID"]?>" class="b-order-history-item">
 				<div class="b-order-history-column b-order-history-1-column">
 					<div class="b-order-history-column-top">
 						Заказ № <b><?=$order['ORDER']['ACCOUNT_NUMBER']?> от <?=$date?></b>
@@ -175,12 +175,12 @@ else
 						Статус: <div class="b-history-status"><?=$status?></div>
 					</div>
 					<div class="b-order-history-column-bottom">
-						Сумма без скидки: <?=$price?> руб.<br>
+						Сумма без скидки: <?=convertPrice($price)?> <span class="icon-rub"></span><br>
 						<? if ($discount != 0 ): ?>
-							Скидка: <?=$discount?> руб.<br>
+							Скидка: <?=convertPrice($discount)?> <span class="icon-rub"></span><br>
 						<? endif; ?>
-						Стоимость доставки: <?=round($order['SHIPMENT'][0]["PRICE_DELIVERY"])?> руб.<br>
-						Итого: <b><?=round($order['ORDER']["PRICE"])?> руб.</b>
+						Стоимость доставки: <?=convertPrice($order['SHIPMENT'][0]["PRICE_DELIVERY"])?> <span class="icon-rub"></span><br>
+						Итого: <b><?=convertPrice($order['ORDER']["PRICE"])?>&nbsp;</b><span class="icon-rub"></span>
 					</div>
 				</div>
 			</a>

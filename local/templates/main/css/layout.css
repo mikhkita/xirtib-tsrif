@@ -1581,6 +1581,7 @@ select{
 		margin-right: 11px;
 		vertical-align: bottom;
 		margin-bottom: 3px;
+		text-decoration: none;
 	}
 		.b-breadcrumbs a:not(.icon-home){
 			border-bottom: 1px solid #A1A1A1;
@@ -1596,6 +1597,7 @@ select{
 	.b-breadcrumbs a:not(.icon-home):hover{
 		color: #FF345F;
 		border-bottom: 1px solid #FF345F;
+		text-decoration: none;
 	}
 		.b-breadcrumbs a:first-child{
 			margin-left: 0;
@@ -7920,20 +7922,26 @@ div.bx-pink .btn.btn-default:active{
 	-o-transition: box-shadow .1s;
 	transition: box-shadow .1s;
 	text-decoration: none!important;
+	font-size: 16px;
+	line-height: 26px;
 }
 	.b-history-status{
 		display: inline;
 		color: #26a200;
 	}
 a.b-order-history-item:hover{
-	box-shadow: 0 0 10px 5px #c8ad8940;
+	box-shadow: 0 0 10px 5px #cccccc40;
 }
 	.b-order-history-column{
 		display: inline-block;
 		vertical-align: top;
 		width: calc(100%/2 - 12px);
 		color: #282828;
+		line-height: 26px;
 	}
+		.b-order-history-column-bottom .icon-rub:before{
+			font-size: 12px;
+		}
 	.b-order-history-column:not(:last-child){
 		margin-right: 11px;
 	}
@@ -7977,11 +7985,32 @@ p.b-order-submit-message{
 	border: 0;
     border-bottom: 1px solid #f6f1ea;
 }
+.sale-order-detail-order-item-td-text,
+.sale-order-detail-order-item-td-title{
+	font-size: 16px;
+	line-height: 26px;
+}
+.sale-order-detail-order-item-td-text .icon-rub:before,
+.sale-order-detail-total-payment-list-right-item .icon-rub:before{
+	font-size: 12px;
+}
+.sale-order-detail-order-item-td-text .bx-price{
+	padding-right: 7px;
+}
 .sale-order-detail-order-item-td{
 	border-top: 1px solid #f6f1ea;
 }
 .sale-order-detail-payment-options-order-content-title{
-	background: #faf5ee;
+	background: #ffedf1;
+}
+.sale-order-detail-total-payment-list-left-item,
+.sale-order-detail-total-payment-list-right-item{
+	margin-bottom: 8px;
+	line-height: 20px;
+	font-size: 16px;
+}
+.order-item-pr{
+	padding-right: 11px;
 }
 #pwd_form{
 	display: none;
