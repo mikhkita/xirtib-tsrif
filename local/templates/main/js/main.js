@@ -1,4 +1,5 @@
-var isDesktop = false,
+var myWidth,
+    isDesktop = false,
     isTablet = false,
     isMobile = false,
     progress = new KitProgress("#FF345F", 2),
@@ -1513,7 +1514,7 @@ $(document).ready(function(){
 
      if ($('#add-photo').length){
 
-        var uploader = new plupload.Uploader({
+        var uploaderAddPhoto = new plupload.Uploader({
             runtimes : 'html5,flash,silverlight,html4',
             browse_button : 'pickfiles', // you can pass an id...
             container: document.getElementById('add-photo'), // ... or DOM Element itself
@@ -1573,7 +1574,7 @@ $(document).ready(function(){
                 }
             }
         });
-        uploader.init();
+        uploaderAddPhoto.init();
     }
 
     if( $('.menu-accordion').length ){
@@ -1674,6 +1675,72 @@ $(document).ready(function(){
             $('.pass-error').addClass('hide');
         }
     });
+
+    if ($('#editForm').length && typeof(plupload) == "object"){
+
+        if($('.b-profile-photo').hasClass("has-photo")){
+            $('.b-profile-photo .icon-add-photo').addClass("hide");
+            $('.b-profile-photo .icon-change-photo').removeClass("hide");
+        }
+
+        var uploaderEdit = new plupload.Uploader({
+            runtimes : 'html5,flash,silverlight,html4',
+            browse_button : 'pickfilesEdit', // you can pass an id...
+            container: document.getElementById('editForm'), // ... or DOM Element itself
+            url : $('#editForm').attr("data-file-action"),
+            multi_selection: false,
+            filters : {
+                max_file_size : '10mb',
+                mime_types: [
+                    {title : "Image files", extensions : "jpg,jpeg,gif,png,bmp"},
+                ]
+            },
+            init: {
+                PostInit: function() {
+                    
+                },
+                FilesAdded: function(up, files) {
+                    progress.start(1.5);
+                    plupload.each(files, function(file) {
+                        
+                    });
+                    up.start();
+                },
+                UploadProgress: function(up, file) {
+
+                },
+                FileUploaded: function(up, file, res) {
+                    var json = JSON.parse(res.response);
+                    if(json){
+                        $('#photo').remove();//удалить input с предыдущим фото
+                        $('.b-profile-photo').removeClass('icon-add-photo').css('background-image', 'url("/upload/tmp/'+json.filePath+'")');
+                        $('.b-profile-photo .icon-add-photo').addClass("hide");
+                        $('.b-profile-photo .icon-change-photo').removeClass("hide");
+                        $('<input>',{id:'photo', type:'hidden', name:'user[PERSONAL_PHOTO]', value: json.filePath}).appendTo('#editForm');
+                    }
+                },
+                Error: function(up, err) {
+                    // alert("При загрузке файла произошла ошибка.\n" + err.code + ": " + err.message);
+                    if (err.code == -600) {
+                        $("#pickfilesEdit").innerHTML = "Файл слишком большой";
+                        $("#pickfilesEdit").addClass('error');
+                    };
+                    if (err.code == -601) {
+                        $("#pickfilesEdit").innerHTML = "Неверный формат файла";
+                        $("#pickfilesEdit").addClass('error');
+                    };
+                },
+                UploadComplete: function() {
+                    progress.end();
+                }
+            }
+        });
+        uploaderEdit.init();
+    }
+
+    if( $(".sticky").length && myWidth < 1150){
+        Stickyfill.add($('.sticky'));
+    }
 
     // // Первая анимация элементов в слайде
     // $(".b-step-slide[data-slick-index='0'] .slider-anim").addClass("show");

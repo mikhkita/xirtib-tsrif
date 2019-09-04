@@ -28,6 +28,14 @@ $GLOBALS["season"] = getSeason();
 
 CModule::IncludeModule('iblock');
 
+$GLOBALS["depends"] = array(
+	// "edit" => array(
+	// 	"js" => array(
+	// 		SITE_TEMPLATE_PATH."/js/plupload.full.min.js"
+	// 	)
+	// ),
+);
+
 ?>
 <!DOCTYPE html>
 <html>

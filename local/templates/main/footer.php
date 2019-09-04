@@ -540,6 +540,12 @@
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/mask.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/KitSend.js?<?=$GLOBALS["version"]?>"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/slick.js"></script>
+	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/stickyfill.js"></script>
+	<? if( isset( $GLOBALS["depends"][$GLOBALS["page"]] ) ): ?>
+		<? foreach ($GLOBALS["depends"][$GLOBALS["page"]]["js"] as $scriptName): ?>
+			<script type="text/javascript" src="<?=$scriptName?>"></script>
+		<? endforeach; ?>
+	<? endif; ?>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/main.js?<?=$GLOBALS["version"]?>"></script>
 </body>
 </html>
