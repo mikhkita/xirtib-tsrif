@@ -6,21 +6,25 @@ $APPLICATION->SetTitle("Редактирование профиля");?>
 if (isAuth()): 
 	$rsUser = CUser::GetByID($USER->GetID());
 	$arUser = $rsUser->Fetch();
+	$photo = array();
 	if ($arUser['PERSONAL_PHOTO']){
-		$photo = CFile::ResizeImageGet($arUser['PERSONAL_PHOTO'], Array("width" => 267, "height" => 267), BX_RESIZE_IMAGE_EXACT, false, $arFilters );
+		$photo = CFile::ResizeImageGet($arUser['PERSONAL_PHOTO'], Array("width" => 266, "height" => 266), BX_RESIZE_IMAGE_EXACT, false, $arFilters );
 	}
 	$fullName = trim($arUser['NAME']);
 ?>
 
 <div class="b-cabinet">
 	<div class="b-cabinet-profile">
-		<div class="b-profile-photo">
-			<div class="current-photo" id="pickfiles" style="background-image: url(<?=$photo['src']?>);">
-				<div class="background-photo">
-					<div class="photo-update-icon"></div>
+		<?if(!empty($photo)):?>
+			<div class="b-profile-photo has-photo" id="pickfilesEdit" style="background-image: url(<?=$photo['src']?>);">
+		<?else:?>
+			<div class="b-profile-photo icon-add-photo" id="pickfilesEdit">
+		<?endif;?>
+				<div class="b-profile-photo-back">
+					<div class="icon-add-photo"></div>
+					<div class="icon-change-photo hide"></div>
 				</div>
 			</div>
-		</div>
 	</div>
 	<div class="b-cabinet-content">
 		<form action="/personal/?action=updateUser" method="POST" id="editForm" data-file-action="/addFile.php">
@@ -55,9 +59,6 @@ if (isAuth()):
 			<div class="b-inputs-3 clearfix">
 				<div class="b-input b-input-btn">
 					<a href="#" class="b-btn b-btn-save ajax">Сохранить изменения</a>
-				</div>
-				<div class="b-input b-input-btn">
-					<a href="/personal/" class="b-btn b-btn-not-save">Вернуться</a>
 				</div>
 			</div>
 			

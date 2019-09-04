@@ -6635,13 +6635,46 @@ select{
 	.b-cabinet-profile{
 		display: inline-block;
 		vertical-align: top;
-		width: 267px;
+		width: 266px;
 		margin-right: 24px;
 	}
+		.b-profile-photo{
+
+		}
+			.background-photo{
+				cursor: pointer;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+				.b-profile-photo-back .icon-add-photo,
+				.b-profile-photo-back .icon-change-photo{
+					width: 130px;
+					height: 108px;
+					position: absolute;
+					left: 50%;
+    				top: 50%;
+    				-webkit-transform: translate(-50%, -50%);
+				    -ms-transform: translate(-50%, -50%);
+				    -o-transform: translate(-50%, -50%);
+				    transform: translate(-50%, -50%);
+				}
+				.b-profile-photo-back .icon-add-photo:before,
+				.b-profile-photo-back .icon-change-photo:before{
+					top: 0;
+					left: 0;
+				}
+
 	.b-cabinet-content{
 		display: inline-block;
 		vertical-align: top;
 		width: calc(100% - 296px);
+	}
+
+	.moxie-shim{
+		display: none;
 	}
 		
 .b-cabinet:after{
@@ -6651,6 +6684,9 @@ select{
 		margin-bottom: 17px;
 	}
 	.b-cabinet-left{
+		position: -webkit-sticky;
+		position: sticky;
+		top: 24px;
 		width: 364px;
 		display: inline-block;
 		vertical-align: top;
@@ -6660,7 +6696,7 @@ select{
 			border-radius: 30px;
 			padding: 44px 48px;
 			text-align: center;
-			margin-bottom: 37px;
+			/*margin-bottom: 37px;*/
 		}
 			.b-profile-photo{
 			    background-size: cover;
@@ -6670,6 +6706,7 @@ select{
 			    max-width: 266px;
 			    height: 266px;
 			    border-radius: 100%;
+			    overflow: hidden;
 			    display: block;
 			    position: relative;
 			    background-color: rgba(0,0,0,0.3);
@@ -6686,6 +6723,7 @@ select{
 					border-radius: 100%;
 					background-color: rgba(0,0,0,0.3);
 					z-index: 1;
+					cursor: pointer;
 				}
 			.b-profile-photo.icon-change-photo:before{
 				opacity: 0;
@@ -6710,6 +6748,7 @@ select{
 				-o-transform: translate(-50%, -50%);
 				transform: translate(-50%, -50%);
 				z-index: 10;
+				pointer-events: none;
 			}
 			.b-profile-photo:hover:before,
 			.b-profile-photo:hover .b-profile-photo-back{
@@ -8636,6 +8675,9 @@ div.bx-blue .btn.btn-default:hover{
 	}
 	.b-get-bonus-input-container:nth-child(2n){
 		text-align: right;
+	}
+	.b-cabinet-left{
+		position: static;
 	}
 
 }

@@ -240,42 +240,47 @@ if( isset($_REQUEST["action"]) ){
 $userID = $USER->GetID();
 $rsUser = CUser::GetByID($userID);
 $arUser = $rsUser->Fetch();
+$photo = array();
+if ($arUser['PERSONAL_PHOTO']){
+	$photo = CFile::ResizeImageGet($arUser['PERSONAL_PHOTO'], Array("width" => 266, "height" => 266), BX_RESIZE_IMAGE_EXACT, false, $arFilters );
+}
 ?>
 
 <div class="b-cabinet wave-bottom">
 	<div class="b-block">
-		<div class="b-cabinet-left">
+		<div class="b-cabinet-left sticky">
 			<div class="b-profile clearfix">
-				<? if ($arUser["PERSONAL_PHOTO"]): ?>
-					<?$renderImage = CFile::ResizeImageGet($arUser["PERSONAL_PHOTO"], Array("width" => 266, "height" => 266), BX_RESIZE_IMAGE_EXACT, false, $arFilters );?>
-					<a href="#" class="b-profile-photo icon-change-photo" style="background-image: url(<?=$renderImage['src']?>);">
-						<div class="b-profile-photo-back"></div>
-					</a>
-				<? else: ?>
-					<a href="#" class="b-profile-photo icon-add-photo"></a>
-				<? endif; ?>
+				<?if(!empty($photo)):?>
+					<div class="b-profile-photo has-photo" style="background-image: url(<?=$photo['src']?>);"></div>
+				<?else:?>
+					<a href="edit" class="b-profile-photo icon-add-photo"></a>
+				<?endif;?>
 				<div class="b-profile-name"><?=$arUser['NAME']." ".$arUser["SECOND_NAME"]." ".$arUser['LAST_NAME']?></div>
-				<div class="b-profile-bonus-text">Мои бонусные баллы</div>
-				<div class="b-profile-bonus-count">125</div>
+				<?
+				// <div class="b-profile-bonus-text">Мои бонусные баллы</div>
+				// <div class="b-profile-bonus-count">125</div>
+				?>
 				<a href="edit" class="b-btn">Редактировать профиль</a>
 			</div>
-			<div class="b-get-bonus">
-				<div class="b-get-bonus-text">Получить бонусные баллы</div>
-				<form action="/getBonus.php" method="POST" class="b-one-string-form">
-					<div class="b-get-bonus-input-container">
-						<input type="text" placeholder="Ссылка на селфи">
-						<a href="#" class="pink ajax">Получить</a>
-					</div>
-					<div class="b-get-bonus-input-container">
-						<input type="text" placeholder="Ссылка на отзыв">
-						<a href="#" class="pink ajax">Получить</a>
-					</div>
-					<div class="b-get-bonus-input-container">
-						<input type="text" placeholder="Ссылка на мастер-класс">
-						<a href="#" class="pink ajax">Получить</a>
-					</div>
-				</form>
-			</div>
+			<?
+			// <div class="b-get-bonus">
+			// 	<div class="b-get-bonus-text">Получить бонусные баллы</div>
+			// 	<form action="/getBonus.php" method="POST" class="b-one-string-form">
+			// 		<div class="b-get-bonus-input-container">
+			// 			<input type="text" placeholder="Ссылка на селфи">
+			// 			<a href="#" class="pink ajax">Получить</a>
+			// 		</div>
+			// 		<div class="b-get-bonus-input-container">
+			// 			<input type="text" placeholder="Ссылка на отзыв">
+			// 			<a href="#" class="pink ajax">Получить</a>
+			// 		</div>
+			// 		<div class="b-get-bonus-input-container">
+			// 			<input type="text" placeholder="Ссылка на мастер-класс">
+			// 			<a href="#" class="pink ajax">Получить</a>
+			// 		</div>
+			// 	</form>
+			// </div>
+			?>
 		</div>
 		<div class="b-cabinet-right">
 			<div class="b-cabinet-hello">Здравствуйте, <?=$arUser['NAME']?>!</div>
