@@ -8,32 +8,51 @@
 			<div class="b-bottom-menu-list">
 				<h4>О компании</h4>
 				<ul>
-					<li><a href="#" class="underline">О нас</a></li>
+					<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_menu", array(
+						"ROOT_MENU_TYPE" => "footer-1",
+						"MAX_LEVEL" => "1",
+						"MENU_CACHE_TYPE" => "A",
+						"CACHE_SELECTED_ITEMS" => "N",
+						"MENU_CACHE_TIME" => "36000000",
+						"MENU_CACHE_USE_GROUPS" => "Y",
+						"MENU_CACHE_GET_VARS" => array(),
+					),
+						false
+					);?>
+					<!-- <li><a href="#" class="underline">О нас</a></li>
 					<li><a href="#" class="underline">Новости магазина</a></li>
 					<li><a href="#" class="underline">Сертификаты</a></li>
 					<li><a href="#" class="underline">Преимущества</a></li>
 					<li><a href="#" class="underline">Вакансии</a></li>
-					<li><a href="#" class="underline">Блог</a></li>
+					<li><a href="#" class="underline">Блог</a></li> -->
 				</ul>
 			</div>
 			<div class="b-bottom-menu-list">
 				<h4>Покупателям</h4>
 				<ul>
-					<li><a href="#" class="underline">Акции и скидки</a></li>
-					<li><a href="#" class="underline">Доставка и оплата</a></li>
-					<li><a href="#" class="underline">Как сделать заказ</a></li>
-					<li><a href="#" class="underline">Возврат без затрат</a></li>
-					<li><a href="#" class="underline">Вопросы и ответы</a></li>
-					<li><a href="#" class="underline">Контакты и реквизиты</a></li>
+					<?$APPLICATION->IncludeComponent("bitrix:menu", "bottom_menu", array(
+						"ROOT_MENU_TYPE" => "footer-2",
+						"MAX_LEVEL" => "1",
+						"MENU_CACHE_TYPE" => "A",
+						"CACHE_SELECTED_ITEMS" => "N",
+						"MENU_CACHE_TIME" => "36000000",
+						"MENU_CACHE_USE_GROUPS" => "Y",
+						"MENU_CACHE_GET_VARS" => array(),
+					),
+						false
+					);?>
 				</ul>
 			</div>
+			
 			<div class="b-bottom-menu-list">
+				<?/*?>
 				<h4>Сотрудничество</h4>
 				<ul>
 					<li><a href="#" class="underline">Поставщикам</a></li>
 					<li><a href="#" class="underline">Партнеры</a></li>
 					<li><a href="#" class="underline">Франшиза</a></li>
 				</ul>
+				<?*/?>
 			</div>
 			<div class="b-bottom-menu-list">
 				<h4>Следуйте за нами</h4>
@@ -366,6 +385,15 @@
 				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
 			</div>
 		</div>
+		<div class="b-thanks b-popup" id="b-gallery-success">
+			<div class="b-popup-header">
+				<h3>Спасибо!</h3>
+				<p>Ваша работа успешно загружена.</p>
+			</div>
+			<div class="b-btn-container">
+				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
+			</div>
+		</div>
 		<div class="b-thanks b-popup" id="b-email-success">
 			<div class="b-popup-header">
 				<h3>Спасибо!</h3>
@@ -517,7 +545,7 @@
 						</a>
 					</div>
 				</div>
-				<a href="#b-popup-success" class="b-thanks-link fancy" style="display:none;"></a>
+				<a href="#b-gallery-success" class="b-thanks-link fancy" style="display:none;"></a>
 			</form>
 			<div class="b-btn-container">
 				<a href="#" onclick="$.fancybox.close(); return false;" class="b-btn b-btn-close">Закрыть</a>

@@ -467,7 +467,7 @@ $(document).ready(function(){
             $cap = $this.siblings('.b-btn-to-cart-cap'),
             href = $(this).attr("href"),
             id = $(this).attr("data-id"),
-            quantity = $(this).parent().find('input[name=count]').val();
+            quantity = $(this).parents('.b-detail-item').find('input[name=count]').val();
         
         clearTimeout(cartTimeout);
         progress.start(1.5);

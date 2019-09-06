@@ -3180,6 +3180,7 @@ select{
 				font-size: 18px;
 				color: #CFD3E0;
 				font-family: 'ProximaNova-Regular';
+				display: block;
 			}
 				.b-tab{
 					display: inline-block;
@@ -3205,6 +3206,7 @@ select{
 					font-size: 16px;
 					line-height: 22px;
 					border-bottom: 2px dashed;
+					margin-right: 20px;
 				}
 					.b-tab.active, .b-tab:hover{
 						color: #FF345F;
@@ -8683,7 +8685,7 @@ div.bx-yellow .btn.btn-default:hover{
 		font-weight: normal !important;
 	}
 	.b-text a{
-		color: #C8AD89;
+		color: #FF345F;
 		text-decoration: underline;
 	}
 		.b-text a:hover{

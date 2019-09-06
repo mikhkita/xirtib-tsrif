@@ -476,317 +476,71 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 </div>
 <div class="b-tabs b-catalog-tabs wave-top">
 	<div class="b-block">
-		<div id="b-catalog-tabs-top-slider" class="b-tabs-container b-tabs-container-underline" >
-			<div class="b-tab active" data-tab="gingerbreads">
-				<span>Для&nbsp;пряников</span>
-			</div>
-			<div class="b-tab" data-tab="candies">
-				<span>Для&nbsp;конфет</span>
-			</div>
-			<div class="b-tab" data-tab="cakepops">
-				<span>Для&nbsp;кейкпопсов</span>
-			</div>
-			<div class="b-tab" data-tab="chocolates">
-				<span>Для&nbsp;шоколада</span>
-			</div>
-			<div class="b-tab" data-tab="cookies">
-				<span>Для&nbsp;печенья</span>
-			</div>
-			<div class="b-tab" data-tab="cupcakes">
-				<span>Для&nbsp;капкейков</span>
-			</div>
-			<div class="b-tab" data-tab="makaron">
-				<span>Для&nbsp;макарун</span>
-			</div>
-		</div>
-		<div class="b-tab-item" id="gingerbreads">
-			<div id="b-catalog-tabs-bottom-slider-1" class="b-tabs-container b-tabs-container-dashed">
-				<div class="b-tab active" data-tab="gingerbreads-chocolate">
-					<span>Шоколад</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-mixes">
-					<span>Сухие смеси</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-dyes">
-					<span>Красители</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-tools">
-					<span>Инструмент</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-capsules">
-					<span>Капсулы бумажные</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-forms">
-					<span>Формы для выпечки</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-pack">
-					<span>Упаковка</span>
-				</div>
-			</div>
-			<div class="b-tab-item b-catalog-list" id="gingerbreads-chocolate">
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-1.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Multiflex ЕЖЕВИКА и МАЛИНА 3D Mora Lampone Silikomart</h6>
-						<p class="article">Арт. 4023</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">250</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-2.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Multiflex ШИШКИ 3D 5 шт. Foresta110 Silikomart</h6>
-						<p class="article">Арт. 8340</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">1 280</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-3.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Pavocake БОМБА 3D Bombee Pavoni</h6>
-						<p class="article">Арт. 8340</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">850</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-4.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Pavocake САВАРЕН 3D Pavoni</h6>
-						<p class="article">Арт. 2301</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">650</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="b-tab-item b-catalog-list hide" id="gingerbreads-mixes">
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-4.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Pavocake САВАРЕН 3D Pavoni</h6>
-						<p class="article">Арт. 2301</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">650</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-1.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Multiflex ЕЖЕВИКА и МАЛИНА 3D Mora Lampone Silikomart</h6>
-						<p class="article">Арт. 4023</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">250</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-2.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Multiflex ШИШКИ 3D 5 шт. Foresta110 Silikomart</h6>
-						<p class="article">Арт. 8340</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">1 280</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-3.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Pavocake БОМБА 3D Bombee Pavoni</h6>
-						<p class="article">Арт. 8340</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">850</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="b-btn-container">
-				<a href="#" class="b-btn b-btn-white">Все товары для пряников</a>			
-			</div>
-		</div>
-		<div class="b-tab-item hide" id="candies">
-			<div  id="b-catalog-tabs-bottom-slider-2" class="b-tabs-container b-tabs-container-dashed">
-				<div class="b-tab" data-tab="gingerbreads-chocolate">
-					<span>Шоколад</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-mixes">
-					<span>Сухие смеси</span>
-				</div>
-				<div class="b-tab active" data-tab="gingerbreads-dyes">
-					<span>Красители</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-tools">
-					<span>Инструмент</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-capsules">
-					<span>Капсулы бумажные</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-forms">
-					<span>Формы для выпечки</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-pack">
-					<span>Упаковка</span>
-				</div>
-			</div>
-			<div class="b-tab-item b-catalog-list" id="gingerbreads-chocolate">
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-1.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Multiflex ЕЖЕВИКА и МАЛИНА 3D Mora Lampone Silikomart</h6>
-						<p class="article">Арт. 4023</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">250</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-2.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Multiflex ШИШКИ 3D 5 шт. Foresta110 Silikomart</h6>
-						<p class="article">Арт. 8340</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">1 280</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-3.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Pavocake БОМБА 3D Bombee Pavoni</h6>
-						<p class="article">Арт. 8340</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">850</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-				<div class="b-catalog-item">
-					<div class="b-catalog-back"></div>
-					<div class="b-catalog-img">
-						<img src="<?=SITE_TEMPLATE_PATH?>/i/catalog-item-4.jpg" alt="">
-					</div>
-					<div class="b-catalog-item-top">
-						<h6>Силиконовая форма Pavocake САВАРЕН 3D Pavoni</h6>
-						<p class="article">Арт. 2301</p>
-					</div>
-					<div class="b-catalog-item-bottom">
-						<div class="price-container">
-							<p class="price icon-rub">650</p>
-						</div>
-						<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<a href="#" class="b-btn b-btn-white">Все товары для конфет</a>
-		</div>
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:news.list", 
+			"tab-catalog", 
+			array(
+				"ACTIVE_DATE_FORMAT" => "d.m.Y",
+				"ADD_SECTIONS_CHAIN" => "Y",
+				"AJAX_MODE" => "N",
+				"AJAX_OPTION_ADDITIONAL" => "",
+				"AJAX_OPTION_HISTORY" => "N",
+				"AJAX_OPTION_JUMP" => "N",
+				"AJAX_OPTION_STYLE" => "Y",
+				"CACHE_FILTER" => "N",
+				"CACHE_GROUPS" => "Y",
+				"CACHE_TIME" => "36000000",
+				"CACHE_TYPE" => "A",
+				"CHECK_DATES" => "Y",
+				"DETAIL_URL" => "",
+				"DISPLAY_BOTTOM_PAGER" => "N",
+				"DISPLAY_DATE" => "Y",
+				"DISPLAY_NAME" => "Y",
+				"DISPLAY_PICTURE" => "Y",
+				"DISPLAY_PREVIEW_TEXT" => "Y",
+				"DISPLAY_TOP_PAGER" => "N",
+				"FIELD_CODE" => array(
+					0 => "",
+					1 => "",
+				),
+				"FILTER_NAME" => "",
+				"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+				"IBLOCK_ID" => "15",
+				"IBLOCK_TYPE" => "content",
+				"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+				"INCLUDE_SUBSECTIONS" => "Y",
+				"MESSAGE_404" => "",
+				"NEWS_COUNT" => "",
+				"PAGER_BASE_LINK_ENABLE" => "N",
+				"PAGER_DESC_NUMBERING" => "N",
+				"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+				"PAGER_SHOW_ALL" => "N",
+				"PAGER_SHOW_ALWAYS" => "N",
+				"PAGER_TEMPLATE" => ".default",
+				"PAGER_TITLE" => "Новости",
+				"PARENT_SECTION" => "",
+				"PARENT_SECTION_CODE" => "",
+				"PREVIEW_TRUNCATE_LEN" => "",
+				"PROPERTY_CODE" => array(
+					0 => "",
+					1 => "",
+				),
+				"SET_BROWSER_TITLE" => "Y",
+				"SET_LAST_MODIFIED" => "N",
+				"SET_META_DESCRIPTION" => "Y",
+				"SET_META_KEYWORDS" => "Y",
+				"SET_STATUS_404" => "N",
+				"SET_TITLE" => "N",
+				"SHOW_404" => "N",
+				"SORT_BY1" => "ID",
+				"SORT_BY2" => "SORT",
+				"SORT_ORDER1" => "ASC",
+				"SORT_ORDER2" => "ASC",
+				"STRICT_SECTION_CHECK" => "N",
+				"COMPONENT_TEMPLATE" => "news"
+			),
+			false
+		);?>
 	</div>
 </div>
 <div class="b-bonus">
@@ -1018,6 +772,7 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 			<div class="b-tab active" data-tab="about">
 				<span>О магазине</span>
 			</div>
+			<?/*?>
 			<div class="b-tab" data-tab="inventory">
 				<span>Инвентарь</span>
 			</div>
@@ -1033,6 +788,7 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 			<div class="b-tab" data-tab="forms">
 				<span>Формы</span>
 			</div>
+			<?*/?>
 		</div>
 		<div class="b-tab-item b-tab-about" id="about">
 			<div class="b-2-by-1-blocks">

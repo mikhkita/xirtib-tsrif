@@ -469,7 +469,7 @@ switch ($action) {
 		}
 
 		$arParams = array("replace_space"=>"-","replace_other"=>"-");
-		$name = Cutil::translit($_POST["name"],"ru",$arParams);
+		$name = Cutil::translit($_POST["work-name"],"ru",$arParams);
 
 		$arLoadProductArray = Array(
 		  "MODIFIED_BY"    => $USER->GetID(),
@@ -482,7 +482,7 @@ switch ($action) {
 		  "DATE_ACTIVE_FROM" => ConvertTimeStamp(time(), "FULL")
 		);
 
-		echo $out = $el->Add($arLoadProductArray) ? '1' : '0';
+		echo $out = ($el->Add($arLoadProductArray)) ? '1' : '0';
 		
 		break;
 	case 'ADDLIKETOWORK':

@@ -127,27 +127,27 @@ $APPLICATION->SetTitle("Доставка и оплата");?>
 	<div class="b-delivery-advantages">
 		<div class="b-block">
 			<div class="about-advantages">
-				<div class="about-advantages-item" style="background-image: url('i/about-adv-1.svg');">
+				<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-1.svg');">
 					<h4>Удобная доставка</h4>
 					<p>Сделали заказ до 14 часов?<br>Доставим завтра</p>
 				</div>
-				<div class="about-advantages-item" style="background-image: url('i/about-adv-2.svg');">
+				<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-2.svg');">
 					<h4>Безопасная оплата</h4>
 					<p>Более 20 способов оплаты<br>через зашифрованное соединение</p>
 				</div>
-				<div class="about-advantages-item" style="background-image: url('i/about-adv-3.svg');">
+				<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-3.svg');">
 					<h4>30 дней на обмен</h4>
 					<p>Не понравилась покупка?<br>Обменяем без проблем!</p>
 				</div>
-				<div class="about-advantages-item" style="background-image: url('i/about-adv-4.svg');">
+				<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-4.svg');">
 					<h4>Ассортимент</h4>
 					<p>В наличии на складе<br>более 7 000 наименований</p>
 				</div>
-				<div class="about-advantages-item" style="background-image: url('i/about-adv-5.svg');">
+				<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-5.svg');">
 					<h4>Пункты самовывозом</h4>
 					<p>Более 2 000 пунктов<br>самовывоза</p>
 				</div>
-				<div class="about-advantages-item" style="background-image: url('i/about-adv-6.svg');">
+				<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-6.svg');">
 					<h4>Лучшие цены</h4>
 					<p>Нашли дешевле? Сообщите нам.<br>Покупай больше, плати меньше!</p>
 				</div>

@@ -22,7 +22,7 @@ $arFilters = Array(
 			<h2>Видеообзоры</h2>
 			<h4>от «Первого магазина» для кондитеров</h4>
 			<p class="video-text">Мы первыми в российском интернет пространстве начали делать полноценные видеообзоры товаров для кондитеров</p>
-			<a href="#" class="b-btn b-btn-white">Видеоархив на YouTube</a>
+			<a href="https://www.youtube.com/channel/UCAMc4i6kHa4yCO4Tu39OxeQ" target="_blank" class="b-btn b-btn-white">Видеоархив на YouTube</a>
 		</div>
 
 		<?foreach($arResult["ITEMS"] as $key => $arItem):?>
