@@ -93,11 +93,11 @@ $arFilters = Array(
 								);?>
 							<? endif; ?>
 						</div>
-						<?if ($arItem["CATALOG_QUANTITY"] != 0):?>
-						<div class="b-one-click-buy">
-							<a href="#" class="dashed pink">Купить в один клик</a>
-						</div>
-						<?endif;?>
+						<?if ($arItem["CATALOG_QUANTITY"] != 0): /*?>
+							<div class="b-one-click-buy">
+								<a href="#" class="dashed pink">Купить в один клик</a>
+							</div>
+						<?*/ endif;?>
 					</div>
 					<? if( !$arItem["CATALOG_QUANTITY"] ): ?>
 						<div class="b-catalog-item-empty-text">Вы можете оставить заявку на данный товар. Когда товар будет в наличии, Вам придет автоматическое письмо на почту.</div>

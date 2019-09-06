@@ -72,6 +72,14 @@ $arUrlRewrite=array (
     'PATH' => '/gallery/detail.php',
     'SORT' => 100,
   ),
+  14 => 
+  array (
+    'CONDITION' => '#^/news/(.+)/(\\\\?(.*))?#',
+    'RULE' => 'ELEMENT_CODE=$1',
+    'ID' => '',
+    'PATH' => '/news/detail.php',
+    'SORT' => 100,
+  ),
   3 => 
   array (
     'CONDITION' => '#^/sale/(.+)/(\\\\?(.*))?#',

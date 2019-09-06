@@ -28,6 +28,15 @@ $GLOBALS["season"] = getSeason();
 
 CModule::IncludeModule('iblock');
 
+$emptyBasket = false;
+$emptyBasketClass = '';
+$basketInfo = getBasketCount();
+
+if($basketInfo["sum"] == 0){
+	$emptyBasket = true;
+	$emptyBasketClass = 'empty';
+}
+
 $GLOBALS["depends"] = array(
 	// "edit" => array(
 	// 	"js" => array(
@@ -133,12 +142,11 @@ $GLOBALS["depends"] = array(
 					<a href="tel:+74959225055" class="phone">+7 (495) 922-50-55</a>
 					<a href="#b-popup-phone" class="pink dashed fancy">Заказать звонок</a>
 				</div>
-				<? $basketInfo = getBasketCount(); ?>
 				<a href="/cart" class="b-cart b-mobile-cart">
 					<div class="b-cart-img icon-cart"></div>
-					<div class="b-cart-text">
-						<p class="cart-count"><? if( $basketInfo["sum"] == 0 ): ?>Корзина<? else: ?><?=$basketInfo["count"]?> шт.<?endif;?></p>
-						<p class="cart-sum icon-rub"><? if( $basketInfo["sum"] == 0 ): ?>пуста<? else: ?><?=$basketInfo["sum"]?><?endif;?></p>
+					<div class="b-cart-text <?=$emptyBasketClass?>">
+						<p class="cart-count"><?echo ($emptyBasket ? 'Корзина' : $basketInfo["count"].' шт.')?></p>
+						<p class="cart-sum icon-rub"><?=$basketInfo["sum"]?></p>
 					</div>
 				</a>
 			</div>
@@ -185,9 +193,9 @@ $GLOBALS["depends"] = array(
 				<a href="#b-popup-question" class="dashed fancy">Задать вопрос</a>
 				<a href="/cart" class="b-cart">
 					<div class="b-cart-img icon-cart"></div>
-					<div class="b-cart-text">
-						<p class="cart-count"><? if( $basketInfo["sum"] == 0 ): ?>Корзина<? else: ?><?=$basketInfo["count"]?> шт.<?endif;?></p>
-						<p class="cart-sum icon-rub"><? if( $basketInfo["sum"] == 0 ): ?>пуста<? else: ?><?=$basketInfo["sum"]?><?endif;?></p>
+					<div class="b-cart-text <?=$emptyBasketClass?>">
+						<p class="cart-count"><?echo ($emptyBasket ? 'Корзина' : $basketInfo["count"].' шт.')?></p>
+						<p class="cart-sum icon-rub"><?=$basketInfo["sum"]?></p>
 					</div>
 				</a>
 			</div>

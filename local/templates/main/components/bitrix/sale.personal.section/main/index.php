@@ -8,11 +8,6 @@ if ($arParams['SHOW_PRIVATE_PAGE'] !== 'Y')
 	LocalRedirect($arParams['SEF_FOLDER']);
 }
 
-if (strlen($arParams["MAIN_CHAIN_NAME"]) > 0)
-{
-	$APPLICATION->AddChainItem(htmlspecialcharsbx($arParams["MAIN_CHAIN_NAME"]), $arResult['SEF_FOLDER']);
-}
-$APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_PRIVATE"));
 if ($arParams['SET_TITLE'] == 'Y')
 {
 	$APPLICATION->SetTitle("Личные данные");

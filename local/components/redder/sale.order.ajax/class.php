@@ -5124,7 +5124,7 @@ class SaleOrderAjax extends \CBitrixComponent
 		}
 
 		$this->arResult['USER_VALS'] = $this->arUserResult;
-		$this->executeEvent('OnSaleComponentOrderOneStepProcess', $this->order);
+		// $this->executeEvent('OnSaleComponentOrderOneStepProcess', $this->order);
 		$this->arResult['USER_VALS'] = $this->arUserResult;
 
 		//try to avoid use "executeEvent" methods and use new events like this

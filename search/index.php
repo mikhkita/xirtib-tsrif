@@ -35,7 +35,8 @@ $APPLICATION->SetTitle("Поиск по товарам");
 	)
 );*/?>
 <noindex>
-<div class="b-catalog-preview b-catalog-search"><?$APPLICATION->IncludeComponent("bitrix:catalog.search", "search", Array(
+<div class="b-catalog-search">
+	<?$APPLICATION->IncludeComponent("bitrix:catalog.search", "search", Array(
 	"ACTION_VARIABLE" => "action",	// Название переменной, в которой передается действие
 		"AJAX_MODE" => "Y",	// Включить режим AJAX
 		"AJAX_OPTION_ADDITIONAL" => "",	// Дополнительный идентификатор

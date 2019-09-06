@@ -11,9 +11,9 @@ if ($arParams['SHOW_PROFILE_PAGE'] !== 'Y')
 
 if (strlen($arParams["MAIN_CHAIN_NAME"]) > 0)
 {
-	$APPLICATION->AddChainItem(htmlspecialcharsbx($arParams["MAIN_CHAIN_NAME"]), $arResult['SEF_FOLDER']);
+	// $APPLICATION->AddChainItem(htmlspecialcharsbx($arParams["MAIN_CHAIN_NAME"]), $arResult['SEF_FOLDER']);
 }
-$APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_PROFILE"));
+// $APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_PROFILE"));
 $APPLICATION->IncludeComponent(
 	"bitrix:sale.personal.profile.list",
 	"",

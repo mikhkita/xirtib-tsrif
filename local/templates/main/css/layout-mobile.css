@@ -232,7 +232,7 @@ select{
 	padding-bottom: 110px;
 }
 .pink-header-block{
-	padding: 8px 16px 4px 22px;
+	padding: 8px 16px;
 	text-align: justify;
 	line-height: 0;
 	margin-bottom: 0px;
@@ -986,7 +986,90 @@ div.b-order-date{
 .b-order-item{
 	position: relative;
 }
-
+.basket-items-list-header{
+	display: block;
+}
+.basket-items-list-header-filter-item.active{
+	margin-left: 0;
+}
+.basket-items-search-field{
+	margin-bottom: 20px;
+}
+.b-basket-sort-select{
+	display: inline-block;
+	padding-left: 0;
+	margin-bottom: 20px;
+	margin-right: 0;
+}
+.basket-items-list-header-filter{
+	display: inline-block;
+}
+.basket-checkout-block{
+	text-align: center;
+	padding-left: 0;
+}
+.basket-items-list{
+	padding: 0px 10px;
+}
+div.bx-yellow .btn.btn-default{
+	max-width: 200px;
+}
+.b-input,
+.b-input.b-wide-input{
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 40px;
+}
+.b-input input, 
+.b-input textarea, 
+.b-input select{
+	max-width: 100%;
+}
+.b-input.b-time-input{
+	margin-left: 0;
+}
+.b-input.b-mkad-input, .b-input.b-metro-input{
+	margin-top: 0;
+}
+.b-order-addr-new .order-adress-map-form-content{
+	width: 100%;
+	margin-right: 0;
+}
+.b-order-addr-new .b-addresss-item__room{
+	max-width: 100%;
+}
+.b-order-addr-new .b-addresss-item__index{
+	max-width: 100%;
+}
+.order-adress-map-form-content .b-addresss-item__metro{
+	margin-top: 0;
+}
+.b-order-addr-new #map-address{
+    width: 100%;
+    /*float: unset;*/
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.b-order-left {
+    height: 100px;
+    width: 80px;
+    padding-right: 0;
+    margin-right: 24px;
+}
+.b-order-box{
+	height: 100%;
+}
+.b-order-right {
+    float: none;
+    width: 100%;
+}
+.b-order-right h2{
+	font-size: 24px;
+	line-height: 30px;
+	max-width: 375px;
+	padding-top: 5px;
+	margin-bottom: 36px;
+}
 
 @media screen and (max-width: 768px){
 
@@ -1010,6 +1093,9 @@ div.b-order-date{
 }
 
 @media screen and (max-width: 600px){
+	.basket-item-block-price{
+		padding-top: 0;
+	}
 	.b-catalog-item{
 		width: 100%;
 		margin-right:0;
@@ -1579,6 +1665,23 @@ div.b-order-date{
 	.b-404 ul{
 		display: block;
 	}
+	.b-basket-sort-select{
+		display: block;
+	}
+	.b-basket-sort-select span{
+		display: block;
+		margin-bottom: 10px;
+		margin-right: 0;
+	}
+	.b-basket-sort-select select{
+		margin-right: 0;
+		max-width: 100%;
+		width: 100%;
+	}
+	.form-control-feedback{
+		right: 13px;
+	}
+
 }
 
 @media screen and (max-width: 350px){

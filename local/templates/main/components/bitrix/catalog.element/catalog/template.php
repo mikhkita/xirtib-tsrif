@@ -157,7 +157,7 @@ if (isset($discountClass)) {
 				</div>
 			</div>
 			<div class="b-detail-buy">
-				<a href="/ajax/?action=ADD2BASKET" class="b-btn b-btn-to-cart icon-cart" data-id="<?=$id?>"><p>Добавить в корзину</p></a>
+				<a href="/ajax/?action=ADD2BASKET" class="b-btn b-btn-to-cart b-btn-to-cart-detail icon-cart" data-id="<?=$id?>"><p>Добавить в корзину</p></a>
 				<div href="#" onclick="return false;" class="b-btn b-btn-to-cart-cap hide">
 					<span class="b-cap-text">Товар успешно добавлен</span>
 				</div>
@@ -283,125 +283,120 @@ if (isset($discountClass)) {
 </div>
 <div class="b-last-item-block b-last-detail wave-top">
 	<div class="b-block">
-		<h2>Вместе с этим товаром покупают</h2>
+		<h2>Успей купить! Последний товар</h2>
 		<div class="b-catalog-slider">
-			<div class="b-catalog-item">
-				<a href="#" class="item-link"></a>
-				<div class="b-catalog-back"></div>
-				<div class="b-catalog-img" style="background-image:url('<?=SITE_TEMPLATE_PATH?>/i/catalog-item-1.jpg');">
-				</div>
-				<div class="b-catalog-item-top">
-					<h6>Силиконовая форма Multiflex ЕЖЕВИКА и МАЛИНА 3D Mora Lampone Silikomart</h6>
-					<p class="article">Арт. 4023</p>
-					<p class="description">Мешок силиконовый, производство Китай. Предназначен для работы с кремом. Необходимо использования кондитерских насадок. </p>
-				</div>
-				<div class="b-catalog-item-bottom">
-					<div class="price-container">
-						<p class="price icon-rub">250</p>
-					</div>
-					<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-					<div class="b-one-click-buy">
-						<a href="#" class="dashed pink">Купить в один клик</a>
-					</div>
-				</div>
-			</div>
-			<div class="b-catalog-item">
-				<a href="#" class="item-link"></a>
-				<div class="b-catalog-back"></div>
-				<div class="b-catalog-img" style="background-image:url('<?=SITE_TEMPLATE_PATH?>/i/catalog-item-2.jpg');">
-				</div>
-				<div class="b-catalog-item-top">
-					<h6>Силиконовая форма Multiflex ШИШКИ 3D 5 шт. Foresta110 Silikomart</h6>
-					<p class="article">Арт. 8340</p>
-				</div>
-				<div class="b-catalog-item-bottom">
-					<div class="price-container">
-						<p class="price icon-rub">1 280</p>
-					</div>
-					<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-					<div class="b-one-click-buy">
-						<a href="#" class="dashed pink">Купить в один клик</a>
-					</div>
-				</div>
-			</div>
-			<div class="b-catalog-item">
-				<a href="#" class="item-link"></a>
-				<div class="b-catalog-back"></div>
-				<div class="b-catalog-img" style="background-image:url('<?=SITE_TEMPLATE_PATH?>/i/catalog-item-3.jpg');">
-				</div>
-				<div class="b-catalog-item-top">
-					<h6>Силиконовая форма Pavocake БОМБА 3D Bombee Pavoni</h6>
-					<p class="article">Арт. 8340</p>
-				</div>
-				<div class="b-catalog-item-bottom">
-					<div class="price-container">
-						<p class="price icon-rub">850</p>
-					</div>
-					<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-					<div class="b-one-click-buy">
-						<a href="#" class="dashed pink">Купить в один клик</a>
-					</div>
-				</div>
-			</div>
-			<div class="b-catalog-item">
-				<a href="#" class="item-link"></a>
-				<div class="b-catalog-back"></div>
-				<div class="b-catalog-img" style="background-image:url('<?=SITE_TEMPLATE_PATH?>/i/catalog-item-4.jpg');">
-				</div>
-				<div class="b-catalog-item-top">
-					<h6>Силиконовая форма Pavocake САВАРЕН 3D Pavoni</h6>
-					<p class="article">Арт. 2301</p>
-				</div>
-				<div class="b-catalog-item-bottom">
-					<div class="price-container">
-						<p class="price icon-rub">650</p>
-					</div>
-					<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-					<div class="b-one-click-buy">
-						<a href="#" class="dashed pink">Купить в один клик</a>
-					</div>
-				</div>
-			</div>
-			<div class="b-catalog-item discount-item">
-				<a href="#" class="item-link"></a>
-				<div class="b-catalog-back"></div>
-				<div class="b-catalog-img" style="background-image:url('<?=SITE_TEMPLATE_PATH?>/i/catalog-item-5.jpg');">
-					<div class="catalog-item-discount icon-discount-full"><p>-15%</p></div>
-				</div>
-				<div class="b-catalog-item-top">
-					<h6>Силиконовая форма Tortaflex ИГРА Game1200 Silikomart</h6>
-					<p class="article">Арт. 2563</p>
-				</div>
-				<div class="b-catalog-item-bottom">
-					<div class="price-container b-discount-price">
-						<p class="old-price icon-rub">1 600</p>
-						<p class="new-price pink icon-rub">1 280</p>
-					</div>
-					<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-					<div class="b-one-click-buy">
-						<a href="#" class="dashed pink">Купить в один клик</a>
-					</div>
-				</div>
-			</div>
-			<div class="b-catalog-item">
-				<a href="#" class="item-link"></a>
-				<div class="b-catalog-back"></div>
-				<div class="b-catalog-img" style="background-image:url('<?=SITE_TEMPLATE_PATH?>/i/catalog-item-6.jpg');">
-				</div>
-				<div class="b-catalog-item-top">
-					<h6>Силиконовая форма Tortaflex ВОРТЕКС Vortex Silikomart</h6>
-					<p class="article">Арт. 7838</p>
-				</div>
-				<div class="b-catalog-item-bottom">
-					<div class="price-container">
-						<p class="price icon-rub">2 130</p>
-					</div>
-					<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-					<div class="b-one-click-buy">
-						<a href="#" class="dashed pink">Купить в один клик</a>
-					</div>
-				</div>
-			</div>
+			<?
+
+			$GLOBALS["catalogFilter"] = array(
+				"PROPERTY_LAST_VALUE" => "Y"
+			);
+
+			$APPLICATION->IncludeComponent(
+				"bitrix:catalog.section",
+				"slider",
+				Array(
+					"ACTION_VARIABLE" => "action",
+					"ADD_PICT_PROP" => "MORE_PHOTO",
+					"ADD_PROPERTIES_TO_BASKET" => "Y",
+					"ADD_SECTIONS_CHAIN" => "Y",
+					"ADD_TO_BASKET_ACTION" => "ADD",
+					"AJAX_MODE" => "N",
+					"AJAX_OPTION_ADDITIONAL" => "",
+					"AJAX_OPTION_HISTORY" => "Y",
+					"AJAX_OPTION_JUMP" => "Y",
+					"AJAX_OPTION_STYLE" => "Y",
+					"BACKGROUND_IMAGE" => "-",
+					"BASKET_URL" => "/personal/cart/",
+					"BROWSER_TITLE" => "-",
+					"CACHE_FILTER" => "N",
+					"CACHE_GROUPS" => "Y",
+					"CACHE_TIME" => "36000000",
+					"CACHE_TYPE" => "N",
+					"COMPONENT_TEMPLATE" => ".default",
+					"CONVERT_CURRENCY" => "N",
+					"DETAIL_URL" => "",
+					"DISABLE_INIT_JS_IN_COMPONENT" => "N",
+					"DISPLAY_BOTTOM_PAGER" => "Y",
+					"DISPLAY_TOP_PAGER" => "N",
+					"ELEMENT_SORT_FIELD" => isset($_REQUEST['sort']) ? $_REQUEST['sort'] : 'sort',
+					"ELEMENT_SORT_FIELD2" => "id",
+					"ELEMENT_SORT_ORDER" => 'ASC',
+					"ELEMENT_SORT_ORDER2" => "DESC",
+					"FILTER_NAME" => "catalogFilter",
+					"HIDE_NOT_AVAILABLE" => "N",
+					"IBLOCK_ID" => "1",
+					"IBLOCK_TYPE" => "catalog",
+					"IBLOCK_TYPE_ID" => "catalog",
+					"INCLUDE_SUBSECTIONS" => "A",
+					"LABEL_PROP" => "SALELEADER",
+					"LINE_ELEMENT_COUNT" => "1",
+					"MESSAGE_404" => "",
+					"MESS_BTN_ADD_TO_BASKET" => "В корзину",
+					"MESS_BTN_BUY" => "Купить",
+					"MESS_BTN_DETAIL" => "Подробнее",
+					"MESS_BTN_SUBSCRIBE" => "Подписаться",
+					"MESS_NOT_AVAILABLE" => "Заказ по телефону",
+					"META_DESCRIPTION" => "-",
+					"META_KEYWORDS" => "-",
+					"OFFERS_CART_PROPERTIES" => array(0=>"COLOR_REF",1=>"SIZES_CLOTHES",),
+					"OFFERS_FIELD_CODE" => array(0=>"",1=>"",),
+					"OFFERS_LIMIT" => "",
+					"OFFERS_PROPERTY_CODE" => array(0=>"COLOR_REF",1=>"SIZES_CLOTHES",2=>"SIZES_SHOES",3=>"",),
+					"OFFERS_SORT_FIELD" => 'ID',
+					"OFFERS_SORT_FIELD2" => "id",
+					"OFFERS_SORT_ORDER" => "ASC",
+					"OFFERS_SORT_ORDER2" => "desc",
+					"OFFER_ADD_PICT_PROP" => "-",
+					"OFFER_TREE_PROPS" => array(0=>"COLOR_REF",1=>"SIZES_SHOES",2=>"SIZES_CLOTHES",),
+					"PAGER_BASE_LINK_ENABLE" => "N",
+					"PAGER_DESC_NUMBERING" => "N",
+					"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+					"PAGER_SHOW_ALL" => "Y",
+					"PAGER_SHOW_ALWAYS" => "N",
+					"PAGER_TEMPLATE" => "main",
+					"PAGER_TITLE" => "Товары",
+					"PAGE_ELEMENT_COUNT" => isset($_GET['count']) ? $_GET['count'] : 12,
+					"PARTIAL_PRODUCT_PROPERTIES" => "N",
+					"PRICE_CODE" => array(0=>"PRICE",),
+					"PRICE_VAT_INCLUDE" => "N",
+					"PRODUCT_DISPLAY_MODE" => "N",
+					"PRODUCT_ID_VARIABLE" => "id",
+					"PRODUCT_PROPERTIES" => array(),
+					"PRODUCT_PROPS_VARIABLE" => "prop",
+					"PRODUCT_QUANTITY_VARIABLE" => "",
+					"PRODUCT_SUBSCRIPTION" => "N",
+					"PROPERTY_CODE" => array(0=>"",1=>"",),
+					"SECTION_CODE" => '',
+					"SECTION_CODE_PATH" => "",
+					"SECTION_ID" => "",
+					"SECTION_ID_VARIABLE" => "SECTION_ID",
+					"SECTION_URL" => "",
+					"SECTION_USER_FIELDS" => array(0=>"",1=>"",),
+					"SEF_MODE" => "N",
+					"SET_BROWSER_TITLE" => "Y",
+					"SET_LAST_MODIFIED" => "N",
+					"SET_META_DESCRIPTION" => "Y",
+					"SET_META_KEYWORDS" => "Y",
+					"SET_STATUS_404" => "N",
+					"SET_TITLE" => "Y",
+					"SHOW_404" => "N",
+					"SHOW_ALL_WO_SECTION" => "Y",
+					"SHOW_CLOSE_POPUP" => "N",
+					"SHOW_DISCOUNT_PERCENT" => "N",
+					"SHOW_OLD_PRICE" => "N",
+					"SHOW_PRICE_COUNT" => "1",
+					"TEMPLATE_THEME" => "site",
+					"USE_MAIN_ELEMENT_SECTION" => "N",
+					"USE_PRICE_COUNT" => "N",
+					"USE_PRODUCT_QUANTITY" => "N",
+					"WITH_REVIEWS" => ($isFirst)?"Y":"N",
+					"WITH_CALLBACK" => ($isLast)?"Y":"N",
+				),
+			false,
+			Array(
+				'ACTIVE_COMPONENT' => 'Y'
+			)
+			);?>
 		</div>
 	</div>
 </div>

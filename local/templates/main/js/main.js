@@ -456,7 +456,8 @@ $(document).ready(function(){
     // Добавление в корзину
     var cartTimeout = 0,
         successTimeout = 0;
-    $("body").on("click", ".b-btn-to-cart:not(.b-to-detail)", function(){
+
+    $("body").on("click", ".b-btn-to-cart-detail", function(){
 
         if ($(this).hasClass('unavailable')) {
             return false;
@@ -473,7 +474,7 @@ $(document).ready(function(){
         $cap.removeClass('hide').addClass('after-load');
         $this.addClass('hide');
 
-        url = href+"&element_id="+id+"&quantity="+quantity;
+        url = href+"&ELEMENT_ID="+id+"&quantity="+quantity;
         $.ajax({
             type: "GET",
             url: url,
@@ -511,6 +512,50 @@ $(document).ready(function(){
                 }, 1500);
             }
         });
+        return false;
+    });
+
+    $("body").on("click", ".b-btn-to-cart-list",function(){
+        var url = $(this).attr("href"),
+            $cont = $(this).parents(".b-basket-count-cont"),
+            $this = $(this);
+
+        if( $cont.find("input[name=quantity]").length ){
+            $cont.find("input[name=quantity]").val($cont.find("input[name=quantity]").attr("data-min"));
+            url = url + "&quantity=" + $cont.find("input[name=quantity]").attr("data-min");
+        }
+        
+        clearTimeout(cartTimeout);
+
+        $(this).parents(".b-basket-count-cont").addClass("b-item-in-basket");
+
+        progress.start(1.5);
+
+        $.ajax({
+            type: "GET",
+            url: url,
+            success: function(msg){
+                progress.end();
+
+                if( isValidJSON(msg) ){
+                    var json = JSON.parse(msg);
+
+                    if( json.result == "success" ){
+                        if( json.action == "reload" ){
+                            window.location.reload();
+                        }else{
+                            updateBasket(json.count, json.sum);
+                        }
+                    }
+                }else{
+                    alert("Ошибка добавления в корзину");
+                }
+            },
+            error: function(){
+                alert("Ошибка добавления в корзину");
+            }
+        });
+
         return false;
     });
 
@@ -855,13 +900,21 @@ $(document).ready(function(){
         $(".cart-count").text( count + " шт." );
         $(".cart-sum").text( sum );
 
-        if( $(".cart-sum").text() == "0" ){
-            $(".cart-sum").hide();
-            $(".cart-count").hide();
-        }else{
-            $(".cart-sum").show();
-            $(".cart-count").show();
+        if(count == 0){
+            $('.b-cart-text').addClass('empty');
+        } else {
+            $('.b-cart-text').removeClass('empty');
         }
+
+        // if( $(".cart-sum").text() == "0" ){
+        //     $('.b-cart-text').addClass('empty');
+        //     $(".cart-sum").hide();
+        //     $(".cart-count").hide();
+        // }else{
+        //     $('.b-cart-text').removeClass('empty');
+        //     $(".cart-sum").show();
+        //     $(".cart-count").show();
+        // }
     }
 
     function trigger(id, event){

@@ -8,7 +8,7 @@ use Bitrix\Main,
 
 Asset::getInstance()->addJs("/bitrix/components/bitrix/sale.order.payment.change/templates/.default/script.js");
 Asset::getInstance()->addCss("/bitrix/components/bitrix/sale.order.payment.change/templates/.default/style.css");
-$this->addExternalCss("/bitrix/css/main/bootstrap.css");
+// $this->addExternalCss("/bitrix/css/main/bootstrap.css");
 CJSCore::Init(array('clipboard', 'fx'));
 
 Loc::loadMessages(__FILE__);
@@ -289,12 +289,12 @@ else
 
 	}
 	?>
-	<div class="clearfix"></div>
-	<?
-	echo $arResult["NAV_STRING"];
+	
+	<div class="b-load-more-container">
+		<?echo $arResult["NAV_STRING"];?>
+	</div>
 
-	if ($_REQUEST["filter_history"] !== 'Y')
-	{
+	<?if ($_REQUEST["filter_history"] !== 'Y'){
 		$javascriptParams = array(
 			"url" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
 			"templateFolder" => CUtil::JSEscape($templateFolder),

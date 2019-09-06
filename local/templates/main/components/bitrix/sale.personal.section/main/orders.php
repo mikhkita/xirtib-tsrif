@@ -9,10 +9,10 @@ if ($arParams['SHOW_ORDER_PAGE'] !== 'Y')
 
 if (strlen($arParams["MAIN_CHAIN_NAME"]) > 0)
 {
-	$APPLICATION->AddChainItem(htmlspecialcharsbx($arParams["MAIN_CHAIN_NAME"]), $arResult['SEF_FOLDER']);
+	// $APPLICATION->AddChainItem(htmlspecialcharsbx($arParams["MAIN_CHAIN_NAME"]), $arResult['SEF_FOLDER']);
 }
 
-$APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_ORDERS"), $arResult['PATH_TO_ORDERS']);
+// $APPLICATION->AddChainItem(Loc::getMessage("SPS_CHAIN_ORDERS"), $arResult['PATH_TO_ORDERS']);
 
 $_REQUEST['show_all']='Y'; // Костыль для отображения всех заказов
 

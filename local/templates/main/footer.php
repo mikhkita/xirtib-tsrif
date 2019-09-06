@@ -363,10 +363,18 @@
 				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
 			</div>
 		</div>
+		<div class="b-thanks b-popup" id="b-email-success">
+			<div class="b-popup-header">
+				<h3>Спасибо!</h3>
+				<p>Вы успешно подписались на рассылку новостей.</p>
+			</div>
+			<div class="b-btn-container">
+				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
+			</div>
+		</div>
 		<div class="b-thanks b-popup" id="b-popup-error">
 			<div class="b-popup-header">
 				<h3>Ошибка!</h3>
-				<p>Ваша заявка успешно отправлена.<br/>Наш менеджер свяжется с Вами в течение часа.</p>
 			</div>
 			<div class="b-btn-container">
 				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
@@ -522,7 +530,10 @@
 			</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-3.2.1.min.js"></script>
+	<!-- <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-3.2.1.min.js"></script> -->
+
+	<script type="text/javascript" src="/bitrix/js/main/jquery/jquery-1.8.3.min.js"></script>
+	
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.fancybox.min.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.formstyler.min.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/chosen.jquery.min.js"></script>

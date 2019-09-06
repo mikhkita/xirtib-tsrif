@@ -139,6 +139,8 @@ $(document).ready(function(){
 			$popup = $($popupID),
 			$this = $(elem);
 
+		console.log($this);
+
 		$this.fancybox({
 			padding : 0,
 			content : $popup,
@@ -301,6 +303,7 @@ $(document).ready(function(){
 				                    $.fancybox.close();
 				                break;
 				            }
+				            $form.find(".b-popup-error").html('');
 				        }else{
 				        	$form.find(".b-popup-error").html(json.error);
 				        	switch (json.action) {
@@ -313,6 +316,7 @@ $(document).ready(function(){
 					}else{
 						if( msg == "1" ){
 							$link = $this.find(".b-thanks-link");
+							$form.find(".b-popup-error").html('');
 						}else{
 							$link = $(".b-error-link");
 						}

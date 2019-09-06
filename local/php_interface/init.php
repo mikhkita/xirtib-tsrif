@@ -1041,7 +1041,7 @@ function getBasketCount(){
 
 	return array(
 		"count" => array_sum($basket->getQuantityList()),
-		"sum" => number_format( $order->getPrice(), 0, ',', ' ' )
+		"sum" => convertPrice($order->getPrice())
 	);
 }
 

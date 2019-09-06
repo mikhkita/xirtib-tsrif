@@ -18,6 +18,7 @@ $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["Nav
 	<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]+1)?>" class="b-load-more b-load-more-works icon-load">
 		<p class="pink dashed">Загрузить еще</p>
 	</a>
+	
 <? endif; ?>
 
 <div class="b-pagination">

@@ -334,9 +334,12 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 				<h3>от «Первого магазина»</h3>
 				<h4>Узнавайте об <span class="bold">акциях и новинках</span> первыми</h4>
 				<h4>Подпишитесь на рассылку и покупайте<br>с выгодой для себя</h4>
-				<form action="/kitsend.php" class="b-one-string-form">
-					<input type="text" placeholder="Введите ваш E-mail">
-					<a href="#" class="pink">Подписаться</a>
+				<form action="/ajax/?action=ADDEMAIL" class="b-one-string-form" method="POST">
+					<input type="text" placeholder="Введите ваш E-mail" name="email" required>
+					<input type="text" name="MAIL">
+					<a href="#" class="pink ajax">Подписаться</a>
+					<div class="b-popup-error"></div>
+					<a href="#b-email-success" class="b-thanks-link fancy" style="display:none;"></a>
 				</form>
 			</div>
 			<div class="b-block-2 b-two-blocks-item">

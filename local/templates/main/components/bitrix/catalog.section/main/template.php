@@ -46,7 +46,7 @@ $arFilters = Array(
 					<? $discountPrice = convertPrice($offer["PRICES"]["PRICE"]["DISCOUNT_VALUE"]); ?>
 				<? endforeach; ?>
 
-				<? foreach ($arItem['OFFERS'] as $offer): ?> <!-- отдельный цикл для перебора количества -->
+				<? foreach ($arItem['OFFERS'] as $offer): ?> <?/*?> отдельный цикл для перебора количества <?*/?>
 					<? if ($offer['PRODUCT']['QUANTITY'] != 0): ?>
 						<? $isQuantity = true; ?>
 						<? break; ?>
@@ -129,7 +129,7 @@ $arFilters = Array(
 							<? if ($arItem['OFFERS']): ?>
 								<a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="b-btn icon-cart b-btn-to-cart b-to-detail"><span>Выбрать</span></a>
 							<? else: ?>
-								<a href="/ajax/?partial=1&ELEMENT_ID=<?=$arItem["ID"]?>&action=ADD2BASKET" class="b-btn icon-cart b-btn-to-cart"><span>В корзину</span></a>
+								<a href="/ajax/?partial=1&ELEMENT_ID=<?=$arItem["ID"]?>&action=ADD2BASKET" class="b-btn icon-cart b-btn-to-cart b-btn-to-cart-list"><span>В корзину</span></a>
 							<?endif;?>
 							<div class="b-error-max-count">Доступно: <?=$arItem["CATALOG_QUANTITY"]?> шт.</div>
 						<? else: ?>
@@ -141,11 +141,11 @@ $arFilters = Array(
 							<a href="#b-popup-error-reserved" class="b-error-link fancy" style="display:none;"></a>
 						<? endif; ?>
 						</div>
-						<? if( $isQuantity ): ?>
+						<? if( $isQuantity ): /*?>
 							<div class="b-one-click-buy">
 								<a href="#" class="dashed pink">Купить в один клик</a>
 							</div>
-						<? endif; ?>
+						<? */ endif; ?>
 					</div>
 					<? if( $GLOBALS["isWholesale"] ): ?>
 						<? if( count($arItem["ITEM_PRICES"]) > 2 ): ?>

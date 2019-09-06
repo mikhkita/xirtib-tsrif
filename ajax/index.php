@@ -16,7 +16,7 @@ $hashKey = 481516;
 switch ($action) {
 	case 'BUY':
 	case 'ADD2BASKET':
-		$productId = $_GET["element_id"];
+		$productId = $_GET["ELEMENT_ID"];
 		$quantity = (isset($_GET["quantity"]))?$_GET["quantity"]:1;
 
 		if (CModule::IncludeModule("catalog")){
@@ -624,6 +624,42 @@ switch ($action) {
 		);
 
 		echo $out = $el->Add($arLoadProductArray) ? '1' : '0';
+
+		break;
+	case 'ADDEMAIL':
+
+		if (empty($_POST["MAIL"])){
+			if (empty($_POST['email'])) {
+				$spam = true;
+			} else {
+				$spam = false;
+			}
+		}else{
+			$spam = true;
+		}
+
+		if (!$spam) {
+
+			$res = CIBlockElement::GetList(Array(), array("IBLOCK_ID"=> 14, 'NAME' => $_POST['email']), array(), array("nPageSize"=>50), array());
+
+			if ($res == 0) {
+				CModule::IncludeModule("iblock");
+				$el = new CIBlockElement;
+
+				$arLoadProductArray = Array(
+				  "IBLOCK_ID"      => 14,
+				  "NAME"           => $_POST["email"],
+				  "ACTIVE"         => "Y",
+				  "DATE_ACTIVE_FROM" => ConvertTimeStamp(time(), "FULL")
+				);
+
+				echo $out = $el->Add($arLoadProductArray) ? '1' : '0';
+			} else {
+				returnError('Такой e-mail уже подписан на рассылку');
+			}
+		} else {
+			echo '1';
+		}
 
 		break;
 	default:
