@@ -305,10 +305,10 @@ $(document).ready(function(){
 				            }
 				            $form.find(".b-popup-error").html('');
 				        }else{
-				        	$form.find(".b-popup-error").html(json.error);
+				        	$form.find(".b-msg-error").html(json.error);
 				        	switch (json.action) {
 				                case "messageError":
-				                    $form.find(".b-popup-error").html(json.message);
+				                    $form.find(".b-msg-error").html(json.message);
 				                break;
 				            }
 				        }

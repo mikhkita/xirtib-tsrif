@@ -1791,7 +1791,7 @@ $(document).ready(function(){
         uploaderEdit.init();
     }
 
-    if( $(".sticky").length && myWidth < 1150){
+    if( $(".sticky").length && myWidth > 1150){
         Stickyfill.add($('.sticky'));
     }
 

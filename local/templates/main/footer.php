@@ -69,14 +69,16 @@
             </div>
 			<div class="b-form-container">
 				<form action="/personal/?action=authSite&login=yes" method="POST" id="b-form-auth" class="b-form-auth">
-					<div class="b-underbtn-text">Войти через соцсети</div>
-					<div class="b-popup-soc b-soc">
-						<a href="http://vk.com" target="_blank" class="b-soc-item icon-vk"></a>
-						<!-- <a href="http://instagram.com" target="_blank" class="b-soc-item icon-ok"></a> -->
-						<a href="http://facebook.com" target="_blank" class="b-soc-item icon-facebook"></a>
-						<!-- <a href="http://google.com" target="_blank" class="b-soc-item icon-google"></a> -->
-					</div>
-					<div class="b-popup-error"></div>
+					<?
+					// <div class="b-underbtn-text">Войти через соцсети</div>
+					// <div class="b-popup-soc b-soc">
+					// 	<a href="http://vk.com" target="_blank" class="b-soc-item icon-vk"></a>
+					// 	<!-- <a href="http://instagram.com" target="_blank" class="b-soc-item icon-ok"></a> -->
+					// 	<a href="http://facebook.com" target="_blank" class="b-soc-item icon-facebook"></a>
+					// 	<!-- <a href="http://google.com" target="_blank" class="b-soc-item icon-google"></a> -->
+					// </div>
+					?>
+					<div class="b-msg-error"></div>
 					<div class="b-popup-form">
 						<input type="hidden" name="AUTH_FORM" value="Y">
 		                <input type="hidden" name="TYPE" value="AUTH">
@@ -101,6 +103,7 @@
 					</div>
 				</form>
 				<form action="/ajax/?action=REG" method="POST" id="b-form-reg" class="b-form-reg hide">
+					<div class="b-msg-error"></div>
 					<div class="b-popup-form">
 						<div class="b-input-string">
 							<input type="text" name="email" class="b-popup-input" placeholder="E-mail*" required>
@@ -131,7 +134,7 @@
 		<div class="b-popup b-popup-auth" id="b-popup-auth">
 			<div class="b-popup-header"><h3>Войдите</h3> или <a href="#b-popup-reg" onclick="$.fancybox.close();" class="fancy dashed">зарегистрируйтесь</a></div>
 			<form action="/personal/?action=authSite&login=yes" method="POST" id="b-form-auth">
-				<div class="b-popup-error"></div>
+				<div class="b-msg-error"></div>
 				<div class="b-popup-form">
 					<input type="hidden" name="AUTH_FORM" value="Y">
 	                <input type="hidden" name="TYPE" value="AUTH">
