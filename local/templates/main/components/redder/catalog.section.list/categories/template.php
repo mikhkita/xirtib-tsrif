@@ -27,6 +27,13 @@ $this->setFrameMode(true);
 				if (count($arSect) > 1) {
 				 	$isEmpty = '';
 				} 
+				$arFilterCount = array(
+					"IBLOCK_ID" => 1, 
+					"ACTIVE" => "Y", 
+					"SECTION_ID" => intval($arItem['ID']),
+					"INCLUDE_SUBSECTIONS" => "Y",
+				);
+				$resCount = CIBlockElement::GetList(array(), $arFilterCount, array(), false, array());
 				?>
 					<div class="b-catalog-item b-category-item">
 					<? if($arItem['PICTURE']['SRC']): ?>
@@ -39,7 +46,7 @@ $this->setFrameMode(true);
 						<div class="b-category-item-back"></div>
 						<div class="b-category-item-outer">
 							<h6><a href="<?=detailPageUrl($arItem["SECTION_PAGE_URL"])?>"><?=$arItem['NAME']?></a></h6>
-							<p class="b-category-count icon-tick">(<?=count($arSect)-1?>)</p>
+							<p class="b-category-count icon-tick">(<?=$resCount?>)</p>
 						</div>
 						<div class="b-category-item-inner">
 							<ul>

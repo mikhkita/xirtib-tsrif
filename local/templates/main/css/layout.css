@@ -2680,6 +2680,8 @@ select{
 						display: block;
 						margin-bottom: 20px;
 						margin-left: 16px;
+						max-width: 128px;
+						text-align: right;
 					}
 					.b-catalog-list.list .b-one-click-buy{
 						position: relative;
