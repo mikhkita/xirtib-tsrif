@@ -166,29 +166,47 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 	<div class="b-catalog-preview b-category-catalog-preview wave-bottom">
 		<div class="b-block">
 			<div class="b-sort">
+				<?
+					$arCount = array('12', '24', '48');
+					$arSort = array(
+						'SORT' => 'Популярности',
+						'NAME' => 'Алфавиту',
+						'CATALOG_PRICE_1' => 'Цене'
+					);
+
+					foreach ($_REQUEST as $key => $value){
+						if (strpos($key, "PAGEN") !== false){
+							$pagen['name'] = $key;
+							$pagen['value'] = $value;
+						}
+					}
+				?>
 				<form action="" method="GET" class="b-catalog-form">
 					<div class="b-sort-container">
 						<div class="b-sort-item b-sort-type">
 							<p><b>Сортировать по:</b></p>
 							<div class="b-sort-select">
-								<select name="sort">
-									<option value="NAME">Алфавиту</option>
-									<option value="PROPERTY_PRICE">PROPERTY_PRICE</option>
-									<option value="PRICE">PRICE</option>
+								<select name="sort" class="sort-select">
+									<? foreach($arSort as $value => $name): ?>
+										<? $selected = ($_REQUEST['sort'] == $value) ? 'selected' : ''; ?>
+										<option value="<?=$value?>" <?=$selected?> ><?=$name?></option>
+									<? endforeach; ?>
 								</select>
-								<input type="hidden" name="section_id" value="<?=$GLOBALS["SECTION_ID"]?>">
+								<!-- <input type="hidden" name="section_id" value="<?=$GLOBALS["SECTION_ID"]?>"> -->
 							</div>
 						</div>
 						<div class="b-sort-item b-sort-discount">
 							<label class="checkbox">
-							  <input type="checkbox" name="discount">
-							  <span>Только со скидкой</span>
+								<? $discountChecked = $_REQUEST['discount'] == 'on' ? 'checked' : '' ?>
+								<input type="checkbox" name="discount" <?=$discountChecked?>>
+								<span>Только со скидкой</span>
 							</label>
 						</div>
 						<div class="b-sort-item b-sort-wholesale">
 							<label class="checkbox">
-							  <input type="checkbox" name="wholesale">
-							  <span>Купить оптом</span>
+								<? $wholesaleChecked = $_REQUEST['wholesale'] == 'on' ? 'checked' : '' ?>
+								<input type="checkbox" name="wholesale" <?=$wholesaleChecked?>>
+								<span>Купить оптом</span>
 							</label>
 						</div>
 					</div>
@@ -197,23 +215,29 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 							<p><b>Показывать по:</b></p>
 							<div class="b-sort-select">
 								<select name="count">
-									<option value="12">12</option>
-									<option value="24">24</option>
-									<option value="48">48</option>
+									<? foreach ($arCount as $value): ?>
+										<? if (isset($_REQUEST['count'])): ?>
+											<? $selected = ($_REQUEST['count'] == $value) ? 'selected' : '' ;?>
+										<? endif; ?>
+										<option value="<?=$value?>" <?=$selected?>><?=$value?></option>
+									<? endforeach; ?>
 								</select>
 							</div>
 						</div>
 						<div class="b-sort-item b-sort-view">
-							<a href="#" class="sort-icon icon-sort-2 active" data-style="small-tile"></a>
-							<a href="#" class="sort-icon icon-list" data-style="list"></a>
+							<? $view = $_REQUEST['view'] ? $_REQUEST['view'] : 'tile'; ?>
+							<input type="radio" name="view" value="tile" class="sort-icon icon-sort-1 <? echo $view == 'tile' ? 'active' : ''; ?>" <? echo $view == 'tile' ? 'checked' : ''; ?>>
+							<input type="radio" name="view" value="list" class="sort-icon icon-list <? echo $view == 'list' ? 'active' : ''; ?>" <? echo $view == 'list' ? 'checked' : ''; ?>>
 						</div>
+						<? if (isset($pagen)): ?>
+							<input type="hidden" id="pagen" name="<?=$pagen['name']?>" value='<?=$pagen['value']?>'>
+						<? endif; ?>
 					</div>
 				</form>
 			</div>
 			<?
 			if ($_GET['discount']=="on") {
 				$arDiscounts = getDiscountProducts();
-				var_dump($arDiscounts);
 				$GLOBALS["arrDiscountFilter"][] = Array(
 					"LOGIC"=>"OR",
 					Array("ID" =>$arDiscounts["PRODUCTS"]),
