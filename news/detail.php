@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("");?>
-
+<div class="b-block">
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.detail",
 	"news",
@@ -53,4 +53,6 @@ $APPLICATION->SetTitle("");?>
 		"USE_PERMISSIONS" => "N",
 		"USE_SHARE" => "N",
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+</div>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

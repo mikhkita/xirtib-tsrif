@@ -226,46 +226,68 @@ if ($arUser['PERSONAL_PHOTO']){
 				</div>
 				<div class="b-tab-item hide" id="myquestions">
 					<div class="myreviews-header">Мои Вопросы</div>
-					<div class="b-faq-list">
-						<div class="b-faq-item no-img">
-							<div class="b-faq-header">Когда мне доставят заказ?
-								<div class="b-faq-header-icon">
-									<div class="b-faq-header-icon-line"></div>
-									<div class="b-faq-header-icon-line"></div>
-								</div>
-							</div>
-							<div class="b-faq-content">
-								<div class="b-faq-item-text">Сборка товаров начинается послеподтверждения факта оплаты и длится от 1 часа до 10 дней в зависимости от объема. После сборки заказ отправляется выбранным вами способом. Доставка зависит от политики компании-доставщика. В среднем доставка по России занимает не более 10 дней.</div>
-							</div>
-						</div>
-						<div class="b-faq-item no-img">
-							<div class="b-faq-header">Менеджер поможет с выбором товара?
-								<div class="b-faq-header-icon">
-									<div class="b-faq-header-icon-line"></div>
-									<div class="b-faq-header-icon-line"></div>
-								</div>
-							</div>
-							<div class="b-faq-content">
-								<div class="b-faq-item-text">Сборка товаров начинается послеподтверждения факта оплаты и длится от 1 часа до 10 дней в зависимости от объема. После сборки заказ отправляется выбранным вами способом. Доставка зависит от политики компании-доставщика. В среднем доставка по России занимает не более 10 дней.</div>
-							</div>
-						</div>
-						<div class="b-faq-item no-img">
-							<div class="b-faq-header">Как быстро мне доставят заказ?
-								<div class="b-faq-header-icon">
-									<div class="b-faq-header-icon-line"></div>
-									<div class="b-faq-header-icon-line"></div>
-								</div>
-							</div>
-							<div class="b-faq-content">
-								<div class="b-faq-item-text no-answer">Администратор еще не ответил на ваш вопрос</div>
-							</div>
-						</div>
-					</div>
-					<!-- <div class="b-works-upload">
-						<a href="#" class="b-load-more icon-load">
-							<p class="pink dashed">Показать все</p>
-						</a>
-					</div> -->
+						<? $GLOBALS['questionsFilter'] = array(
+							'PROPERTY_USER' => $userID,
+							"ACTIVE" => array("Y", "N"),
+						);?>
+						<?$APPLICATION->IncludeComponent(
+							"bitrix:news.list",
+							"questions",
+							Array(
+								"ACTIVE_DATE_FORMAT" => "d.m.Y",
+								"ADD_SECTIONS_CHAIN" => "N",
+								"AJAX_MODE" => "Y",
+								"AJAX_OPTION_ADDITIONAL" => "",
+								"AJAX_OPTION_HISTORY" => "Y",
+								"AJAX_OPTION_JUMP" => "Y",
+								"AJAX_OPTION_STYLE" => "Y",
+								"CACHE_FILTER" => "N",
+								"CACHE_GROUPS" => "N",
+								"CACHE_TIME" => "36000000",
+								"CACHE_TYPE" => "A",
+								"CHECK_DATES" => "Y",
+								"DETAIL_URL" => "",
+								"DISPLAY_BOTTOM_PAGER" => "Y",
+								"DISPLAY_DATE" => "N",
+								"DISPLAY_NAME" => "Y",
+								"DISPLAY_PICTURE" => "Y",
+								"DISPLAY_PREVIEW_TEXT" => "Y",
+								"DISPLAY_TOP_PAGER" => "N",
+								"FIELD_CODE" => array("NAME","PREVIEW_TEXT","","DATE_CREATE"),
+								"FILTER_NAME" => "questionsFilter",
+								"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+								"IBLOCK_ID" => "16",
+								"IBLOCK_TYPE" => "content",
+								"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+								"INCLUDE_SUBSECTIONS" => "N",
+								"MESSAGE_404" => "",
+								"NEWS_COUNT" => "10",
+								"PAGER_BASE_LINK" => "",
+								"PAGER_BASE_LINK_ENABLE" => "Y",
+								"PAGER_DESC_NUMBERING" => "N",
+								"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+								"PAGER_PARAMS_NAME" => "arrPager",
+								"PAGER_SHOW_ALL" => "Y",
+								"PAGER_SHOW_ALWAYS" => "N",
+								"PAGER_TEMPLATE" => "main",
+								"PAGER_TITLE" => "Новости",
+								"PARENT_SECTION" => "",
+								"PARENT_SECTION_CODE" => "",
+								"PREVIEW_TRUNCATE_LEN" => "",
+								"PROPERTY_CODE" => array("PRODUCT_ID", "USER_ID"),
+								"SET_BROWSER_TITLE" => "N",
+								"SET_LAST_MODIFIED" => "N",
+								"SET_META_DESCRIPTION" => "N",
+								"SET_META_KEYWORDS" => "N",
+								"SET_STATUS_404" => "N",
+								"SET_TITLE" => "N",
+								"SHOW_404" => "N",
+								"SORT_BY1" => "SORT",
+								"SORT_BY2" => "ACTIVE_FROM",
+								"SORT_ORDER1" => "ASC",
+								"SORT_ORDER2" => "DESC"
+							)
+						);?>
 				</div>
 			</div>
 		</div>

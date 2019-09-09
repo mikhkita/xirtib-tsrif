@@ -2,25 +2,25 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("keywords", "Товары для кондитера, инструменты для кондитера");
 $APPLICATION->SetPageProperty("description", "Магазин по продаже товаров для профессионального кондитера");
-$APPLICATION->SetTitle("Вкусный магазин для кондитеров и кулинаров");
+$APPLICATION->SetTitle("Первый магазин для кондитеров");
 
 ?>
 
 <div class="b-index-tops">
 	<div class="b-block">
 		<div class="b-index-top b-index-top-1">
-			<h4><span class="bold">«Первый магазин» –</span><br>эксклюзивный дистрибьютор в России</h4>
+			<h4><span class="bold">«Первый магазин» – </span><br>эксклюзивный дистрибьютор в России</h4>
 			<img src="<?=SITE_TEMPLATE_PATH?>/i/banner-back-1-info.png">
 			<h5>Лидер на рынке <span class="bold">пищевых красителей</span></h5>
 			<div class="b-index-top-columns">
 				<div class="b-index-top-column"><h6>30 насыщенных оттенков</h6></div>
 				<div class="b-index-top-column"><h6>Кошерный и халяльный продукт</h6></div>
 			</div>
-			<a href="#" class="b-btn">Смотреть каталог</a>
+			<a href="/catalog/" class="b-btn">Смотреть каталог</a>
 		</div>
 		<div class="b-index-top b-index-top-2">
 			<h6><span class="bold">Продавайте</span> свои работы дороже в&nbsp;2&nbsp;раза, уже сегодня управляя домашним бизнесом <span class="bold">с помощью приложения:</span></h6>
-			<a href="#" class="b-btn">Узнать&nbsp;подробнее</a>
+			<a href="#" class="b-btn" onclick="return false;">Узнать&nbsp;подробнее</a>
 		</div>
 	</div>
 </div>
@@ -332,17 +332,118 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 			<div class="b-block-1 b-two-blocks-item">
 				<h2>Товар дня*</h2>
 				<h3>от «Первого магазина»</h3>
+				<div class="daily-mobile">
+					<? $GLOBALS['arDailyFilter'] = array("PROPERTY_DAILY_VALUE" => "Y"); ?>
+					<?$APPLICATION->IncludeComponent(
+						"bitrix:catalog.section",
+						"daily",
+						Array(
+							"ACTION_VARIABLE" => "action",
+							"ADD_PICT_PROP" => "MORE_PHOTO",
+							"ADD_PROPERTIES_TO_BASKET" => "Y",
+							"ADD_SECTIONS_CHAIN" => "Y",
+							"ADD_TO_BASKET_ACTION" => "ADD",
+							"AJAX_MODE" => "Y",
+							"AJAX_OPTION_ADDITIONAL" => "",
+							"AJAX_OPTION_HISTORY" => "Y",
+							"AJAX_OPTION_JUMP" => "Y",
+							"AJAX_OPTION_STYLE" => "Y",
+							"BACKGROUND_IMAGE" => "-",
+							"BASKET_URL" => "/personal/cart/",
+							"BROWSER_TITLE" => "-",
+							"CACHE_FILTER" => "N",
+							"CACHE_GROUPS" => "Y",
+							"CACHE_TIME" => "36000000",
+							"CACHE_TYPE" => "N",
+							"COMPONENT_TEMPLATE" => ".default",
+							"CONVERT_CURRENCY" => "N",
+							"DETAIL_URL" => "",
+							"DISABLE_INIT_JS_IN_COMPONENT" => "N",
+							"DISPLAY_BOTTOM_PAGER" => "N",
+							"DISPLAY_TOP_PAGER" => "N",
+							"ELEMENT_SORT_FIELD" => "sort",
+							"ELEMENT_SORT_FIELD2" => "id",
+							"ELEMENT_SORT_ORDER" => "ASC",
+							"ELEMENT_SORT_ORDER2" => "DESC",
+							"FILTER_NAME" => "arDailyFilter",
+							"HIDE_NOT_AVAILABLE" => "Y",
+							"IBLOCK_ID" => "1",
+							"IBLOCK_TYPE" => "catalog",
+							"IBLOCK_TYPE_ID" => "catalog",
+							"INCLUDE_SUBSECTIONS" => "A",
+							"LABEL_PROP" => "SALELEADER",
+							"LINE_ELEMENT_COUNT" => "1",
+							"MESSAGE_404" => "",
+							"MESS_BTN_ADD_TO_BASKET" => "В корзину",
+							"MESS_BTN_BUY" => "Купить",
+							"MESS_BTN_DETAIL" => "Подробнее",
+							"MESS_BTN_SUBSCRIBE" => "Подписаться",
+							"MESS_NOT_AVAILABLE" => "Заказ по телефону",
+							"META_DESCRIPTION" => "-",
+							"META_KEYWORDS" => "-",
+							"OFFERS_CART_PROPERTIES" => array(0=>"COLOR_REF",1=>"SIZES_CLOTHES",),
+							"OFFERS_FIELD_CODE" => array(0=>"",1=>"",),
+							"OFFERS_LIMIT" => "5",
+							"OFFERS_PROPERTY_CODE" => array(0=>"COLOR_REF",1=>"SIZES_CLOTHES",2=>"SIZES_SHOES",3=>"",),
+							"OFFERS_SORT_FIELD" => "sort",
+							"OFFERS_SORT_FIELD2" => "id",
+							"OFFERS_SORT_ORDER" => "desc",
+							"OFFERS_SORT_ORDER2" => "desc",
+							"OFFER_ADD_PICT_PROP" => "-",
+							"OFFER_TREE_PROPS" => array(0=>"COLOR_REF",1=>"SIZES_SHOES",2=>"SIZES_CLOTHES",),
+							"PAGER_BASE_LINK_ENABLE" => "N",
+							"PAGER_DESC_NUMBERING" => "N",
+							"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+							"PAGER_SHOW_ALL" => "Y",
+							"PAGER_SHOW_ALWAYS" => "N",
+							"PAGER_TEMPLATE" => "main",
+							"PAGER_TITLE" => "Товары",
+							"PAGE_ELEMENT_COUNT" => 1,
+							"PARTIAL_PRODUCT_PROPERTIES" => "N",
+							"PRICE_CODE" => array(0=>"PRICE",),
+							"PRICE_VAT_INCLUDE" => "N",
+							"PRODUCT_DISPLAY_MODE" => "N",
+							"PRODUCT_ID_VARIABLE" => "id",
+							"PRODUCT_PROPERTIES" => array(),
+							"PRODUCT_PROPS_VARIABLE" => "prop",
+							"PRODUCT_QUANTITY_VARIABLE" => "",
+							"PRODUCT_SUBSCRIPTION" => "N",
+							"PROPERTY_CODE" => array(0=>"",1=>"",),
+							"SECTION_CODE" => "",
+							"SECTION_CODE_PATH" => "",
+							"SECTION_ID" => "",
+							"SECTION_ID_VARIABLE" => "SECTION_ID",
+							"SECTION_URL" => "",
+							"SECTION_USER_FIELDS" => array(0=>"",1=>"",),
+							"SEF_MODE" => "N",
+							"SET_BROWSER_TITLE" => "N",
+							"SET_LAST_MODIFIED" => "N",
+							"SET_META_DESCRIPTION" => "Y",
+							"SET_META_KEYWORDS" => "Y",
+							"SET_STATUS_404" => "N",
+							"SET_TITLE" => "N",
+							"SHOW_404" => "N",
+							"SHOW_ALL_WO_SECTION" => "Y",
+							"SHOW_CLOSE_POPUP" => "N",
+							"SHOW_DISCOUNT_PERCENT" => "N",
+							"SHOW_OLD_PRICE" => "N",
+							"SHOW_PRICE_COUNT" => "1",
+							"TEMPLATE_THEME" => "site",
+							"USE_MAIN_ELEMENT_SECTION" => "N",
+							"USE_PRICE_COUNT" => "N",
+							"USE_PRODUCT_QUANTITY" => "N",
+						),
+					false,
+					Array(
+						'ACTIVE_COMPONENT' => 'Y'
+					)
+					);?>
+				</div>
 				<h4>Узнавайте об <span class="bold">акциях и новинках</span> первыми</h4>
-				<h4>Подпишитесь на рассылку и покупайте<br>с выгодой для себя</h4>
-				<form action="/ajax/?action=ADDEMAIL" class="b-one-string-form" method="POST">
-					<input type="text" placeholder="Введите ваш E-mail" name="email" required>
-					<input type="text" name="MAIL">
-					<a href="#" class="pink ajax">Подписаться</a>
-					<div class="b-popup-error"></div>
-					<a href="#b-email-success" class="b-thanks-link fancy" style="display:none;"></a>
-				</form>
+				<h4>Подпишитесь на рассылку и покупайте <br>с выгодой для себя</h4>
+				<? includeArea('daily-subscribe'); ?>
 			</div>
-			<div class="b-block-2 b-two-blocks-item">
+			<div class="b-block-2 b-two-blocks-item daily-desktop">
 				<? $GLOBALS['arDailyFilter'] = array("PROPERTY_DAILY_VALUE" => "Y"); ?>
 				<?$APPLICATION->IncludeComponent(
 					"bitrix:catalog.section",
@@ -455,14 +556,16 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 <div class="b-own-products">
 	<div class="b-block">
 		<div class="b-own-container clearfix">
-			<h2><span class="bold">Собственные бренды — </span>это высокое качество по доступной цене</h2>
-			<ul class="b-advantages">
-				<li>Всегда в наличии</li>
-				<li>Экономно</li>
-				<li>Качественно</li>
-				<li>Безопасно</li>
-				<li>Разумный выбор</li>
-			</ul>
+			<div class="b-own-text">
+				<h2><span class="bold">Собственные бренды — </span>это высокое качество по доступной цене</h2>
+				<ul class="b-advantages">
+					<li>Всегда в наличии</li>
+					<li>Разумный выбор</li>
+					<li>Качественно</li>
+					<li>Безопасно</li>
+					<li>Экономно</li>
+				</ul>
+			</div>
 			<div class="b-own-products-text left">
 				<h4>Кондитерская<br>паста <b>«Наша мастика»</b></h4>
 				<p>Мягкая пластичная масса для покрытия тортов или создания разных декоративных украшений для тортов и десертов.</p>
@@ -510,7 +613,7 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 				"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 				"INCLUDE_SUBSECTIONS" => "Y",
 				"MESSAGE_404" => "",
-				"NEWS_COUNT" => "",
+				"NEWS_COUNT" => "1000",
 				"PAGER_BASE_LINK_ENABLE" => "N",
 				"PAGER_DESC_NUMBERING" => "N",
 				"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -805,45 +908,11 @@ $APPLICATION->SetTitle("Вкусный магазин для кондитеро�
 		</div>
 	</div>
 </div>
+
 <div class="about-advantages-preview">
-	<div class="b-block">
-		<div class="about-advantages">
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-1.svg');">
-				<h4>Удобная доставка</h4>
-				<p>Сделали заказ до 14 часов?<br>Доставим завтра</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-2.svg');">
-				<h4>Безопасная оплата</h4>
-				<p>Более 20 способов оплаты<br>через зашифрованное соединение</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-3.svg');">
-				<h4>30 дней на обмен</h4>
-				<p>Не понравилась покупка?<br>Обменяем без проблем!</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-4.svg');">
-				<h4>Ассортимент</h4>
-				<p>В наличии на складе<br>более 7 000 наименований</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-5.svg');">
-				<h4>Пункты самовывозом</h4>
-				<p>Более 2 000 пунктов<br>самовывоза</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-6.svg');">
-				<h4>Лучшие цены</h4>
-				<p>Нашли дешевле? Сообщите нам.<br>Покупай больше, плати меньше!</p>
-			</div>
-		</div>
-	</div>
+	<? includeArea('advantages'); ?>
 </div>
-<div class="b-sub-block">
-	<div class="b-block">
-		<h2 class="sub-title">Узнавайте об <b>акциях и новинках</b> первыми</h2>
-		<h5>Подпишитесь на рассылку и покупайте с выгодой для себя</h5>
-		<form action="/kitsend.php" class="b-one-string-form">
-			<input type="text" placeholder="Введите ваш E-mail">
-			<a href="#" class="pink">Подписаться</a>
-		</form>
-	</div>
-</div>
+
+<? includeArea('subscribe'); ?>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

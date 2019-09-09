@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Новости");?>
-
+<div class="b-block">
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
 	"news", 
@@ -36,7 +36,7 @@ $APPLICATION->SetTitle("Новости");?>
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"MESSAGE_404" => "",
-		"NEWS_COUNT" => "1000",
+		"NEWS_COUNT" => "20",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -67,5 +67,5 @@ $APPLICATION->SetTitle("Новости");?>
 	),
 	false
 );?>
-
+</div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

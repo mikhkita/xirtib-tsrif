@@ -290,7 +290,7 @@ class MyEventHandlers
 
 			$adminmsg = "<html>".
 				"<head>".
-					"<title>Вкусный магазин: Новый заказ</title>".
+					"<title>Первый магазин: Новый заказ</title>".
 					"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>".
 					"<style>".
 						"body,table {font-family: Arial; font-size:14px;}".
@@ -431,7 +431,7 @@ class MyEventHandlers
 
 			$clientmsg = "<html>".
 				"<head>".
-					"<title>Вкусный магазин: Новый заказ</title>".
+					"<title>Первый магазин: Новый заказ</title>".
 					"<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>".
 					"<style>".
 						"body,table,p {font-family: Arial; font-size:14px;}".
@@ -439,7 +439,7 @@ class MyEventHandlers
 					"</style>".
 				"</head>".
 				"<body>".
-					"<b>Благодарим за Ваш заказ во 'Вкусном магазине'!</b><br><br>".
+					"<b>Благодарим за Ваш заказ в 'Первом магазине'!</b><br><br>".
 					"Способ обработки заказа: ".$processing."<br>".
 					$processinginfo.
 					$cdekText.
@@ -946,6 +946,15 @@ function getOrderCountInDate($date, $isAdd){
 
 	return $count = $isAdd ? $count+1 : $count ; 
 
+}
+
+function includeArea($file){
+	global $APPLICATION;
+	$APPLICATION->IncludeComponent("bitrix:main.include","",Array(
+	        "AREA_FILE_SHOW" => "file", 
+	        "PATH" => "/include/".$file.".php"
+	    )
+	);	
 }
 
 function OnOrderUpdateHandler($ID, $arFields){ 
@@ -1742,7 +1751,7 @@ function getElementImages($arResult, $isList = false){
 		}
 	} else {
 		if ($arResult["DETAIL_PICTURE"]){
-			$arPhoto = resizePhotos($arResult["DETAIL_PICTURE"]);
+			$arPhoto = resizePhotos($arResult["DETAIL_PICTURE"], $isList);
 		} else {
 			$arPhoto['BIG'] = $arPhoto['SMALL'] = SITE_TEMPLATE_PATH.'/i/logo.svg';
 		}

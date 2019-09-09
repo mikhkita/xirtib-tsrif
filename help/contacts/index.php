@@ -35,9 +35,9 @@ $APPLICATION->SetTitle("Контакты");?>
 							<a href="tel:+74959225055" class="b-contacts-phone-link">+ 7 (495) 922 50 55</a>
 							<a href="tel:+74956447572" class="b-contacts-phone-link">+ 7 (495) 644 75 72</a>
 							<div class="b-contacts-phone-soc">
-								<a href="#" class="b-contacts-phone-soc-item" style="background-image: url('i/icon-contacts-soc-1.svg');"></a>
-								<a href="#" class="b-contacts-phone-soc-item" style="background-image: url('i/icon-contacts-soc-2.svg');"></a>
-								<a href="#" class="b-contacts-phone-soc-item" style="background-image: url('i/icon-contacts-soc-3.svg');"></a>
+								<a href="#" class="b-contacts-phone-soc-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/icon-contacts-soc-1.svg');"></a>
+								<a href="#" class="b-contacts-phone-soc-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/icon-contacts-soc-2.svg');"></a>
+								<a href="#" class="b-contacts-phone-soc-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/icon-contacts-soc-3.svg');"></a>
 							</div>
 						</div>
 						<div class="b-contacts-mail b-contacts-left-inner">
@@ -68,7 +68,7 @@ $APPLICATION->SetTitle("Контакты");?>
 			<div class="b-1-by-3-blocks">
 				<div class="b-block-1">
 					<div class="b-faq-form-man">
-						<div class="b-faq-form-man-img" style="background-image: url('i/faq.jpg');"></div>
+						<div class="b-faq-form-man-img" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/faq.jpg');"></div>
 						<div class="b-faq-form-man-name">Анжелика Сирнова</div>
 						<div class="b-faq-form-man-post">Менеджер</div>
 					</div>
@@ -77,14 +77,19 @@ $APPLICATION->SetTitle("Контакты");?>
 					<h4 class="semibold">У вас есть вопрос? </h4>
 					<h5 class="semibold">Задайте его, и наш менеджер ответит в течение 10 минут.</h5>
 					<div class="b-faq-form">
-						<form action="#" method="POST">
+						<form action="/ajax/?action=ADDQUESTION" method="POST">
 							<div class="b-faq-form-textarea">
-								<textarea name="faq-question" id="question" rows="4" placeholder="Введите вопрос"></textarea>
+								<textarea name="question" rows="4" placeholder="Введите вопрос" required></textarea>
+								<input type="text" name="MAIL">
 							</div>
 							<div class="b-faq-form-bottom">
-								<a href="#" class="b-btn ajax">Задать вопрос</a>
-								<a href="#" class="pink semibold">Зарегистрироваться</a>
+								<? if (isAuth()): ?>
+									<a href="#" class="b-btn ajax">Задать вопрос</a>
+								<? else: ?>
+									<a href="#b-popup-auth" class="b-btn fancy">Войти</a>
+								<? endif; ?>
 							</div>
+							<a href="#b-question-success" class="b-thanks-link fancy" style="display:none;"></a>
 						</form>
 					</div>
 				</div>
@@ -94,7 +99,7 @@ $APPLICATION->SetTitle("Контакты");?>
 			<div class="b-1-by-3-blocks">
 				<div class="b-block-1">
 					<div class="b-faq-form-man">
-						<div class="b-faq-form-man-img" style="background-image: url('i/faq.jpg');"></div>
+						<div class="b-faq-form-man-img" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/faq.jpg');"></div>
 						<div class="b-faq-form-big-name">
 							<div class="b-faq-form-man-name">Екатерина Мирная</div>
 							<div class="b-faq-form-man-post">Директор Первого Магазина для&nbsp;Кондитеров</div>

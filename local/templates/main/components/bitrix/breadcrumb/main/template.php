@@ -43,7 +43,7 @@ foreach ($arResult as $key => $arItem) {
 
 $strReturn = '';
 
-$strReturn .= '<div class="b-breadcrumbs"><div class="b-block"><a href="/" class="icon-home"></a>';
+$strReturn .= '<div class="b-breadcrumbs"><a href="/" class="icon-home"></a>';
 
 $itemSize = count($arResult);
 for($index = 0; $index < $itemSize; $index++)
@@ -63,6 +63,6 @@ for($index = 0; $index < $itemSize; $index++)
 	}
 }
 
-$strReturn .= '</div></div>';
+$strReturn .= '</div>';
 
 return $strReturn;

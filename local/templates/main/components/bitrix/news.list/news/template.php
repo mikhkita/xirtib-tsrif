@@ -67,12 +67,14 @@ $this->setFrameMode(true);
 			<div class="b-news-item">
 				<div class="b-news-item-left">
 					<div class="b-news-item-img" style="background-image: url('<?=$renderImage["src"]?>');"></div>
+					<?/*?>
 					<div class="b-news-item-soc-container">
 						<a href="#" class="b-news-item-soc-item icon-vk"></a>
 						<a href="#" class="b-news-item-soc-item icon-instagram"></a>
 						<a href="#" class="b-news-item-soc-item icon-twitter"></a>
 						<a href="#" class="b-news-item-soc-item icon-facebook"></a>
 					</div>
+					<?*/?>
 				</div>
 				<div class="b-news-item-right">
 					<div class="b-news-item-head"><?=$arItem['NAME']?></div>

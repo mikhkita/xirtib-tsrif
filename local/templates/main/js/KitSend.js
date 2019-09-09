@@ -139,7 +139,7 @@ $(document).ready(function(){
 			$popup = $($popupID),
 			$this = $(elem);
 
-		console.log($this);
+		// console.log($this);
 
 		$this.fancybox({
 			padding : 0,

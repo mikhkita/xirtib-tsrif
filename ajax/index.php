@@ -662,6 +662,64 @@ switch ($action) {
 		}
 
 		break;
+	case 'ADDQUESTION':
+
+		if (empty($_POST["MAIL"])){
+			if (empty($_POST['question'])) {
+				$spam = true;
+			} else {
+				$spam = false;
+			}
+		}else{
+			$spam = true;
+		}
+
+		if (!$spam) {
+
+			$PROP = array();
+
+			$PROP['PHONE'] = $_POST['phone'];
+			$PROP['EMAIL'] = $_POST['email'];
+			$PROP['USER'] = $userID = $USER->GetID();
+
+			if (isset($userID) && !empty($userID)) {
+				
+				$rsUser = CUser::GetByID($userID);
+				$arUser = $rsUser->Fetch();	
+
+				if (empty($_POST['name']) || (!isset($_POST['name']))) {
+					$_POST['name'] = $arUser["NAME"];
+				}
+
+				if (empty($PROP['EMAIL']) || (!isset($PROP['EMAIL']))) {
+					$PROP['EMAIL'] = $arUser["EMAIL"];
+				}
+				
+				if (empty($PROP['PHONE']) || (!isset($PROP['PHONE']))) {
+					$PROP['PHONE'] = $arUser["PERSONAL_PHONE"];
+				}
+
+			}
+
+			CModule::IncludeModule("iblock");
+			$el = new CIBlockElement;
+
+			$arLoadProductArray = Array(
+			  "IBLOCK_ID"        => 16,
+			  "NAME"             => $_POST["name"],
+			  "PREVIEW_TEXT"     => $_POST["question"],
+			  "PROPERTY_VALUES"  => $PROP,
+			  "ACTIVE"           => "N",
+			  "DATE_ACTIVE_FROM" => ConvertTimeStamp(time(), "FULL")
+			);
+
+			echo $out = $el->Add($arLoadProductArray) ? '1' : '0';
+
+		} else {
+			echo '1';
+		}
+
+		break;
 	default:
 		break;
 }

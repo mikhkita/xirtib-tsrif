@@ -72,10 +72,13 @@ $this->setFrameMode(true);
 					<?endif;?>
 				</div>
 				<div class="b-work-soc">
-					<a href="#" class="b-work-soc-item icon-vk"></a>
+					<script src="https://yastatic.net/es5-shims/0.0.2/es5-shims.min.js"></script>
+					<script src="https://yastatic.net/share2/share.js"></script>
+					<div class="ya-share2" data-services="vkontakte,facebook,twitter"></div>
+					<!-- <a href="#" class="b-work-soc-item icon-vk"></a>
 					<a href="#" class="b-work-soc-item icon-instagram"></a>
 					<a href="#" class="b-work-soc-item icon-twitter"></a>
-					<a href="#" class="b-work-soc-item icon-facebook"></a>
+					<a href="#" class="b-work-soc-item icon-facebook"></a> -->
 				</div>
 			</div>
 		</div>
@@ -86,12 +89,12 @@ $this->setFrameMode(true);
 	<div class="b-block">
 		<div class="b-comment-block-title">
 			<h3>Комментарии</h3>
-			<a href="#">Оставить комментарий</a>
+			<!-- <a href="#">Оставить комментарий</a> -->
 		</div>
 		<div class="b-comment-block-form-container">
 			<form action="/ajax/?action=ADDCOMMENT" method="POST" class="clearfix">
 				<div class="b-comment-block-form-textarea">
-					<textarea name="comment_textarea" placeholder="Комментарии могут оставлять только зарегистрированные пользователи" rows="4"></textarea>
+					<textarea name="comment_textarea" placeholder="Комментарии могут оставлять только зарегистрированные пользователи" rows="4" required></textarea>
 					<input type="hidden" name="id" value="<?=$arResult["ID"]?>">
 				</div>
 				<a href="#b-popup-success-comment" class="b-thanks-link fancy" style="display:none;"></a>
@@ -172,15 +175,19 @@ $this->setFrameMode(true);
 		);?>
 		</div>
 	</div>
+	<?/*?>
+	<div id="comment-form" style="display: none;">
+		<div class="b-comment-block-form-container">
+			<form action="#" method="POST" class="clearfix">
+				<div class="b-comment-block-form-textarea">
+					<textarea name="comment_textarea" placeholder="Ответьте на комментарий" rows="1"></textarea>
+				</div>
+				<a href="#" class="b-btn b-comment-btn">Ответить</a>
+			</form>
+		</div>
+	</div>
+	<?*/?>
 </div>
 <? endif; ?>
-<div class="b-sub-block">
-	<div class="b-block">
-		<h2 class="sub-title">Узнавайте об <b>акциях и новинках</b> первыми</h2>
-		<h5>Подпишитесь на рассылку и покупайте с выгодой для себя</h5>
-		<form action="/kitsend.php" class="b-one-string-form">
-			<input type="text" placeholder="Введите ваш E-mail">
-			<a href="#" class="pink">Подписаться</a>
-		</form>
-	</div>
-</div>
+
+<? includeArea('subscribe'); ?>

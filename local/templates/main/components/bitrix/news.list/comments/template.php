@@ -61,7 +61,9 @@ $thisUserID = $USER->GetID();?>
 								<?=count($arItem["PROPERTIES"]["LIKES"]["VALUE"])?>
 							</div>
 						<?endif;?>
+						<?/*?>
 						<a href="#" class="b-comment-reply" data-id="<?=$arItem['ID']?>">Ответить на комментарий</a>
+						<?*/?>
 					</div>
 				</div>
 				<?foreach ($arItem['CHILDS'] as $key => $child):?>
@@ -81,7 +83,7 @@ $thisUserID = $USER->GetID();?>
 					<div class="b-comment-block-form-container">
 						<form action="/ajax/?action=ADDCOMMENT" method="POST" class="clearfix">
 							<div class="b-comment-block-form-textarea">
-								<textarea name="comment_textarea" placeholder="Ответьте на комментарий" rows="1"></textarea>
+								<textarea name="comment_textarea" placeholder="Ответьте на комментарий" rows="1" required></textarea>
 								<input type="hidden" name="id" value="<?=$arItem["PROPERTIES"]["WORK_ID"]["VALUE"]?>">
 								<input type="hidden" name="parent_comment" value="<?=$arItem["ID"]?>">
 							</div>

@@ -18,7 +18,7 @@ $isSale = $GLOBALS["isSale"] = ($urlArr[1] == "sale");
 $isPersonal = $GLOBALS["isPersonal"] = ($urlArr[1] == "personal");
 $isDelivery = $GLOBALS["isDelivery"] = ($urlArr[1] == "delivery");
 
-$isDetail = $GLOBALS["isDetail"] = ($urlArr[1] == "catalog" && isset($urlArr[4]));
+$isDetail = $GLOBALS["isDetail"] = (($urlArr[1] == "catalog" && isset($urlArr[4])) || ($urlArr[1] == "wholesale" && isset($urlArr[4])) || ($urlArr[1] == "sale" && isset($urlArr[4])));
 
 $notBText = $GLOBALS["notBText"] = ( in_array($page, array("cart", "contacts", "success", "error", "search", "news", "new")) || $isCatalog || $isMain )?true: false;
 
@@ -73,12 +73,22 @@ $GLOBALS["depends"] = array(
 		<meta name="viewport" content="width=1024, user-scalable=no"> 
 	<? endif;?>
 
-	<link rel="apple-touch-icon" sizes="180x180" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?=SITE_TEMPLATE_PATH?>/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="<?=SITE_TEMPLATE_PATH?>/favicon/android-icon-192x192.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="<?=SITE_TEMPLATE_PATH?>/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="<?=SITE_TEMPLATE_PATH?>/favicon/favicon-96x96.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?=SITE_TEMPLATE_PATH?>/favicon/favicon-16x16.png">
-	<link rel="manifest" href="<?=SITE_TEMPLATE_PATH?>/favicon/site.webmanifest">
-	<link rel="mask-icon" href="<?=SITE_TEMPLATE_PATH?>/favicon/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-TileColor" content="#da532c">
+	<link rel="manifest" href="<?=SITE_TEMPLATE_PATH?>/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="<?=SITE_TEMPLATE_PATH?>/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 
 </head>
@@ -87,11 +97,12 @@ $GLOBALS["depends"] = array(
 	<div id="mobile-menu" class="mobile-menu hide">
 		<h2>Меню</h2>
 		<ul>
-			<li><a href="/" class="active icon-discount">Акции и скидки</a></li>
-			<li><a href="cooperation.html">Доставка и оплата</a></li>
-			<li><a href="services.html">Помощь</a></li>
-			<li><a href="about.html">Контакты</a></li>
-			<li><a href="documents.html">Купить оптом</a></li>
+			<li><a href="/sale/" class="active icon-discount">Акции и скидки</a></li>
+			<li><a href="/help/delivery/">Доставка и оплата</a></li>
+			<li><a href="/help/">Помощь</a></li>
+			<li><a href="/help/contacts/">Контакты</a></li>
+			<li><a href="/catalog/">Каталог</a></li>
+			<?/*?><li><a href="/help/contacts/">Купить оптом</a></li><?*/?>
 		</ul>
 		<div class="b-menu-schedule">
 			<p class="icon-clock">пн-пт: с 10:00 до 19:00, сб: с 10:00 до 18:00, вс – выходной</p>
@@ -105,10 +116,10 @@ $GLOBALS["depends"] = array(
 		<div class="b-top-content clearfix">
 		<div class="b-block">
 			<div class="b-top-content-container">
-				<!-- <div class="b-top-content-block b-top-city">
+				<?/*?><div class="b-top-content-block b-top-city">
 					<a href="#b-popup-city" class="dashed fancy"><b>Москва</b></a>
 					<p>25 пунктов выдачи</p>
-				</div> -->
+				</div><?*/?>
 				<div class="b-top-content-block b-top-schedule">
 					<p class="icon-clock">пн-пт: с 10:00 до 19:00, сб: с 10:00 до 18:00, вс – выходной</p>
 				</div>
@@ -151,7 +162,7 @@ $GLOBALS["depends"] = array(
 				</a>
 			</div>
 			<div class="b-header-block pink-header-block clearfix">
-				<a href="#" class="b-catalog-menu icon-list">Каталог товаров</a>
+				<a href="#" class="b-catalog-menu icon-list" onclick="return false;">Каталог товаров</a>
 				<div id="burger-menu" class="burger-menu icon-menu"></div>
 				<div class="b-search-form">
 					<?$APPLICATION->IncludeComponent("bitrix:search.title", "header", Array(
@@ -240,5 +251,5 @@ $GLOBALS["depends"] = array(
 				<? if (!$isDetail): ?>
 					<h1><?$APPLICATION->ShowTitle(false)?></h1>
 				<? endif; ?>
-		
+			</div>
 	<?endif;?>

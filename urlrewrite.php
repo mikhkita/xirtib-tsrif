@@ -24,6 +24,14 @@ $arUrlRewrite=array (
     'PATH' => '/catalog/detail.php',
     'SORT' => 100,
   ),
+  15 => 
+  array (
+    'CONDITION' => '#^/catalog-tab/(.+)/(\\\\?(.*))?#',
+    'RULE' => 'ELEMENT_CODE=$1&$2',
+    'ID' => '',
+    'PATH' => '/catalog-tab/index.php',
+    'SORT' => 100,
+  ),
   4 => 
   array (
     'CONDITION' => '#^/wholesale/(.+)/(\\\\?(.*))?#',

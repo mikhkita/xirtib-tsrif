@@ -77,7 +77,7 @@ $arFilters = Array(
 										<input type="text" name="quantity" data-min="<?=(( $GLOBALS["isWholesale"] )?$arItem["ITEM_PRICES"][1]["QUANTITY_FROM"]:1)?>" data-max="<?=$arItem["CATALOG_QUANTITY"]?>" data-id="<?=$arItem["ID"]?>" class="b-quantity-input" maxlength="3" oninput="this.value = this.value.replace(/\D/g, '')" value="<?=( (isset($arItem["BASKET"]))?$arItem["BASKET"]["QUANTITY"]:( ( isset($arItem["ITEM_PRICES"][1]["QUANTITY_FROM"]) )?$arItem["ITEM_PRICES"][1]["QUANTITY_FROM"]:$arItem["ITEM_PRICES"][0]["QUANTITY_FROM"] ) )?>">
 									</div>
 								</div>
-								<a href="/ajax/?partial=1&ELEMENT_ID=<?=$arItem["ID"]?>&action=ADD2BASKET" class="b-btn icon-cart b-btn-to-cart"><span>В&nbsp;корзину</span></a>
+								<a href="/ajax/?partial=1&ELEMENT_ID=<?=$arItem["ID"]?>&action=ADD2BASKET" class="b-btn icon-cart b-btn-to-cart b-btn-to-cart-list"><span>В&nbsp;корзину</span></a>
 								<div class="b-error-max-count">Доступно: <?=$arItem["CATALOG_QUANTITY"]?> шт.</div>
 							<? else: ?>
 								<?$APPLICATION->IncludeComponent(

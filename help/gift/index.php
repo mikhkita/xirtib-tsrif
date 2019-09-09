@@ -45,10 +45,12 @@ $APPLICATION->SetTitle("Дисконтные карты и подарочные 
 								<div class="price-container">
 									<p class="price icon-rub">1 000</p>
 								</div>
-								<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
+								<a href="#" class="b-btn icon-cart b-btn-to-cart" onclick="return false;"><span>В корзину</span></a>
+								<?/*?>
 								<div class="b-one-click-buy">
 									<a href="#" class="dashed pink">Купить в один клик</a>
 								</div>
+								<?*/?>
 							</div>
 						</div>
 						<div class="b-catalog-item">
@@ -62,10 +64,12 @@ $APPLICATION->SetTitle("Дисконтные карты и подарочные 
 								<div class="price-container">
 									<p class="price icon-rub">2 000</p>
 								</div>
-								<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
+								<a href="#" class="b-btn icon-cart b-btn-to-cart" onclick="return false;"><span>В корзину</span></a>
+								<?/*?>
 								<div class="b-one-click-buy">
 									<a href="#" class="dashed pink">Купить в один клик</a>
 								</div>
+								<?*/?>
 							</div>
 						</div>
 						<div class="b-catalog-item">
@@ -79,10 +83,12 @@ $APPLICATION->SetTitle("Дисконтные карты и подарочные 
 								<div class="price-container">
 									<p class="price icon-rub">3 000</p>
 								</div>
-								<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
+								<a href="#" class="b-btn icon-cart b-btn-to-cart" onclick="return false;"><span>В корзину</span></a>
+								<?/*?>
 								<div class="b-one-click-buy">
 									<a href="#" class="dashed pink">Купить в один клик</a>
 								</div>
+								<?*/?>
 							</div>
 						</div>
 					</div>
@@ -103,10 +109,12 @@ $APPLICATION->SetTitle("Дисконтные карты и подарочные 
 								<div class="price-container">
 									<p class="price icon-rub">200</p>
 								</div>
-								<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
+								<a href="#" class="b-btn icon-cart b-btn-to-cart" onclick="return false;"><span>В корзину</span></a>
+								<?/*?>
 								<div class="b-one-click-buy">
 									<a href="#" class="dashed pink">Купить в один клик</a>
 								</div>
+								<?*/?>
 							</div>
 						</div>
 					</div>

@@ -1,7 +1,9 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Оформление заказа");
-?><?$APPLICATION->IncludeComponent(
+?>
+<div class="b-block">
+<?$APPLICATION->IncludeComponent(
 	"redder:sale.basket.basket",
 	"nevkusno",
 	Array(
@@ -49,4 +51,5 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"USE_PREPAYMENT" => "N",
 		"USE_PRICE_ANIMATION" => "Y"
 	)
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+</div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

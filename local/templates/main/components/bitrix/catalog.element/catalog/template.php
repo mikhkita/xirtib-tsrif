@@ -99,6 +99,13 @@ if (isset($discountClass)) {
 					<div class="b-detail-big-pic" style="background-image: url('<?=$arImg["DETAIL_PHOTO"][0]["BIG"]?>');" data-color-id="<?=$offer['ID']?>"></div>
 				<? endif; ?>
 			</div>
+			<? if ($arResult["OFFERS"] && $isSliderImg): ?>
+					<div class="b-detail-bottom-slider b-detail-mobile-slider">
+						<? foreach ($arResult['OFFERS'] as $key => $offer): ?>
+							<div class="b-detail-small-pic" style="background-image: url('<?=$arImg["DETAIL_PHOTO"][$key]["SMALL"]?>" data-id="<?=$offer['ID']?>"></div>
+						<? endforeach; ?>
+					</div>
+				<? endif; ?>
 			<div class="detail-price-container">
 				<div class="price-container <?=$discountClass?>">
 					<p class="old-price icon-rub"><?=convertPrice($price)?></p>
@@ -106,7 +113,7 @@ if (isset($discountClass)) {
 					<div class="cheaper-mobile">
 						<a href="#" class="pink dashed">Купить этот товар дешевле</a>
 					</div>
-					<p class="app-price">Эксклюзивные цены в <a href="#" class="pink dashed">приложении</a></p>
+					<p class="app-price">Эксклюзивные цены в <a href="https://www.apple.com/ru/itunes/charts/free-apps/" class="pink dashed">приложении</a></p>
 				</div>
 				<? if (isset($discount)): ?>
 					<div class="b-detail-discount">
@@ -144,16 +151,19 @@ if (isset($discountClass)) {
 						$inputVal = 1;
 					}?>
 				<div class="b-detail-count b-product-quantity">
-					<a href="#" class="icon-plus quantity-add"></a>
-					<input type="text" name="count" class="quantity-input" data-quantity="<?=$quantity?>" maxlength="3" oninput="this.value = this.value.replace(/\D/g, '')" value="<?=$inputVal?>">
 					<a href="#" class="icon-minus quantity-reduce"></a>
+					<input type="text" name="count" class="quantity-input" data-quantity="<?=$quantity?>" maxlength="3" oninput="this.value = this.value.replace(/\D/g, '')" value="<?=$inputVal?>">
+					<a href="#" class="icon-plus quantity-add"></a>
 				</div>
-				<div class="b-detail-buy b-detail-buy-mobile">
-					<a href="#" class="b-btn icon-cart"><p>В корзину</p></a>
-				</div>
-				<a href="#" class="pink dashed cheaper">Купить этот товар дешевле</a>
+				<?/*?><a href="#" class="pink dashed cheaper">Купить этот товар дешевле</a><?*/?>
 				<div class="b-product-quantity-info <?=$infoClass?>">
 					<span>В наличии:&nbsp;</span><span id="quantity-info"><?=$quantity?></span>
+				</div>
+				<div class="b-detail-buy b-detail-buy-mobile">
+					<a href="/ajax/?action=ADD2BASKET" class="b-btn b-btn-to-cart b-btn-to-cart-detail icon-cart" data-id="<?=$id?>"><p>В корзину</p></a>
+					<div href="#" onclick="return false;" class="b-btn b-btn-to-cart-cap hide">
+						<span class="b-cap-text">Товар успешно добавлен</span>
+					</div>
 				</div>
 			</div>
 			<div class="b-detail-buy">
@@ -161,17 +171,22 @@ if (isset($discountClass)) {
 				<div href="#" onclick="return false;" class="b-btn b-btn-to-cart-cap hide">
 					<span class="b-cap-text">Товар успешно добавлен</span>
 				</div>
-				<div class="b-detail-one-click">или <a href="#" class="pink dashed">купить в один клик</a></div>
+				<?/*?><div class="b-detail-one-click">или <a href="#" class="pink dashed">купить в один клик</a></div><?*/?>
 			</div>
 			<div class="b-detail-tabs">
-				<div id="b-detail-tabs-slider" class="b-tabs-container b-tabs-container-underline">
+				<div class="b-tabs-container b-catalog-tabs-slider b-tabs-container-underline">
 					<div class="b-tab active" data-tab="description">Описание</div>
 					<div class="b-tab" data-tab="delivery">Доставка</div>
 					<div class="b-tab" data-tab="review">Отзывы (<?=$arResult["COUNT_REVIEWS"]?>)</div>
-					<div class="b-tab" data-tab="recipes">Рецепты с продуктом</div>
+					<?/*?><div class="b-tab" data-tab="recipes">Рецепты с продуктом</div><?*/?>
 				</div>
 				<div class="b-tab-item b-tab-about" id="description">
-					<div class="detail-description-text"><?=$arResult['DETAIL_TEXT']?></div>
+					<div class="detail-description-text limit b-detail-text b-text" id="b-detail-text">
+						<div class="b-detail-text-wrap">
+							<?=$arResult['DETAIL_TEXT']?>	
+						</div>						
+					</div>
+					<a href='#' class="b-detail-text-more">Читать полностью</a>
 					<?/*?>
 					<div class="detail-description-text"><b>Размеры:</b> диаметр 60 мм , высота 73 мм, объем 108 мл х 5 = 540 мл</div>
 					<div class="detail-description-text"><b>Рекомендации по применению:</b> идеально подходят для выпечки, приготовления десертов и пирожных, холодных закусок, заливного, желе. Могут быть использованы в температурном режиме от -60 С до +230 С. После применения формы необходимо тщательно вымыть и просушить.</div>
@@ -256,30 +271,8 @@ if (isset($discountClass)) {
 		</div>
 	</div>
 </div>
-<div class="about-advantages detail-advantages">
-	<h2>При покупке этого товара вы получаете</h2>
-	<div class="b-block">
-		<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-1.svg');">
-			<h4>Срочная доставка</h4>
-			<p>Сделали заказ до 12 часов?<br>Доставим сегодня</p>
-		</div>
-		<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-2.svg');">
-			<h4>Безопасная оплата</h4>
-			<p>При оплате банковской картой на сайте, используется 256-битное шифрование информации</p>
-		</div>
-		<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-3.svg');">
-			<h4>30 дней на обмен</h4>
-			<p>Не понравилась покупка?<br>Обменяем без проблем!</p>
-		</div>
-		<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/detail-adv-1.svg');">
-			<h4>Гарантия качества</h4>
-			<p>Все товары<br>сертифицированы</p>
-		</div>
-		<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-6.svg');">
-			<h4>Скидки и бонусы</h4>
-			<p>Двойные бонусы в день<br>рождения</p>
-		</div>
-	</div>
+<div class="detail-advantages-block">
+	<? includeArea('detail-advantages');?>
 </div>
 <div class="b-last-item-block b-last-detail wave-top">
 	<div class="b-block">
@@ -400,13 +393,5 @@ if (isset($discountClass)) {
 		</div>
 	</div>
 </div>
-<div class="b-sub-block">
-	<div class="b-block">
-		<h2 class="sub-title">Узнавайте об <b>акциях и новинках</b> первыми</h2>
-		<h5>Подпишитесь на рассылку и покупайте с выгодой для себя</h5>
-		<form action="/kitsend.php" class="b-one-string-form">
-			<input type="text" placeholder="Введите ваш E-mail">
-			<a href="#" class="pink">Подписаться</a>
-		</form>
-	</div>
-</div>
+
+<? includeArea('subscribe'); ?>

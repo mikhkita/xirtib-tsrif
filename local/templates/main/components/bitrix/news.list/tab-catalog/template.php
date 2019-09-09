@@ -13,7 +13,7 @@
 $this->setFrameMode(true);?>
 
 <? if(count($arResult["ITEMS"])): ?>
-	<div id="b-catalog-tabs-top-slider" class="b-tabs-container b-tabs-container-underline" >
+	<div class="b-catalog-tabs-slider b-tabs-container b-tabs-container-underline">
 		<?foreach($arResult["ITEMS"] as $key => $arItem):
 
 			$active = ($key == 0) ? 'active' : '';
@@ -138,29 +138,8 @@ $this->setFrameMode(true);?>
 				'ACTIVE_COMPONENT' => 'Y'
 			)
 			);?>
-				<!-- <div class="b-tab active" data-tab="gingerbreads-chocolate">
-					<span>Шоколад</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-mixes">
-					<span>Сухие смеси</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-dyes">
-					<span>Красители</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-tools">
-					<span>Инструмент</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-capsules">
-					<span>Капсулы бумажные</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-forms">
-					<span>Формы для выпечки</span>
-				</div>
-				<div class="b-tab" data-tab="gingerbreads-pack">
-					<span>Упаковка</span>
-				</div> -->
 			<div class="b-btn-container">
-				<a href="#" class="b-btn b-btn-white">Все товары <?=strtolower($arItem['NAME'])?></a>			
+				<a href="/catalog-tab/<?=$arItem['CODE']?>/" class="b-btn b-btn-white">Все товары <?=strtolower($arItem['NAME'])?></a>			
 			</div>
 		</div>
 	<?endforeach;?>

@@ -1,6 +1,5 @@
 <?if ( !$isMain):?>
 	</div>
-</div>
 <?endif;?>
 <div class="b-footer wave-top">
 	<div class="b-block">
@@ -43,17 +42,16 @@
 					);?>
 				</ul>
 			</div>
-			
+			<?/*?>
 			<div class="b-bottom-menu-list">
-				<?/*?>
 				<h4>Сотрудничество</h4>
 				<ul>
 					<li><a href="#" class="underline">Поставщикам</a></li>
 					<li><a href="#" class="underline">Партнеры</a></li>
 					<li><a href="#" class="underline">Франшиза</a></li>
 				</ul>
-				<?*/?>
 			</div>
+			<?*/?>
 			<div class="b-bottom-menu-list">
 				<h4>Следуйте за нами</h4>
 				<div class="b-soc">
@@ -69,7 +67,7 @@
 				Все права защищены. Доставка по всей России!
 			</div>
 			<div class="b-underfooter-item">
-				<a href="#" class="underline politics-link">Политика конфиденциальности</a>
+				<a href="/politics/" class="underline politics-link">Политика конфиденциальности</a>
 			</div>
 		</div>
 	</div>
@@ -198,7 +196,9 @@
 		<?*/?>
 
 		<div class="b-popup" id="b-popup-question">
-			<div class="b-popup-header"><h3>У Вас есть вопрос?</h3>Спросите - мы обязательно вам ответим!</div>
+			<div class="b-popup-header">
+				<h3>У Вас есть вопрос?</h3>
+				<p>Спросите - мы обязательно вам ответим!</p></div>
 			<form action="/ajax/?action=ASK" method="POST" id="b-form-ask">
 				<div class="b-popup-form">
 					<div class="b-input-container">
@@ -226,7 +226,9 @@
 		</div>
 
 		<div class="b-popup" id="b-popup-phone">
-			<div class="b-popup-header"><h3>Не дозвонились?</h3>Оставьте заявку - мы обязательно вам перезвоним!</div>
+			<div class="b-popup-header">
+				<h3>Не дозвонились?</h3>
+				<p>Оставьте заявку - мы обязательно вам перезвоним!</p></div>
 			<form action="/ajax/?action=PHONE" method="POST" id="b-form-phone">
 				<div class="b-popup-form">
 					<div class="b-input-container">
@@ -429,6 +431,36 @@
 				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
 			</div>
 		</div>
+		<div class="b-thanks b-popup" id="b-popup-success-reserved">
+			<div class="b-popup-header">
+				<h3>Заявка оставлена!</h3>
+				<p>Когда товар будет в наличии, Вам автоматически придет письмо на почту.</p>
+			</div>
+			<div class="b-btn-container">
+				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
+			</div>
+		</div>
+		<div class="b-thanks b-popup" id="b-popup-error-reserved">
+			<div class="b-popup-header">
+				<h3>Произошла ошибка</h3>
+				<p>Попробуйте оставить заявку на товар позднее.</p>
+			</div>
+			<div class="b-btn-container">
+				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
+			</div>
+		</div>
+		<div class="b-thanks b-popup" id="b-question-success">
+			<div class="b-popup-header">
+				<h3>Вопрос отправлен!</h3>
+				<p>Наш менеджер ответит вам в ближайшее время.</p>
+			</div>
+			<div class="b-btn-container">
+				<a href="#" class="b-btn ajax" onclick="$.fancybox.close(); return false;">Закрыть</a>
+			</div>
+		</div>
+
+
+
 		<div class="b-popup b-popup-city" id="b-popup-city">
 			<div class="b-popup-h3">Выбор города</div>
 			<form action="kitsend.php" method="POST" id="b-form-city">
@@ -579,7 +611,9 @@
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/KitAnimate.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/KitProgress.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/slideout.min.js"></script>
+	<? if( !(strpos($_SERVER['HTTP_USER_AGENT'],'MSIE')!==false || strpos($_SERVER['HTTP_USER_AGENT'],'rv:11.0')!==false) ): ?>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/mask.js"></script>
+	<? endif; ?>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/KitSend.js?<?=$GLOBALS["version"]?>"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/slick.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/stickyfill.js"></script>

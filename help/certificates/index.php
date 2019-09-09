@@ -30,27 +30,27 @@ $APPLICATION->SetTitle("Сертификаты соответствия");?>
 				<div class="b-certificates-list">
 					<a href="<?=SITE_TEMPLATE_PATH?>/i/certificate-1.jpg" class="b-certificates-item fancy-img">
 						<div class="b-certificate-img-cont icon-zoom"><img class="b-certificate-img" src="<?=SITE_TEMPLATE_PATH?>/i/certificate-1.jpg"></div>
-						<div class="b-certificate-name">Сертификат такой-то</div>
+						<div class="b-certificate-name">Сертификат 1</div>
 					</a>
 					<a href="<?=SITE_TEMPLATE_PATH?>/i/certificate-2.jpg" class="b-certificates-item fancy-img">
 						<div class="b-certificate-img-cont icon-zoom"><img class="b-certificate-img" src="<?=SITE_TEMPLATE_PATH?>/i/certificate-2.jpg"></div>
-						<div class="b-certificate-name">Сертификат такой-то</div>
+						<div class="b-certificate-name">Сертификат 2</div>
 					</a>
 					<a href="<?=SITE_TEMPLATE_PATH?>/i/certificate-3.jpg" class="b-certificates-item fancy-img">
 						<div class="b-certificate-img-cont icon-zoom"><img class="b-certificate-img" src="<?=SITE_TEMPLATE_PATH?>/i/certificate-3.jpg"></div>
-						<div class="b-certificate-name">Сертификат такой-то</div>
+						<div class="b-certificate-name">Сертификат 3</div>
 					</a>
 					<a href="<?=SITE_TEMPLATE_PATH?>/i/certificate-1.jpg" class="b-certificates-item fancy-img">
 						<div class="b-certificate-img-cont icon-zoom"><img class="b-certificate-img" src="<?=SITE_TEMPLATE_PATH?>/i/certificate-1.jpg"></div>
-						<div class="b-certificate-name">Сертификат такой-то</div>
+						<div class="b-certificate-name">Сертификат 4</div>
 					</a>
 					<a href="<?=SITE_TEMPLATE_PATH?>/i/certificate-2.jpg" class="b-certificates-item fancy-img">
 						<div class="b-certificate-img-cont icon-zoom"><img class="b-certificate-img" src="<?=SITE_TEMPLATE_PATH?>/i/certificate-2.jpg"></div>
-						<div class="b-certificate-name">Сертификат такой-то</div>
+						<div class="b-certificate-name">Сертификат 5</div>
 					</a>
 					<a href="<?=SITE_TEMPLATE_PATH?>/i/certificate-3.jpg" class="b-certificates-item fancy-img">
 						<div class="b-certificate-img-cont icon-zoom"><img class="b-certificate-img" src="<?=SITE_TEMPLATE_PATH?>/i/certificate-3.jpg"></div>
-						<div class="b-certificate-name">Сертификат такой-то</div>
+						<div class="b-certificate-name">Сертификат 6</div>
 					</a>
 				</div>
 			</div>

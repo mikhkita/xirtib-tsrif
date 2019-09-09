@@ -43,13 +43,6 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Бонусная программа", 
-		"/help/bonus/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
 		"Контакты", 
 		"/help/contacts/", 
 		Array(), 

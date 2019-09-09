@@ -93,6 +93,7 @@ $APPLICATION->SetTitle("Оплата");?>
 		</div>
 	</div>
 </div>
+
 <div class="b-question-block b-payment-question-block wave-top wave-bottom">
 	<div class="b-block">
 		<div class="b-question-block-left">
@@ -110,6 +111,7 @@ $APPLICATION->SetTitle("Оплата");?>
 		</div>
 	</div>
 </div>
+
 <div class="b-sub-block">
 	<div class="b-block">
 		<h2 class="sub-title">Узнавайте об <b>акциях и новинках</b> первыми</h2>

@@ -102,31 +102,19 @@ $APPLICATION->SetTitle("Часто задаваемые вопросы");?>
 			<div class="b-block-2">
 				<h4>Задайте свой вопрос</h4>
 				<div class="b-faq-form">
-					<form action="#" method="POST">
-						<div class="b-faq-form-input-container">
-							<div class="b-faq-form-input">
-								<input type="text" id="faq-name" name="name" placeholder="Введите имя*" required />
-							</div>
-							<div class="b-faq-form-input">
-								<input type="text" id="faq-tel" name="tel" placeholder="Введите телефон*" required />
-							</div>
-							<div class="b-faq-form-input">
-								<input type="text" id="faq-mail" name="mail" placeholder="Введите e-mail*" required />
-							</div>
-						</div>
+					<form action="/ajax/?action=ADDQUESTION" method="POST">
 						<div class="b-faq-form-textarea">
-							<textarea name="faq-question" id="question" rows="4" placeholder="Введите вопрос"></textarea>
+							<textarea name="question" rows="4" placeholder="Введите вопрос" required></textarea>
+							<input type="text" name="MAIL">
 						</div>
 						<div class="b-faq-form-bottom">
-							<a href="#" class="b-btn ajax">Задать вопрос</a>
-							<a href="#" class="dashed">Загрузить фото</a>
+							<? if (isAuth()): ?>
+								<a href="#" class="b-btn ajax">Задать вопрос</a>
+							<? else: ?>
+								<a href="#b-popup-auth" class="b-btn fancy">Войти</a>
+							<? endif; ?>
 						</div>
-						<div class="b-faq-checkbox">
-							<label class="checkbox">
-								<input type="checkbox" value="discount" checked>
-								<span>Я принимаю условия <a href="#" class="dashed">передачи информации</a></span>
-							</label>
-						</div>
+						<a href="#b-question-success" class="b-thanks-link fancy" style="display:none;"></a>
 					</form>
 				</div>
 			</div>
