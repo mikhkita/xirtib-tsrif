@@ -81,7 +81,12 @@ $arFilters = Array(
 			<? $withNoticeClass = !$isQuantity ? 'with-notice' : ''; ?>
 			<div class="b-catalog-item clearfix <?=$wholesaleClass?> <?=$withNoticeClass?>" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 				<div class="b-catalog-back"></div>
-				<a href="<?=detailPageUrl($arItem["DETAIL_PAGE_URL"])?>" class="b-catalog-img" style="background-image:url('<?=$renderImage['src']?>');"></a>
+				<a href="<?=detailPageUrl($arItem["DETAIL_PAGE_URL"])?>" class="b-catalog-img" style="background-image:url('<?=$renderImage['src']?>');">
+					<? if(!empty($discountClass)): ?>
+						<? $percent = 100 - ($arItem["PRICES"]["PRICE"]["DISCOUNT_VALUE"]*100/$arItem["PRICES"]["PRICE"]["VALUE"]);?>
+						<div class="catalog-item-discount icon-discount-full"><p>-<?=round($percent)?>%</p></div>
+					<?endif;?>
+				</a>
 				<div class="b-catalog-desc">
 					<div class="b-catalog-item-top">
 						<h6><a href="<?=detailPageUrl($arItem["DETAIL_PAGE_URL"])?>"><?=$arItem["NAME"]?></a></h6>

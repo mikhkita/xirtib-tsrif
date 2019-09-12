@@ -164,7 +164,7 @@ $(document).ready(function(){
 
     if (!isDesktop) {
         tabs_slider();
-        advSlider();
+        // advSlider();
     }
 
     setInterval(function(){
@@ -715,7 +715,7 @@ $(document).ready(function(){
         return false;
     });
 
-    $(document).on('click', '.b-work-detail-like a, .b-comment-mark',  function(){
+    $(document).on('click', '.b-work-detail-like a, .b-comment-mark, .b-like',  function(){
         addContent($(this));
         return false;
     });
@@ -1452,29 +1452,25 @@ $(document).ready(function(){
     });
 
     $('.b-tab').on('click', function(){
-        console.log('click');
-        var tab = $(this).attr('data-tab');
-        $(this).siblings().removeClass('active');
-        if (!$(this).hasClass('active')) {
-            $(this).addClass('active');
-        }
 
-        // if ($(this).hasClass('slick-slide')) {
-
-        //     // var slickID = parseInt($('.b-detail-small-pic[data-id='+ID+']').index()) + 1;
-        //     slickID = $(this).attr('data-slick-index');
-        //     $('.b-detail-bottom-slider').slick('slickGoTo', slickID);
-        // }
-
-        if (!$(this).parents('.b-tabs-container').hasClass('ajax-tabs')) {
-            $(this).parents('.b-tabs-container').siblings('.b-tab-item').addClass('hide');
-            if ($('#'+tab).hasClass('hide')) {
-                 $('#'+tab).removeClass('hide');
+        if (!$(this).parent().hasClass('b-tab-links')) {
+            var tab = $(this).attr('data-tab');
+            $(this).siblings().removeClass('active');
+            if (!$(this).hasClass('active')) {
+                $(this).addClass('active');
             }
-        } else {
-            $('.b-catalog-form').find('#data-tab').val(tab);
-            $('.b-catalog-form').trigger('change');
+
+            if (!$(this).parents('.b-tabs-container').hasClass('ajax-tabs')) {
+                $(this).parents('.b-tabs-container').siblings('.b-tab-item').addClass('hide');
+                if ($('#'+tab).hasClass('hide')) {
+                     $('#'+tab).removeClass('hide');
+                }
+            } else {
+                $('.b-catalog-form').find('#data-tab').val(tab);
+                $('.b-catalog-form').trigger('change');
+            }
         }
+
     });
 
     $(".b-reviews-count p").click(function(){
@@ -1834,23 +1830,24 @@ $(document).ready(function(){
     // });
 
 
-    
-	// var myPlace = new google.maps.LatLng(55.754407, 37.625151);
- //    var myOptions = {
- //        zoom: 16,
- //        center: myPlace,
- //        mapTypeId: google.maps.MapTypeId.ROADMAP,
- //        disableDefaultUI: true,
- //        scrollwheel: false,
- //        zoomControl: true
- //    }
- //    var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions); 
+    if ($('#contacts-map').length) {
+        var myPlace = new google.maps.LatLng(55.754407, 37.625151);
+        var myOptions = {
+            zoom: 16,
+            center: myPlace,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            disableDefaultUI: true,
+            scrollwheel: false,
+            zoomControl: true
+        }
+        var map = new google.maps.Map(document.getElementById("contacts-map"), myOptions); 
 
- //    var marker = new google.maps.Marker({
-	//     position: myPlace,
-	//     map: map,
-	//     title: "Ярмарка вакансий и стажировок"
-	// });
+        var marker = new google.maps.Marker({
+            position: myPlace,
+            map: map,
+            title: "Первый магазин"
+        });
+    }
 
 });
 

@@ -801,7 +801,7 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				<div class="b-1-by-3-container">
 					<?$APPLICATION->IncludeComponent(
 						"bitrix:news.list", 
-						"gallery", 
+						"gallery-main", 
 						array(
 							"ACTIVE_DATE_FORMAT" => "d.m.Y",
 							"ADD_SECTIONS_CHAIN" => "N",

@@ -126,7 +126,7 @@ $APPLICATION->SetTitle("Контакты");?>
 							<div class="b-faq-checkbox">
 								<label class="checkbox">
 									<input type="checkbox" value="discount" checked>
-									<span>Я принимаю условия <a href="#" class="dashed">передачи информации</a></span>
+									<span>Я принимаю условия <a href="/politics/" class="dashed">передачи информации</a></span>
 								</label>
 							</div>
 						</form>

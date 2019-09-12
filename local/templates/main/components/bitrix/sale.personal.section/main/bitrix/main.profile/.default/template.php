@@ -225,7 +225,7 @@ if ($arUser['PERSONAL_PHOTO']){
 					</div>
 				</div>
 				<div class="b-tab-item hide" id="myquestions">
-					<div class="myreviews-header">Мои Вопросы</div>
+					<div class="myreviews-header">Мои вопросы</div>
 						<? $GLOBALS['questionsFilter'] = array(
 							'PROPERTY_USER' => $userID,
 							"ACTIVE" => array("Y", "N"),

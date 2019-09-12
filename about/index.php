@@ -56,45 +56,11 @@ $APPLICATION->SetTitle("О магазине");?>
 		</div>
 	</div>
 </div>
+
 <div class="b-delivery-advantages">
-	<div class="b-block">
-		<div class="about-advantages">
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-1.svg');">
-				<h4>Удобная доставка</h4>
-				<p>Сделали заказ до 14 часов?<br>Доставим завтра</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-2.svg');">
-				<h4>Безопасная оплата</h4>
-				<p>Более 20 способов оплаты<br>через зашифрованное соединение</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-3.svg');">
-				<h4>30 дней на обмен</h4>
-				<p>Не понравилась покупка?<br>Обменяем без проблем!</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-4.svg');">
-				<h4>Ассортимент</h4>
-				<p>В наличии на складе<br>более 7 000 наименований</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-5.svg');">
-				<h4>Пункты самовывозом</h4>
-				<p>Более 2 000 пунктов<br>самовывоза</p>
-			</div>
-			<div class="about-advantages-item" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-6.svg');">
-				<h4>Лучшие цены</h4>
-				<p>Нашли дешевле? Сообщите нам.<br>Покупай больше, плати меньше!</p>
-			</div>
-		</div>
-	</div>
+	<? includeArea('advantages'); ?>
 </div>
-<div class="b-sub-block">
-	<div class="b-block">
-		<h2 class="sub-title">Узнавайте об <b>акциях и новинках</b> первыми</h2>
-		<h5>Подпишитесь на рассылку и покупайте с выгодой для себя</h5>
-		<form action="/kitsend.php" class="b-one-string-form">
-			<input type="text" placeholder="Введите ваш E-mail">
-			<a href="#" class="pink">Подписаться</a>
-		</form>
-	</div>
-</div>
+
+<? includeArea('subscribe'); ?>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

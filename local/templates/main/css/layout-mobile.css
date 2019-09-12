@@ -651,9 +651,11 @@ select{
 	margin-top: 30px;
 }
 	.about-advantages-item{
-	    width: 100vw;
-	    margin-bottom: 0;
-	    padding: 0 30px;
+	    /*width: 100vw;*/
+	    width: calc(100%/2 - 24px);
+	    margin-bottom: 20px;
+	    /*padding: 0 30px;*/
+	    text-align: center;
 	}
 	.about-advantages-item:nth-child(2n){
 		margin-left: 20px;
@@ -684,7 +686,8 @@ select{
 		margin-left: 12px;
 	}
 	.b-catalog-slider .b-catalog-img{
-		width: 100%;
+		/*width: 100%;*/
+		background-position: left;
 	}
 	.slick-next{
 		right: 0;
@@ -736,8 +739,9 @@ select{
 		left: 0;
 	}
 	.b-tabs-container-underline.slick-slider{
-		margin: 0 -32px;
+		margin: 0 -16px;
 		margin-bottom: 16px;
+		overflow: hidden;
 	}
 	.b-tabs-container-underline .b-tab{
 		padding: 0;
@@ -1242,7 +1246,7 @@ div.bx-yellow .btn.btn-default{
 }
 .b-tabs-container-underline .slick-track{
 	border-bottom: unset;
-	margin: 0 32px;
+	margin: 0 16px;
 }
 .b-block .b-block{
 	width: 100%;
@@ -1268,6 +1272,33 @@ div.bx-yellow .btn.btn-default{
 .daily-mobile .b-catalog-img{
 	display: inline-block;
 	vertical-align: top;
+}
+a:hover,
+a:focus{
+	color: inherit;
+	text-decoration: inherit;
+}
+.b-profile .b-btn:hover,
+.b-faq-form-bottom .b-btn{
+	color: #fff;
+}
+.b-about-left-widget-block{
+	width: 100%;
+	margin-right: 0;
+}
+.b-about-right-widget-block{
+	width: 100%;
+	margin-top: 20px;
+}
+.b-certificates-block .b-1-by-3-blocks{
+	margin-top: 0;
+}
+.b-contacts-form-block{
+	padding-top: 30px;
+	padding-bottom: 40px;
+}
+.b-contacts-bottom-form .b-faq-form-bottom .b-btn{
+	margin-right: 0;
 }
 
 @media screen and (max-width: 768px){
@@ -1298,9 +1329,20 @@ div.bx-yellow .btn.btn-default{
 	.b-category .b-category-list{
 		margin-top: 0;
 	}
+	.b-cabinet{
+		padding-bottom: 20px;
+	}
+	.b-cabinet-right{
+		padding-bottom: 80px;
+	}
 }
 
 @media screen and (max-width: 600px){
+	.about-advantages-item,
+	.about-advantages-item:nth-child(2n){
+		width: 100%;
+		margin-left: 0;
+	}
 	.basket-item-block-price{
 		padding-top: 0;
 	}
@@ -1498,6 +1540,7 @@ div.bx-yellow .btn.btn-default{
 	}
 	.b-profile-photo {
 	    float: none;
+	    margin: 0 auto;
 	}
 	.b-cabinet-content {
 	    width: 100%;
@@ -1839,6 +1882,9 @@ div.bx-yellow .btn.btn-default{
 	.b-last-item-block{
 		padding-top: 80px;
 	}
+	.b-last-item-block.b-last-detail{
+		padding-top: 40px;
+	}
 	.b-subcategory:after{
 
 	}
@@ -2009,6 +2055,12 @@ div.bx-yellow .btn.btn-default{
 	.b-my-works-block{
 		padding-bottom: 90px;
 	}
+	.b-cabinet-right .tacenter .b-tab{
+		font-size: 16px;
+	}
+	.b-profile{
+		padding: 44px 18px;
+	}
 }
 
 @media screen and (max-width: 376px){
@@ -2054,6 +2106,9 @@ div.bx-yellow .btn.btn-default{
 }
 
 @media screen and (max-width: 350px){
+	.b-cabinet-right .tacenter .b-tab{
+		font-size: 14px;
+	}
 	.b-bonus-img{
 		height: 280px;
 	}

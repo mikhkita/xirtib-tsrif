@@ -6,7 +6,7 @@ $urlArr = $GLOBALS["urlArr"] = explode("/", $curPage);
 $GLOBALS["isMain"] = $isMain = ( $curPage == "/" )?true:false;
 $page = $GLOBALS["page"] = ( $urlArr[2] == null || $urlArr[2] == "" )?$urlArr[1]:$urlArr[2];
 $subPage = $GLOBALS["subpage"] = $urlArr[2];
-$GLOBALS["version"] = 421;
+$GLOBALS["version"] = 422;
 
 $is404 = defined('ERROR_404') && ERROR_404=='Y' && !defined('ADMIN_SECTION');
 
@@ -132,7 +132,7 @@ $GLOBALS["depends"] = array(
 					<? endif; ?>
 				</div>
 				<div class="b-phone b-phone-mobile">
-					<a href="tel:+4959225055" class="phone">+7 (495) 922-50-55</a>
+					<a href="tel:+74959225055" class="phone">+7 (495) 922-50-55</a>
 				</div>
 			</div>
 		</div>

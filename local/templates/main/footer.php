@@ -86,15 +86,15 @@
             </div>
 			<div class="b-form-container">
 				<form action="/personal/?action=authSite&login=yes" method="POST" id="b-form-auth" class="b-form-auth">
-					<?
-					// <div class="b-underbtn-text">Войти через соцсети</div>
-					// <div class="b-popup-soc b-soc">
-					// 	<a href="http://vk.com" target="_blank" class="b-soc-item icon-vk"></a>
-					// 	<!-- <a href="http://instagram.com" target="_blank" class="b-soc-item icon-ok"></a> -->
-					// 	<a href="http://facebook.com" target="_blank" class="b-soc-item icon-facebook"></a>
-					// 	<!-- <a href="http://google.com" target="_blank" class="b-soc-item icon-google"></a> -->
-					// </div>
-					?>
+					<?/*?>
+					<div class="b-underbtn-text">Войти через соцсети</div>
+					<div class="b-popup-soc b-soc">
+						<a href="http://vk.com" target="_blank" class="b-soc-item icon-vk"></a>
+						<!-- <a href="http://instagram.com" target="_blank" class="b-soc-item icon-ok"></a> -->
+						<a href="http://facebook.com" target="_blank" class="b-soc-item icon-facebook"></a>
+						<!-- <a href="http://google.com" target="_blank" class="b-soc-item icon-google"></a> -->
+					</div>
+					<?*/?>
 					<div class="b-msg-error"></div>
 					<div class="b-popup-form">
 						<input type="hidden" name="AUTH_FORM" value="Y">
@@ -107,10 +107,12 @@
 							<input type="password" class="b-popup-input" name="USER_PASSWORD" placeholder="Пароль" required>
 							<a href="#" class="icon-eye"></a>
 						</div>
-						<label class="checkbox">
-							<input type="checkbox" value="remember">
-							<span>Запомнить на этом компьютере</span>
-						</label>
+						<div class="b-popup-checkbox-cont">
+							<label class="checkbox">
+								<input type="checkbox" value="remember">
+								<span>Запомнить на этом компьютере</span>
+							</label>
+						</div>
 						<input type="text" name="MAIL">
 						<input type="submit" style="display:none;">
 						<a href="#b-popup-success" class="b-thanks-link fancy" style="display:none;"></a>
@@ -128,6 +130,7 @@
 						<div class="b-input-string">
 							<input type="password" name="password" class="b-popup-input" placeholder="Пароль" required>
 						</div>
+						<div class="b-popup-checkbox-cont"></div>
 						<!-- <label class="checkbox">
 							<input type="checkbox" value="exclusive">
 							<span>Я хочу получать эксклюзивные предложения</span>
@@ -560,7 +563,7 @@
 				</div>
 				<div class="b-popup-add-work-block">
 					<div class="b-input-string">
-						<input type="text" class="b-popup-input" name="work-name" placeholder="Название работы*" required/>
+						<input type="text" id="work-name" class="b-popup-input" name="work-name" placeholder="Название работы*" required/>
 					</div>
 					<div class="b-input-string">
 						<textarea name="text" id="work-comment" rows="5" class="b-popup-input" placeholder="Описание работы"></textarea>
@@ -600,7 +603,7 @@
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.fancybox.min.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.formstyler.min.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/chosen.jquery.min.js"></script>
-	<!-- <script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false&key=AIzaSyD6Sy5r7sWQAelSn-4mu2JtVptFkEQ03YI"></script> -->
+	<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false&key=AIzaSyD6Sy5r7sWQAelSn-4mu2JtVptFkEQ03YI"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.touch.min.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.maskedinput.min.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.validate.min.js"></script>

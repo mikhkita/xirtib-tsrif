@@ -10,9 +10,12 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(true);
-?>
-<div class="b-subcategory wave-bottom">
+$this->setFrameMode(true);?>
+<? $subclass = 'full'; ?>
+<? if ($arParams['FULL_CATALOG'] == 'Y'): ?>
+	<? $subclass = 'full'; ?>
+<? endif; ?>
+<div class="b-subcategory wave-bottom <?=$subclass?>">
 	<div class="b-block">
 		<div class="b-1-by-3-blocks">
 			<div class="b-block-1">
