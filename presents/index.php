@@ -21,7 +21,7 @@ $APPLICATION->SetTitle("Подарки");?>
 		<?
 			$discountIterator = Bitrix\Sale\Internals\DiscountTable::getList(array(
                 'select' => array('*'),
-                'filter' => array('XML_ID' => "PRESENT"),
+                'filter' => array('XML_ID' => "GIFT"),
                 'order' => array('ACTIVE_TO' => "ASC")
             ));
 
@@ -29,6 +29,7 @@ $APPLICATION->SetTitle("Подарки");?>
             $arDiscountItems = array();
 
             while ($discount = $discountIterator->fetch()) {
+
                 foreach($discount['ACTIONS_LIST']["CHILDREN"][0]["CHILDREN"][0]["DATA"]["Value"] as $itemID){
 					$arDiscountItems[$i]['ID'] = $itemID;
 

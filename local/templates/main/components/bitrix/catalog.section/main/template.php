@@ -97,22 +97,23 @@ $arFilters = Array(
 					<? endif; ?>
 					<div class="b-catalog-item-bottom<? if($GLOBALS["isWholesale"]): ?> wholesale-item<? endif; ?>">
 						<div class="price-container <?=$discountClass?>">
-							<div class="old-price icon-rub"><?=$price?></div>
-							<div class="new-price icon-rub"><?=$priceText?><?=$discountPrice?></div>
-							<? if( isset($arItem["MEASURE"]) ): ?>
-								<p class="article"><?=$arItem["MEASURE"]?></p>
+							<? if( count($arItem["ITEM_PRICES"]) > 1 ): ?>
+								<? foreach ($arItem["ITEM_PRICES"] as $kp => $itemPrice): ?>
+									<? if( $kp == 0 ) continue; ?>
+									<div class="b-discount-price b-dynamic-price b-dynamic-discount-price" style="display:none;" data-from="<?=$itemPrice["QUANTITY_FROM"]?>">
+										<div class="old-price icon-rub"><?=$discountPrice?></div>
+										<div class="new-price icon-rub"><?=convertPrice($itemPrice["BASE_PRICE"])?></div>
+									</div>
+								<? endforeach; ?>
 							<? endif; ?>
-							<!-- <p class="price icon-rub"><?=convertPrice($arItem["PRICES"]["PRICE"]["VALUE"])?></p> -->
-						<? if( count($arItem["ITEM_PRICES"]) > 1 ): ?>
-							<? foreach ($arItem["ITEM_PRICES"] as $kp => $price): ?>
-								<? if( $kp == 0 ) continue; ?>
-								<div class="b-discount-price b-dynamic-price b-dynamic-discount-price" style="display:none;" data-from="<?=$price["QUANTITY_FROM"]?>">
-									<div class="old-price icon-rub"><?=$price?></div>
-									<div class="new-price icon-rub"><?=$discountPrice?></div>
-								</div>
-							<? endforeach; ?>
-						<? endif; ?>
-					</div>
+							<div class="b-default-price">
+								<div class="old-price icon-rub"><?=$price?></div>
+								<div class="new-price icon-rub"><?=$priceText?><?=$discountPrice?></div>
+								<? if( isset($arItem["MEASURE"]) ): ?>
+									<p class="article"><?=$arItem["MEASURE"]?></p>
+								<? endif; ?>
+							</div>
+						</div>
 					<div class="b-right-button b-basket-count-cont<? if( isset($arItem["BASKET"]) ): ?> b-item-in-basket<? endif; ?>">
 						<? if( $isQuantity ): ?>
 							<div class="b-basket-count">
@@ -167,7 +168,7 @@ $arFilters = Array(
 									Оптом дешевле:<br>
 									<? foreach ($arItem["ITEM_PRICES"] as $kp => $price): ?>
 										<? if( $kp == 0 ) continue; ?>
-										от <?=$price["QUANTITY_FROM"]?> шт. – <span class="price icon-rub"><?=convertPrice($price)?></span><br>
+										от <?=$price["QUANTITY_FROM"]?> шт. – <span class="price icon-rub"><?=convertPrice($price["PRICE"])?></span><br>
 									<? endforeach; ?>
 								</div>
 							<? endif; ?>

@@ -1,6 +1,17 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Каталог");
+
+if( $GLOBALS["isWholesale"] && $_REQUEST["WHOLESALE"] == "Y" ){
+	$APPLICATION->SetTitle("Оптовый раздел");
+	$APPLICATION->AddChainItem("ОПТ", "/wholesale/");
+
+	$GLOBALS["arrCatalogFilter"][] = array(
+		"PROPERTY_WHOLESALE_VALUE" => "Y"
+	);
+
+}else{
+	$APPLICATION->SetTitle("Каталог");
+}
 
 if( !isset($_REQUEST["ORDER_FIELD"]) ){
 	$_REQUEST["ORDER_FIELD"] = "NAME";
@@ -299,6 +310,7 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 								<!-- <input type="hidden" name="section_id" value="<?=$GLOBALS["SECTION_ID"]?>"> -->
 							</div>
 						</div>
+						<? if (!$GLOBALS['isWholesale']): ?>
 						<div class="b-sort-item b-sort-discount">
 							<label class="checkbox">
 								<? $discountChecked = $_REQUEST['discount'] == 'on' ? 'checked' : '' ?>
@@ -313,6 +325,7 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 								<span>Купить оптом</span>
 							</label>
 						</div>
+						<? endif; ?>
 					</div>
 					<div class="b-sort-container">
 						<div class="b-sort-item b-sort-count">
@@ -342,12 +355,18 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 			<?
 			if ($_GET['discount']=="on") {
 				$arDiscounts = getDiscountProducts();
-				$GLOBALS["arrDiscountFilter"][] = Array(
+				$GLOBALS["arrCatalogFilter"][] = Array(
 					"LOGIC"=>"OR",
 					Array("ID" =>$arDiscounts["PRODUCTS"]),
 					Array("SECTION_ID" => $arDiscounts["SECTIONS"], "INCLUDE_SUBSECTIONS" => "Y"),
 				);	
 			}
+			if( $_REQUEST["wholesale"] ){
+				$GLOBALS["arrCatalogFilter"][] = array(
+					"PROPERTY_WHOLESALE_VALUE" => "Y"
+				);
+			}
+			
 			?>
 			<div class="pagination-container">
 				<?$APPLICATION->IncludeComponent(
@@ -381,7 +400,7 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 						"ELEMENT_SORT_FIELD2" => "id",
 						"ELEMENT_SORT_ORDER" => $_REQUEST["ORDER_TYPE"],
 						"ELEMENT_SORT_ORDER2" => "DESC",
-						"FILTER_NAME" => "arrDiscountFilter",
+						"FILTER_NAME" => "arrCatalogFilter",
 						"HIDE_NOT_AVAILABLE" => "N",
 						"IBLOCK_ID" => "1",
 						"IBLOCK_TYPE" => "catalog",

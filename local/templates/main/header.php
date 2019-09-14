@@ -124,7 +124,7 @@ $GLOBALS["depends"] = array(
 					<p class="icon-clock">пн-пт: с 10:00 до 19:00, сб: с 10:00 до 18:00, вс – выходной</p>
 				</div>
 				<div class="b-top-content-block b-top-auth">
-					<a href="#" class="icon-rub-round"><b>Купить оптом</b></a>
+					<a href="/wholesale/" class="icon-rub-round"><b>Купить оптом</b></a>
 					<? if( !isAuth() ): ?>
 						<a href="#b-popup-auth" class="fancy dashed">Войти</a>
 					<? else: ?>

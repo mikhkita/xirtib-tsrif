@@ -37,11 +37,12 @@ $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayB
 	<div class="b-catalog-desc">
 		<div class="b-catalog-item-top">
 			<h6><a href="<?=detailPageUrl($arItem["DETAIL_PAGE_URL"])?>"><?=$arItem["NAME"]?></a></h6>
+			<p class="article b-catalog-item-country">Италия</p>
 		</div>
 		<div class="b-catalog-item-bottom">
 			<div class="b-right-button b-basket-count-cont<? if( isset($arItem["BASKET"]) ): ?> b-item-in-basket<? endif; ?>">
 				<? if( $arItem["CATALOG_QUANTITY"] ): ?>
-					<a href="/ajax/?partial=1&ELEMENT_ID=<?=$arItem["ID"]?>&action=ADD2BASKET&gift=1" class="b-btn icon-cart b-btn-to-cart"><span>Добавить</span></a>
+					<a href="/ajax/?partial=1&ELEMENT_ID=<?=$arItem["ID"]?>&action=ADD2BASKET&gift=1" class="b-btn icon-cart b-btn-to-cart b-btn-to-cart-list"><span>Добавить</span></a>
 					<div class="b-error-max-count">Доступно: <?=$arItem["CATALOG_QUANTITY"]?> шт.</div>
 				<? else: ?>
 					<?$APPLICATION->IncludeComponent(

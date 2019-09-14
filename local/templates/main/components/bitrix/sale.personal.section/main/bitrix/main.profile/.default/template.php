@@ -27,6 +27,9 @@ if ($arUser['PERSONAL_PHOTO']){
 				// <div class="b-profile-bonus-count">125</div>
 				?>
 				<a href="edit" class="b-btn">Редактировать профиль</a>
+				<div class="b-btn-cont">
+					<a href="?action=logout" class="cabinet-logout-link">Выйти</a>
+				</div>
 			</div>
 			<?
 			// <div class="b-get-bonus">

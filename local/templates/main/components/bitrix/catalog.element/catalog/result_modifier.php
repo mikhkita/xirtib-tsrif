@@ -54,6 +54,7 @@ if ($arResult["OFFERS"]) {
 	}
 
 	foreach ($arResult["OFFERS"] as $key => $offer){ 
+
 		$selected = ($key == 0) ? 'selected' : '';
 		$addColor = true;
 		$addSize = true;
@@ -67,6 +68,7 @@ if ($arResult["OFFERS"]) {
 			$jsonOffers[$color][$size]['DISCOUNT_PRICE'] = $offer['PRICES']['PRICE']['DISCOUNT_VALUE'];
 			$jsonOffers[$color][$size]['QUANTITY'] = $offer["PRODUCT"]["QUANTITY"];
 			$jsonOffers[$color][$size]['OFFER_ID'] = $offer['ID'];
+			$jsonOffers[$color][$size]['ITEM_PRICES'] = $offer["ITEM_PRICES"];
 
 		} else {
 
@@ -76,6 +78,8 @@ if ($arResult["OFFERS"]) {
 			$jsonOffers[$option]['DISCOUNT_PRICE'] = $offer['PRICES']['PRICE']['DISCOUNT_VALUE'];
 			$jsonOffers[$option]['QUANTITY'] = $offer["PRODUCT"]["QUANTITY"];
 			$jsonOffers[$option]['OFFER_ID'] = $offer['ID'];
+			$jsonOffers[$option]['ITEM_PRICES'] = $offer["ITEM_PRICES"];
+			
 		}
 
 		foreach ($tmpColorId as $value){

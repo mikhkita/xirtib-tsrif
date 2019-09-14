@@ -13,7 +13,7 @@ if (isAuth()):
 	$fullName = trim($arUser['NAME']);
 ?>
 
-<div class="b-cabinet">
+<div class="b-cabinet b-cabinet-edit">
 	<div class="b-block">
 		<div class="b-cabinet-profile">
 			<?if(!empty($photo)):?>

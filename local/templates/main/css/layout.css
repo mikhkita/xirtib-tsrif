@@ -1278,7 +1278,8 @@ select{
 	-o-transform: translateY(-50%);
 	transform: translateY(-50%);
 } 
-.icon-vk:before{
+.icon-vk:before,
+.icon-vkontakte:before{
 	position: absolute;
 	content: '\e90f';
 	color: #282828;
@@ -1294,6 +1295,32 @@ select{
 .icon-facebook:before{
 	position: absolute;
 	content: '\e90e';
+	color: #282828;
+	z-index: 1;
+	font-size: 18px;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.icon-odnoklassniki:before{
+	position: absolute;
+	content: '\e925';
+	color: #282828;
+	z-index: 1;
+	font-size: 18px;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.icon-google:before{
+	position: absolute;
+	content: '\e926';
 	color: #282828;
 	z-index: 1;
 	font-size: 18px;
@@ -2157,7 +2184,7 @@ select{
 					width: 54px;
 					height: 57px;
 					position: absolute;
-					top: -10px;
+					top: 0px;
 				}
 					.catalog-item-discount p{
 						font-family: 'ProximaNova-Semibold';
@@ -2198,8 +2225,12 @@ select{
 						p.article{
 							font-family: 'ProximaNova-Bold';
 							color: #CFD3E0;
-							margin-top: 2px;
+						    margin-top: 10px;
+							margin-bottom: 4px;
 							letter-spacing: 0.4px;
+						}
+						p.article .icon-rub:before{
+							font-size: 12px;
 						}
 						.b-catalog-item-top .description{
 							display: none;
@@ -3947,6 +3978,9 @@ select{
 		.b-detail-top-slider{
 			margin-bottom: 25px;
 		}
+			.b-detail-top-slider img{
+				max-width: 100%;
+			}
 		.b-detail-top-slider .slick-track{
 			height: 461px;
 		}
@@ -4054,7 +4088,11 @@ select{
 				}
 		.detail-price-container{
 			margin-top: 32px;
+			text-align: left;
 		}
+			.detail-price-container .b-discount-price{
+				margin-top: 0;
+			}
 			.cheaper-mobile{
 				display: none;
 			}
@@ -6475,7 +6513,16 @@ select{
 				}
 .b-cabinet{
 	text-align: left;
+	padding-bottom: 150px;
+}
+.b-cabinet-edit{
 	padding-bottom: 80px;
+}
+.cabinet-logout-link{
+	display: inline-block;
+	border-bottom: 1px solid #D5D9E4;
+	margin-top: 25px;
+	color: #D5D9E4;
 }
 	.b-cabinet-profile{
 		display: inline-block;
@@ -7716,6 +7763,9 @@ div.bx-pink .btn.btn-default:active{
 .b-cdek-punkt{
 	margin-top: 24px;
 }
+.sale-order-history-link{
+	color: #FF345F;
+}
 .sale-order-detail-about-order-inner-container-name-read-less,
 .sale-order-detail-about-order-inner-container-name-read-more, 
 .sale-order-list-cancel-payment,
@@ -8701,6 +8751,12 @@ div.bx-yellow .btn.btn-default{
 
 /************ hover ************/
 @media only screen and (min-width: 1024px){
+	.cabinet-logout-link:hover{
+		border-color: #FF345F;
+	}
+	.sale-order-history-link:hover{
+		text-decoration: underline;
+	}
 	a:hover{
 		color: #FF345F;
 	}
@@ -9140,8 +9196,10 @@ div.bx-yellow .btn.btn-default{
 	.b-profile-photo:hover .b-profile-photo-back{
 		opacity: 1;
 	}
-	.b-profile .b-btn:hover{
+	.b-profile .b-btn:hover,
+	.b-cabinet .b-input-btn .b-btn:hover{
 		background-color: #D6294E;
+		color: #FFF;
 	}
 	.unavailable:hover .b-hint{
 		opacity: 1;

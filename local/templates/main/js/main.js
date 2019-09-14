@@ -315,7 +315,7 @@ $(document).ready(function(){
 
     //увеличить количество
     $(document).on('click', '.b-product-quantity .quantity-add', function(){
-        console.log('click');
+        // console.log('click');
         var $input = $('.quantity-input');
 
         if ($input.attr('data-quantity') != 0) {
@@ -375,12 +375,13 @@ $(document).ready(function(){
 
     $('.detail-select-block select').on('change', function(){
         var $this = $(this);
+        $('#wholesale-text').html('');
+        $('.b-default-price').removeClass('.b-discount-price');
 
         if ($(document).find('.detail-select-block select').length == 2) {
             var color = $('#colorSelect option:selected').attr('data-id');
 
             if ($this.attr('id') == 'colorSelect'){
-                // console.log('1');
                 $('#sizeSelect').find('option').each(function(){
                     $(this).prop('disabled', true).prop('selected', false);
                 });
@@ -396,6 +397,7 @@ $(document).ready(function(){
             }
 
             var size = $('#sizeSelect option:selected').attr('data-id');
+            // console.log(offers[color][size].OFFER_ID);
             showPhotoColor(offers[color][size].OFFER_ID);
             $('.b-btn-to-cart').attr('data-id', offers[color][size].OFFER_ID);
             $('.quantity-input').attr('data-quantity', offers[color][size].QUANTITY).val(1).trigger('change');
@@ -409,6 +411,24 @@ $(document).ready(function(){
 
             $('.old-price').text(new Intl.NumberFormat('ru-RU').format(offers[color][size].PRICE));
             $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[color][size].DISCOUNT_PRICE));
+
+            if (offers[color][size].ITEM_PRICES.length > 1) {
+
+                var html = '';
+                for (var i = 0; i < offers[color][size].ITEM_PRICES.length; i++) {
+                    if (i == 0) {
+                        continue;
+                    }
+
+                    if (parseInt($('.quantity-input').val()) >= parseInt(offers[color][size].ITEM_PRICES[i].QUANTITY_FROM)) {
+                        $('.b-default-price').addClass('.b-discount-price');
+                    }
+
+                    html += 'от '+offers[color][size].ITEM_PRICES[i].QUANTITY_FROM+' шт. – '+(new Intl.NumberFormat('ru-RU').format(offers[color][size].ITEM_PRICES[i].PRICE))+'&nbsp;<span class="price icon-rub"></span><br>';
+                }
+
+                $('#wholesale-text').html(html);
+            }
 
         } else {
             var option = $this.find('option:selected').attr('data-id');
@@ -426,6 +446,22 @@ $(document).ready(function(){
 
             $('.old-price').text(new Intl.NumberFormat('ru-RU').format(offers[option].PRICE));
             $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[option].DISCOUNT_PRICE));
+
+            if (offers[option].ITEM_PRICES.length > 1) {
+                for (var i = 0; i < offers[option].ITEM_PRICES.length; i++) {
+                    if (i == 0) {
+                        continue;
+                    }
+
+                    if (parseInt($('.quantity-input').val()) >= parseInt(offers[option].ITEM_PRICES[i].QUANTITY_FROM)) {
+                        $('.b-default-price').addClass('.b-discount-price');
+                    }
+
+                    html += 'от '+offers[option].ITEM_PRICES[i].QUANTITY_FROM+' шт. – '+(new Intl.NumberFormat('ru-RU').format(offers[option].ITEM_PRICES[i].PRICE))+'&nbsp;<span class="price icon-rub"></span><br>';
+                }
+
+                $('#wholesale-text').html(html);
+            }
         }
     });
 
@@ -448,8 +484,10 @@ $(document).ready(function(){
 
 
     function showPhotoColor(ID) {
-        var slickID = parseInt($('.b-detail-small-pic[data-id='+ID+']').index()) + 1;
-        $('.b-detail-bottom-slider').slick('slickGoTo', slickID);
+        $('.b-detail-bottom-slider').each(function(){
+            var slickID = parseInt($(this).find('.b-detail-small-pic[data-id='+ID+']').index() + 1);
+            $(this).slick('slickGoTo', slickID);
+        }); 
     }
 
     function checkOffer(colorID, sizeID) {
@@ -582,8 +620,13 @@ $(document).ready(function(){
         return (/^[\],:{}\s]*$/.test(filtered));
     }
 
+
+
     function changeWholesale(){
+        
+        // console.log('1');
         if( $(".b-dynamic-price").length && $(".b-dynamic-discount-price").length ){
+            // console.log('11');
             $(".b-dynamic-price").parents(".b-catalog-item-bottom:not(.wholesale-item)").each(function(){
                 var value = $(this).find(".b-quantity-input").val()*1,
                     $this = $(this);
@@ -591,12 +634,12 @@ $(document).ready(function(){
                 // console.log(value);
 
                 $(this).find(".b-dynamic-discount-price").hide();
-                $(this).find(".price").show();
+                $(this).find(".price, .b-default-price").show();
 
                 $(this).find(".b-dynamic-discount-price").each(function(){
                     var from = $(this).attr("data-from")*1;
                     if( value >= from ){
-                        $this.find(".b-dynamic-price, .price, b-dynamic-discount-price").hide();
+                        $this.find(".b-dynamic-price, .price, b-dynamic-discount-price, .b-default-price").hide();
                         $(this).show();
                     }
                 });
@@ -754,6 +797,84 @@ $(document).ready(function(){
         }
 
         return false;
+    });
+
+    $("body").on("change", ".quantity-input", function(){
+
+        if( $(".b-dynamic-discount-price").length ){
+            $(".b-dynamic-price").parents(".b-detail-right-block").each(function(){
+                var value = $(this).find(".quantity-input").val()*1,
+                    $this = $(this);
+
+                $(this).find(".b-dynamic-discount-price").hide();
+                $(this).find(".b-default-price").show();
+
+                $(this).find(".b-dynamic-discount-price").each(function(){
+                    var from = $(this).attr("data-from")*1;
+                    if( value >= from ){
+                        $this.find(".b-dynamic-discount-price, .b-default-price").hide();
+                        $(this).show();
+                    }
+                });
+            });
+        }
+
+        if ($(document).find('.detail-select-block select').length) {
+            
+            if ($('#wholesale-text').length) {
+                $('#wholesale-text').html('');
+            }
+
+            $('.b-default-price').removeClass('b-discount-price');
+
+            if ($(document).find('.detail-select-block select').length == 2) {
+
+                var color = $('#colorSelect option:selected').attr('data-id'),
+                    size = $('#sizeSelect option:selected').attr('data-id');
+
+                $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[color][size].DISCOUNT_PRICE));
+
+                if (offers[color][size].ITEM_PRICES.length > 1) {
+                    var html = '';
+                    for (var i = 0; i < offers[color][size].ITEM_PRICES.length; i++) {
+                        if (i == 0) {
+                            continue;
+                        }
+
+                        if (parseInt($('.quantity-input').val()) >= parseInt(offers[color][size].ITEM_PRICES[i].QUANTITY_FROM)) {
+                            $('.b-default-price').addClass('b-discount-price');
+                            $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[color][size].ITEM_PRICES[i].PRICE));
+                        }
+
+                        html += 'от '+offers[color][size].ITEM_PRICES[i].QUANTITY_FROM+' шт. – '+ (new Intl.NumberFormat('ru-RU').format(offers[color][size].ITEM_PRICES[i].PRICE)) +'&nbsp;<span class="price icon-rub"></span><br>';
+                    }
+
+                    $('#wholesale-text').html(html);
+                }
+
+            } else {
+                var option = $this.find('option:selected').attr('data-id');
+
+                $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[option].DISCOUNT_PRICE));
+
+                if (offers[option].ITEM_PRICES.length > 1) {
+                    for (var i = 0; i < offers[option].ITEM_PRICES.length; i++) {
+                        if (i == 0) {
+                            continue;
+                        }
+
+                        if (parseInt($('.quantity-input').val()) >= parseInt(offers[option].ITEM_PRICES[i].QUANTITY_FROM)) {
+                            $('.b-default-price').addClass('.b-discount-price');
+                            $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[option].ITEM_PRICES[i].PRICE));
+                        }
+
+                        html += 'от '+offers[option].ITEM_PRICES[i].QUANTITY_FROM+' шт. – '+(new Intl.NumberFormat('ru-RU').format(offers[option].ITEM_PRICES[i].PRICE))+'&nbsp;<span class="price icon-rub"></span><br>';
+                    }
+
+                    $('#wholesale-text').html(html);
+                }
+            }
+        }
     });
 
     // Изменение количества в каталоге путем ввода
@@ -947,11 +1068,11 @@ $(document).ready(function(){
 
      $("body").on("click", ".b-detail-text-more", function(){
         if( $("#b-detail-text").hasClass("limit") ){
-            console.log('1');
+            // console.log('1');
             $("#b-detail-text").removeClass("limit");
             $(this).text("Скрыть текст");
         }else{
-            console.log('2');
+            // console.log('2');
             $("#b-detail-text").addClass("limit");
             $(this).text("Читать полностью");
 

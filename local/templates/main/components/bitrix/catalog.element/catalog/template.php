@@ -100,16 +100,55 @@ if (isset($discountClass)) {
 				<? endif; ?>
 			</div>
 			<? if ($arResult["OFFERS"] && $isSliderImg): ?>
-					<div class="b-detail-bottom-slider b-detail-mobile-slider">
-						<? foreach ($arResult['OFFERS'] as $key => $offer): ?>
-							<div class="b-detail-small-pic" style="background-image: url('<?=$arImg["DETAIL_PHOTO"][$key]["SMALL"]?>" data-id="<?=$offer['ID']?>"></div>
-						<? endforeach; ?>
-					</div>
-				<? endif; ?>
-			<div class="detail-price-container">
+				<div class="b-detail-bottom-slider b-detail-mobile-slider">
+					<? foreach ($arResult['OFFERS'] as $key => $offer): ?>
+						<div class="b-detail-small-pic" style="background-image: url('<?=$arImg["DETAIL_PHOTO"][$key]["SMALL"]?>" data-id="<?=$offer['ID']?>"></div>
+					<? endforeach; ?>
+				</div>
+			<? endif; ?>
+			<div class="detail-price-container b-catalog-item-bottom">
 				<div class="price-container <?=$discountClass?>">
-					<p class="old-price icon-rub"><?=convertPrice($price)?></p>
-					<p class="new-price icon-rub"><?=convertPrice($discountPrice)?></p>
+					<? if( count($arResult["ITEM_PRICES"]) > 1 ): ?>
+						<? foreach ($arResult["ITEM_PRICES"] as $kp => $itemPrice): ?>
+							<? if( $kp == 0 ) continue; ?>
+							<div class="b-discount-price b-dynamic-price b-dynamic-discount-price" style="display:none;" data-from="<?=$itemPrice["QUANTITY_FROM"]?>">
+								<div class="old-price icon-rub"><?=convertPrice($discountPrice)?></div>
+								<div class="new-price icon-rub"><?=convertPrice($itemPrice["BASE_PRICE"])?></div>
+							</div>
+						<? endforeach; ?>
+					<? endif; ?>
+					<div class="b-default-price">
+						<div class="old-price icon-rub"><?=convertPrice($price)?></div>
+						<div class="new-price icon-rub"><?=$priceText?><?=convertPrice($discountPrice)?></div>
+						<?/*?>
+						<? if( isset($arResult["MEASURE"]) ): ?>
+							<p class="article"><?=$arResult["MEASURE"]?></p>
+						<? endif; ?>	
+						<?*/?>
+					</div>
+					<!-- Оптом дешевле<br> -->
+					<p class="article" id="wholesale-text">
+						<? if ($arResult["OFFERS"]): ?>
+							<? foreach ($arResult["OFFERS"] as $key => $offer): ?>
+								<? if ($offer["PRODUCT"]["QUANTITY"] > 0): ?>
+									<? if(count($offer["ITEM_PRICES"]) > 1): ?>
+										<? foreach ($offer["ITEM_PRICES"] as $kp => $offerPrice): ?>
+											<? if( $kp == 0 ) continue; ?>
+											от <?=$offerPrice["QUANTITY_FROM"]?> шт. – <?=convertPrice($offerPrice["PRICE"])?>&nbsp;<span class="price icon-rub"></span><br>
+										<? endforeach; ?>
+									<? endif; ?>
+									<? break; ?>
+								<? endif ?>
+							<? endforeach;?>
+						<? else: ?>
+							<? if(count($arResult["ITEM_PRICES"]) > 1): ?>
+								<? foreach ($arResult["ITEM_PRICES"] as $kp => $itemPrice): ?>
+									<? if( $kp == 0 ) continue; ?>
+									от <?=$itemPrice["QUANTITY_FROM"]?> шт. – <?=convertPrice($itemPrice["PRICE"])?>&nbsp;<span class="price icon-rub"></span><br>
+								<? endforeach; ?>
+							<? endif; ?>
+						<? endif; ?>
+					</p>
 					<div class="cheaper-mobile">
 						<a href="#" class="pink dashed">Купить этот товар дешевле</a>
 					</div>
@@ -118,7 +157,7 @@ if (isset($discountClass)) {
 				<? if (isset($discount)): ?>
 					<div class="b-detail-discount">
 						<div class="b-detail-disount-icon icon-discount-full">-<?=$discount?>%</div>
-						<div class="discount-time">17 ч : 49 м : 58 с</div>
+						<?/*?><div class="discount-time">17 ч : 49 м : 58 с</div><?*/?>
 					</div>
 				<? endif; ?>
 			</div>

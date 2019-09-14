@@ -147,9 +147,39 @@ $containerName = 'sale-products-gift-container';
 				switch ($rowData['VARIANT'])
 				{
 					case 0:
+					?>
+					<?
+					$item = reset($rowItems);
+					$APPLICATION->IncludeComponent(
+						'bitrix:catalog.item',
+						'main',
+						array(
+							'RESULT' => array(
+								'ITEM' => $item,
+								'AREA_ID' => $areaIds[$item['ID']],
+								'TYPE' => $rowData['TYPE'],
+								'BIG_LABEL' => 'N',
+								'BIG_DISCOUNT_PERCENT' => 'N',
+								'BIG_BUTTONS' => 'N',
+								'SCALABLE' => 'N'
+							),
+							'PARAMS' => $generalParams
+							+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+						),
+						$component,
+						array('HIDE_ICONS' => 'Y')
+					);
+					?>
+					<?
+					break;
+
+					case 1:
+					?>
+					<?
+					foreach ($rowItems as $item)
+					{
 						?>
 						<?
-						$item = reset($rowItems);
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.item',
 							'main',
@@ -164,349 +194,350 @@ $containerName = 'sale-products-gift-container';
 									'SCALABLE' => 'N'
 								),
 								'PARAMS' => $generalParams
-									+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
 							),
 							$component,
 							array('HIDE_ICONS' => 'Y')
 						);
 						?>
 						<?
-						break;
-
-					case 1:
-						?>
-							<?
-							foreach ($rowItems as $item)
-							{
-								?>
-								<?
-								$APPLICATION->IncludeComponent(
-									'bitrix:catalog.item',
-									'main',
-									array(
-										'RESULT' => array(
-											'ITEM' => $item,
-											'AREA_ID' => $areaIds[$item['ID']],
-											'TYPE' => $rowData['TYPE'],
-											'BIG_LABEL' => 'N',
-											'BIG_DISCOUNT_PERCENT' => 'N',
-											'BIG_BUTTONS' => 'N',
-											'SCALABLE' => 'N'
-										),
-										'PARAMS' => $generalParams
-											+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-									),
-									$component,
-									array('HIDE_ICONS' => 'Y')
-								);
-								?>
-								<?
-							}
-							?>
-						<?
-						break;
+					}
+					?>
+					<?
+					break;
 
 					case 2:
+					?>
+					<?
+					foreach ($rowItems as $item)
+					{
 						?>
 						<?
-						foreach ($rowItems as $item)
-						{
-							?>
-								<?
-								$APPLICATION->IncludeComponent(
-									'bitrix:catalog.item',
-									'main',
-									array(
-										'RESULT' => array(
-											'ITEM' => $item,
-											'AREA_ID' => $areaIds[$item['ID']],
-											'TYPE' => $rowData['TYPE'],
-											'BIG_LABEL' => 'N',
-											'BIG_DISCOUNT_PERCENT' => 'N',
-											'BIG_BUTTONS' => 'Y',
-											'SCALABLE' => 'N'
-										),
-										'PARAMS' => $generalParams
-											+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-									),
-									$component,
-									array('HIDE_ICONS' => 'Y')
-								);
-								?>
-							<?
-						}
+						$APPLICATION->IncludeComponent(
+							'bitrix:catalog.item',
+							'main',
+							array(
+								'RESULT' => array(
+									'ITEM' => $item,
+									'AREA_ID' => $areaIds[$item['ID']],
+									'TYPE' => $rowData['TYPE'],
+									'BIG_LABEL' => 'N',
+									'BIG_DISCOUNT_PERCENT' => 'N',
+									'BIG_BUTTONS' => 'Y',
+									'SCALABLE' => 'N'
+								),
+								'PARAMS' => $generalParams
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+							),
+							$component,
+							array('HIDE_ICONS' => 'Y')
+						);
 						?>
 						<?
-						break;
+					}
+					?>
+					<?
+					break;
 
 					case 3:
 
-						foreach ($rowItems as $item)
-						{
-							?>
-								<?
-								$APPLICATION->IncludeComponent(
-									'bitrix:catalog.item',
-									'main',
-									array(
-										'RESULT' => array(
-											'ITEM' => $item,
-											'AREA_ID' => $areaIds[$item['ID']],
-											'TYPE' => $rowData['TYPE'],
-											'BIG_LABEL' => 'N',
-											'BIG_DISCOUNT_PERCENT' => 'N',
-											'BIG_BUTTONS' => 'N',
-											'SCALABLE' => 'N'
-										),
-										'PARAMS' => $generalParams
-											+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-									),
-									$component,
-									array('HIDE_ICONS' => 'Y')
-								);
-								?>
-							<?
-						}
-						break;
+					foreach ($rowItems as $item)
+					{
+						?>
+						<?
+						$APPLICATION->IncludeComponent(
+							'bitrix:catalog.item',
+							'main',
+							array(
+								'RESULT' => array(
+									'ITEM' => $item,
+									'AREA_ID' => $areaIds[$item['ID']],
+									'TYPE' => $rowData['TYPE'],
+									'BIG_LABEL' => 'N',
+									'BIG_DISCOUNT_PERCENT' => 'N',
+									'BIG_BUTTONS' => 'N',
+									'SCALABLE' => 'N'
+								),
+								'PARAMS' => $generalParams
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+							),
+							$component,
+							array('HIDE_ICONS' => 'Y')
+						);
+						?>
+						<?
+					}
+					break;
 
 					case 4:
-						$rowItemsCount = count($rowItems);
+					$rowItemsCount = count($rowItems);
+					?>
+					<?
+					$item = array_shift($rowItems);
+					$APPLICATION->IncludeComponent(
+						'bitrix:catalog.item',
+						'main',
+						array(
+							'RESULT' => array(
+								'ITEM' => $item,
+								'AREA_ID' => $areaIds[$item['ID']],
+								'TYPE' => $rowData['TYPE'],
+								'BIG_LABEL' => 'N',
+								'BIG_DISCOUNT_PERCENT' => 'N',
+								'BIG_BUTTONS' => 'Y',
+								'SCALABLE' => 'Y'
+							),
+							'PARAMS' => $generalParams
+							+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+						),
+						$component,
+						array('HIDE_ICONS' => 'Y')
+					);
+					unset($item);
+					?>
+					<?
+					for ($i = 0; $i < $rowItemsCount - 1; $i++)
+					{
 						?>
 						<?
-						$item = array_shift($rowItems);
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.item',
 							'main',
 							array(
 								'RESULT' => array(
-									'ITEM' => $item,
-									'AREA_ID' => $areaIds[$item['ID']],
+									'ITEM' => $rowItems[$i],
+									'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
 									'TYPE' => $rowData['TYPE'],
 									'BIG_LABEL' => 'N',
 									'BIG_DISCOUNT_PERCENT' => 'N',
-									'BIG_BUTTONS' => 'Y',
-									'SCALABLE' => 'Y'
+									'BIG_BUTTONS' => 'N',
+									'SCALABLE' => 'N'
 								),
 								'PARAMS' => $generalParams
-									+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
 							),
 							$component,
 							array('HIDE_ICONS' => 'Y')
 						);
-						unset($item);
 						?>
-								<?
-								for ($i = 0; $i < $rowItemsCount - 1; $i++)
-								{
-									?>
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'main',
-											array(
-												'RESULT' => array(
-													'ITEM' => $rowItems[$i],
-													'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									<?
-								}
-								?>
 						<?
-						break;
+					}
+					?>
+					<?
+					break;
 
 					case 5:
-						$rowItemsCount = count($rowItems);
+					$rowItemsCount = count($rowItems);
+					?>
+					<?
+					for ($i = 0; $i < $rowItemsCount - 1; $i++)
+					{
 						?>
-								<?
-								for ($i = 0; $i < $rowItemsCount - 1; $i++)
-								{
-									?>
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'main',
-											array(
-												'RESULT' => array(
-													'ITEM' => $rowItems[$i],
-													'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									<?
-								}
-								?>
-									<?
-									$item = end($rowItems);
-									$APPLICATION->IncludeComponent(
-										'bitrix:catalog.item',
-										'main',
-										array(
-											'RESULT' => array(
-												'ITEM' => $item,
-												'AREA_ID' => $areaIds[$item['ID']],
-												'TYPE' => $rowData['TYPE'],
-												'BIG_LABEL' => 'N',
-												'BIG_DISCOUNT_PERCENT' => 'N',
-												'BIG_BUTTONS' => 'Y',
-												'SCALABLE' => 'Y'
-											),
-											'PARAMS' => $generalParams
-												+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-										),
-										$component,
-										array('HIDE_ICONS' => 'Y')
-									);
-									unset($item);
-									?>
 						<?
-						break;
+						$APPLICATION->IncludeComponent(
+							'bitrix:catalog.item',
+							'main',
+							array(
+								'RESULT' => array(
+									'ITEM' => $rowItems[$i],
+									'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
+									'TYPE' => $rowData['TYPE'],
+									'BIG_LABEL' => 'N',
+									'BIG_DISCOUNT_PERCENT' => 'N',
+									'BIG_BUTTONS' => 'N',
+									'SCALABLE' => 'N'
+								),
+								'PARAMS' => $generalParams
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
+							),
+							$component,
+							array('HIDE_ICONS' => 'Y')
+						);
+						?>
+						<?
+					}
+					?>
+					<?
+					$item = end($rowItems);
+					$APPLICATION->IncludeComponent(
+						'bitrix:catalog.item',
+						'main',
+						array(
+							'RESULT' => array(
+								'ITEM' => $item,
+								'AREA_ID' => $areaIds[$item['ID']],
+								'TYPE' => $rowData['TYPE'],
+								'BIG_LABEL' => 'N',
+								'BIG_DISCOUNT_PERCENT' => 'N',
+								'BIG_BUTTONS' => 'Y',
+								'SCALABLE' => 'Y'
+							),
+							'PARAMS' => $generalParams
+							+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+						),
+						$component,
+						array('HIDE_ICONS' => 'Y')
+					);
+					unset($item);
+					?>
+					<?
+					break;
 
 					case 6:
+					?>
+					<?
+					foreach ($rowItems as $item)
+					{
 						?>
-								<?
-								foreach ($rowItems as $item)
-								{
-									?>
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'main',
-											array(
-												'RESULT' => array(
-													'ITEM' => $item,
-													'AREA_ID' => $areaIds[$item['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									<?
-								}
-								?>
 						<?
-						break;
+						$APPLICATION->IncludeComponent(
+							'bitrix:catalog.item',
+							'main',
+							array(
+								'RESULT' => array(
+									'ITEM' => $item,
+									'AREA_ID' => $areaIds[$item['ID']],
+									'TYPE' => $rowData['TYPE'],
+									'BIG_LABEL' => 'N',
+									'BIG_DISCOUNT_PERCENT' => 'N',
+									'BIG_BUTTONS' => 'N',
+									'SCALABLE' => 'N'
+								),
+								'PARAMS' => $generalParams
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+							),
+							$component,
+							array('HIDE_ICONS' => 'Y')
+						);
+						?>
+						<?
+					}
+					?>
+					<?
+					break;
 
 					case 7:
-						$rowItemsCount = count($rowItems);
-						?>
+					$rowItemsCount = count($rowItems);
+					?>
 
+					<?
+					$item = array_shift($rowItems);
+					$APPLICATION->IncludeComponent(
+						'bitrix:catalog.item',
+						'main',
+						array(
+							'RESULT' => array(
+								'ITEM' => $item,
+								'AREA_ID' => $areaIds[$item['ID']],
+								'TYPE' => $rowData['TYPE'],
+								'BIG_LABEL' => 'N',
+								'BIG_DISCOUNT_PERCENT' => 'N',
+								'BIG_BUTTONS' => 'Y',
+								'SCALABLE' => 'Y'
+							),
+							'PARAMS' => $generalParams
+							+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+						),
+						$component,
+						array('HIDE_ICONS' => 'Y')
+					);
+					unset($item);
+					?>
+					<?
+					for ($i = 0; $i < $rowItemsCount - 1; $i++)
+					{
+						?>
 						<?
-						$item = array_shift($rowItems);
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.item',
 							'main',
 							array(
 								'RESULT' => array(
-									'ITEM' => $item,
-									'AREA_ID' => $areaIds[$item['ID']],
+									'ITEM' => $rowItems[$i],
+									'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
 									'TYPE' => $rowData['TYPE'],
 									'BIG_LABEL' => 'N',
 									'BIG_DISCOUNT_PERCENT' => 'N',
-									'BIG_BUTTONS' => 'Y',
-									'SCALABLE' => 'Y'
+									'BIG_BUTTONS' => 'N',
+									'SCALABLE' => 'N'
 								),
 								'PARAMS' => $generalParams
-									+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
 							),
 							$component,
 							array('HIDE_ICONS' => 'Y')
 						);
-						unset($item);
 						?>
-								<?
-								for ($i = 0; $i < $rowItemsCount - 1; $i++)
-								{
-									?>
-										<?
-										$APPLICATION->IncludeComponent(
-											'bitrix:catalog.item',
-											'main',
-											array(
-												'RESULT' => array(
-													'ITEM' => $rowItems[$i],
-													'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-													'TYPE' => $rowData['TYPE'],
-													'BIG_LABEL' => 'N',
-													'BIG_DISCOUNT_PERCENT' => 'N',
-													'BIG_BUTTONS' => 'N',
-													'SCALABLE' => 'N'
-												),
-												'PARAMS' => $generalParams
-													+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-											),
-											$component,
-											array('HIDE_ICONS' => 'Y')
-										);
-										?>
-									<?
-								}
-								?>
 						<?
-						break;
+					}
+					?>
+					<?
+					break;
 
 					case 8:
-						$rowItemsCount = count($rowItems);
+					$rowItemsCount = count($rowItems);
+					?>
+					<?
+					for ($i = 0; $i < $rowItemsCount - 1; $i++)
+					{
 						?>
 						<?
-						for ($i = 0; $i < $rowItemsCount - 1; $i++)
-						{
-							?>
-								<?
-								$APPLICATION->IncludeComponent(
-									'bitrix:catalog.item',
-									'main',
-									array(
-										'RESULT' => array(
-											'ITEM' => $rowItems[$i],
-											'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
-											'TYPE' => $rowData['TYPE'],
-											'BIG_LABEL' => 'N',
-											'BIG_DISCOUNT_PERCENT' => 'N',
-											'BIG_BUTTONS' => 'N',
-											'SCALABLE' => 'N'
-										),
-										'PARAMS' => $generalParams
-											+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
-									),
-									$component,
-									array('HIDE_ICONS' => 'Y')
-								);
-								?>
-							<?
-						}
+						$APPLICATION->IncludeComponent(
+							'bitrix:catalog.item',
+							'main',
+							array(
+								'RESULT' => array(
+									'ITEM' => $rowItems[$i],
+									'AREA_ID' => $areaIds[$rowItems[$i]['ID']],
+									'TYPE' => $rowData['TYPE'],
+									'BIG_LABEL' => 'N',
+									'BIG_DISCOUNT_PERCENT' => 'N',
+									'BIG_BUTTONS' => 'N',
+									'SCALABLE' => 'N'
+								),
+								'PARAMS' => $generalParams
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$rowItems[$i]['IBLOCK_ID']])
+							),
+							$component,
+							array('HIDE_ICONS' => 'Y')
+						);
 						?>
 						<?
-						$item = end($rowItems);
+					}
+					?>
+					<?
+					$item = end($rowItems);
+					$APPLICATION->IncludeComponent(
+						'bitrix:catalog.item',
+						'main',
+						array(
+							'RESULT' => array(
+								'ITEM' => $item,
+								'AREA_ID' => $areaIds[$item['ID']],
+								'TYPE' => $rowData['TYPE'],
+								'BIG_LABEL' => 'N',
+								'BIG_DISCOUNT_PERCENT' => 'N',
+								'BIG_BUTTONS' => 'Y',
+								'SCALABLE' => 'Y'
+							),
+							'PARAMS' => $generalParams
+							+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+						),
+						$component,
+						array('HIDE_ICONS' => 'Y')
+					);
+					unset($item);
+					?>
+					<?
+					break;
+
+					case 9:
+					?>
+					<?
+					foreach ($rowItems as $item)
+					{
+						?>
+						<?
 						$APPLICATION->IncludeComponent(
 							'bitrix:catalog.item',
 							'main',
@@ -517,51 +548,20 @@ $containerName = 'sale-products-gift-container';
 									'TYPE' => $rowData['TYPE'],
 									'BIG_LABEL' => 'N',
 									'BIG_DISCOUNT_PERCENT' => 'N',
-									'BIG_BUTTONS' => 'Y',
-									'SCALABLE' => 'Y'
+									'BIG_BUTTONS' => 'N'
 								),
 								'PARAMS' => $generalParams
-									+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
+								+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
 							),
 							$component,
 							array('HIDE_ICONS' => 'Y')
 						);
-						unset($item);
 						?>
 						<?
-						break;
-
-					case 9:
-						?>
-						<?
-						foreach ($rowItems as $item)
-						{
-							?>
-								<?
-								$APPLICATION->IncludeComponent(
-									'bitrix:catalog.item',
-									'main',
-									array(
-										'RESULT' => array(
-											'ITEM' => $item,
-											'AREA_ID' => $areaIds[$item['ID']],
-											'TYPE' => $rowData['TYPE'],
-											'BIG_LABEL' => 'N',
-											'BIG_DISCOUNT_PERCENT' => 'N',
-											'BIG_BUTTONS' => 'N'
-										),
-										'PARAMS' => $generalParams
-											+ array('SKU_PROPS' => $arResult['SKU_PROPS'][$item['IBLOCK_ID']])
-									),
-									$component,
-									array('HIDE_ICONS' => 'Y')
-								);
-								?>
-							<?
-						}
-						?>
-						<?
-						break;
+					}
+					?>
+					<?
+					break;
 				}
 				?>
 			</div>
