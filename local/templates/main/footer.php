@@ -76,6 +76,20 @@
 </div>
 	<div style="display:none;">
 		<a href="#b-popup-error" class="b-error-link fancy" style="display:none;"></a>
+		
+		<?$APPLICATION->IncludeComponent(
+		   "bitrix:system.auth.authorize",
+		   "",
+		   Array(
+		      "REGISTER_URL" => "",
+		      "PROFILE_URL" => "/personal/",
+		      "SHOW_ERRORS" => "Y",
+		      "POPUP_ID" => 'b-popup-auth'
+		   ),
+		false
+		);?>
+
+		<?/*?>
 
 		<div class="b-popup b-popup-auth" id="b-popup-auth">
 			<div class="b b-addressee">
@@ -171,7 +185,6 @@
 			</div>
 		</div>
 
-		<?/*?>
 		<div class="b-popup b-popup-auth" id="b-popup-auth">
 			<div class="b-popup-header"><h3>Войдите</h3> или <a href="#b-popup-reg" onclick="$.fancybox.close();" class="fancy dashed">зарегистрируйтесь</a></div>
 			<form action="/personal/?action=authSite&login=yes" method="POST" id="b-form-auth">

@@ -4136,6 +4136,9 @@ select{
 				margin-left: 34px;
 				vertical-align: middle;
 			}
+			.b-detail-discount.hide{
+				display: none;
+			}
 				.b-detail-disount-icon{
 					position: relative;
 					z-index: 1;

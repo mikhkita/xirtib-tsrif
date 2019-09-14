@@ -377,6 +377,7 @@ $(document).ready(function(){
         var $this = $(this);
         $('#wholesale-text').html('');
         $('.b-default-price').removeClass('.b-discount-price');
+        $('.b-detail-discount').addClass('hide');
 
         if ($(document).find('.detail-select-block select').length == 2) {
             var color = $('#colorSelect option:selected').attr('data-id');
@@ -405,6 +406,8 @@ $(document).ready(function(){
 
             if (parseInt(offers[color][size].PRICE) !== parseInt(offers[color][size].DISCOUNT_PRICE)){
                 $('.price-container').addClass('b-discount-price');
+                $('.b-detail-discount').removeClass('hide');
+                $('.b-detail-disount-icon').html('-'+Math.round(100 - (parseInt(offers[color][size].DISCOUNT_PRICE) * 100 / parseInt(offers[color][size].PRICE)))+'%');
             } else {
                 $('.price-container').removeClass('b-discount-price');
             }
@@ -440,6 +443,8 @@ $(document).ready(function(){
 
             if (parseInt(offers[option].PRICE) !== parseInt(offers[option].DISCOUNT_PRICE)){
                 $('.price-container').addClass('b-discount-price');
+                $('.b-detail-disount-icon').html('-'+Math.round(100 - (parseInt(offers[option].DISCOUNT_PRICE) * 100 / parseInt(offers[option].PRICE)))+'%');
+                $('.b-detail-discount').removeClass('hide');
             } else {
                 $('.price-container').removeClass('b-discount-price');
             }

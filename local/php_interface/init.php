@@ -143,6 +143,11 @@ class MyEventHandlers
 
 		    foreach ($arBasketItems as $item) {
 
+		    	$mxResult = CCatalogSku::GetProductInfo($item['PRODUCT_ID']);
+				$el = CIBlockElement::GetByID($mxResult['ID']);
+				$arElement = $el->fetch();
+				$name = is_array($mxResult) ? $arElement['NAME']." (".$item['NAME'].")" : $item['NAME'];
+
 		    	if (round($item['QUANTITY']) == 1 && $item['BASE_PRICE'] == $item["DISCOUNT_PRICE"]) {
 		    		$item['BASE_PRICE'] = $item['DISCOUNT_PRICE'] = 0;
 		    	}
@@ -151,7 +156,7 @@ class MyEventHandlers
 
 		    	$itemsText.="<tr>".
             		"<td>".$item['PRODUCT_ID']."</td>".
-            		"<td>".$item['NAME']."</td>".
+            		"<td>".$name."</td>".
             		"<td>".round($item['QUANTITY'])."</td>".
             		"<td>".round($item['BASE_PRICE'])."</td>".
             		"<td>".$item["TOTAL_QUANTITY"]."</td>".
@@ -160,7 +165,7 @@ class MyEventHandlers
             	"</tr>";
 
             	$clientItemsText.="<tr>".
-            		"<td>".$item['NAME']."</td>".
+            		"<td>".$name."</td>".
             		"<td>".round($item['BASE_PRICE'])."</td>".
             		"<td>".round($item['QUANTITY'])."</td>".
             		"<td>".round($item['QUANTITY']*$item['BASE_PRICE'])."</td>".
