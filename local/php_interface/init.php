@@ -1018,7 +1018,7 @@ function getParam($param){
 
 function setParam($param, $value){
 
-	$item = getParams($param);
+	$item = getParam($param);
 
 	if (CIBlockElement::SetPropertyValuesEx($item['ID'], false, array("PARAM_VALUE" => $value))) {
 		echo "1";

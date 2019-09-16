@@ -50,6 +50,13 @@ $(document).ready(function(){
 
     $('.b-catalog-preview .b-big-tabs h2').on('click', function(){
         var tab = $(this).attr('data-tab');
+        $('.b-big-tab-container.tab-link').addClass('hide');
+            
+
+        if (tab == 'catalog-new') {
+            $('.b-big-tab-container.tab-link').removeClass('hide');
+        }
+
         $(this).parent().siblings().find('h2').addClass('deactive');
         $(this).removeClass('deactive');
         $('.b-catalog-preview .b-catalog-list').addClass('hide');
@@ -286,6 +293,19 @@ $(document).ready(function(){
         arrows: true,
         fade: true,
         asNavFor: '.b-detail-bottom-slider',
+        prevArrow: '<button type="button" class="slick-prev slick-arrow icon-arrow"></button>',
+        nextArrow: '<button type="button" class="slick-next slick-arrow icon-arrow"></button>',
+        touchThreshold: 100,
+    });
+
+    $('#catalog-lead').slick({
+        dots: false,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        infinite: true,
+        cssEase: 'ease', 
+        speed: 100,
+        arrows: true,
         prevArrow: '<button type="button" class="slick-prev slick-arrow icon-arrow"></button>',
         nextArrow: '<button type="button" class="slick-next slick-arrow icon-arrow"></button>',
         touchThreshold: 100,

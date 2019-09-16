@@ -44,66 +44,102 @@ $APPLICATION->SetTitle("Доставка и оплата");?>
 					<?*/?>
 				</div>
 				<div class="b-rounded-tile-list">
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-pickup"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">Самовывоз.<br><a href="#b-delivery-popup" class="fancy underline">15 точек в Москве</a></div>
+						</div>
+					</div>
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-post"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">Курьер в Подмосковье, за МКАД</div>
+						</div>
+					</div>
+					<div class="b-rounded-tile-item">
 						<div class="b-rounded-tile-img icon-courier"></div>
 						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Курьерска доставка</div>
+							<div class="b-rounded-tile-name">Курьер по Москве, в&nbsp;пределах МКАД</div>
 						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
+					</div>
+					<div class="b-rounded-tile-item">
 						<div class="b-rounded-tile-img icon-urgently"></div>
 						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Срочная курьерская доставка день в день</div>
+							<div class="b-rounded-tile-name">Срочная курьерская доставка по Москве день&nbsp;в&nbsp;день</div>
 						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
-						<div class="b-rounded-tile-img icon-autopost"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Доставка через постоматы</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
-						<div class="b-rounded-tile-img icon-sdek"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">СДЭК</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
-						<div class="b-rounded-tile-img icon-post"></div>
+					</div>
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-rus-post"></div>
 						<div class="b-rounded-tile-name-container">
 							<div class="b-rounded-tile-name">Почта России</div>
 						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
+					</div>
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-ems"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">ЕМС почта</div>
+						</div>
+					</div>
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-autopost"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">PickPoint</div>
+						</div>
+					</div>
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-sdek"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">СДЭК. Самовывоз и доставка</div>
+						</div>
+					</div>
+					<div class="b-rounded-tile-item">
 						<div class="b-rounded-tile-img icon-tc"></div>
 						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Доставка транспортными компаниями</div>
+							<div class="b-rounded-tile-name">Наложенный платеж</div>
 						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
-						<div class="b-rounded-tile-img icon-pickup"></div>
+					</div>
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-boxberry"></div>
 						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Самовывоз</div>
+							<div class="b-rounded-tile-name">Boxberry. Курьер и самовывоз</div>
 						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
-						<div class="b-rounded-tile-img icon-pek"></div>
+					</div>
+					<div class="b-rounded-tile-item">
+						<div class="b-rounded-tile-img icon-grastin"></div>
 						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Транспортная компания ПЭК</div>
+							<div class="b-rounded-tile-name">Grastin. Курьер и самовывоз</div>
 						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
-						<div class="b-rounded-tile-img icon-dl"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Деловые линии</div>
+					</div>
+				</div>
+				<div style="display: none;">
+					<div class="b-popup b-delivery-popup" id="b-delivery-popup">
+						<div class="b-popup-header">
+							<h3>Самовывоз</h3>
+							<p>15 точек в Москве</p>
 						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item" onclick="return false;">
-						<div class="b-rounded-tile-img icon-sl"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Shop Logistic</div>
+						<div class="b-text">
+							<ul>
+								<li>Марьинский У-г</li>
+								<li>Апрелевка</li>
+								<li>Домодедово</li>
+								<li>Мытищи</li>
+								<li>Бутово</li>
+								<li>Зеленоград</li>
+								<li>Китай-город</li>
+								<li>Красногорск</li>
+								<li>Марьино</li>
+								<li>Маяковская</li>
+								<li>Новокосино</li>
+								<li>Октябрьское поле</li>
+								<li>Реутов</li>
+								<li>Сокольники</li>
+								<li>Рассказовка</li>
+								<li>Электрозаводская</li>
+								<li>Чертановская</li>
+								<li>Шоссе Энтузиастов</li>
+							</ul>
 						</div>
-					</a>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1546,6 +1546,9 @@ a:focus{
 	    width: 100%;
 	    display: block;
 	}
+	.b-delivery-popup ul{
+	    column-count: 2;
+	}
 }
 
 @media screen and (max-width: 500px){

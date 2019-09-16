@@ -3,7 +3,6 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("keywords", "Товары для кондитера, инструменты для кондитера");
 $APPLICATION->SetPageProperty("description", "Магазин по продаже товаров для профессионального кондитера");
 $APPLICATION->SetTitle("Первый магазин для кондитеров");
-
 ?>
 
 <div class="b-index-tops">
@@ -16,12 +15,15 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				<div class="b-index-top-column"><h6>30 насыщенных оттенков</h6></div>
 				<div class="b-index-top-column"><h6>Кошерный и халяльный продукт</h6></div>
 			</div>
-			<a href="/catalog/" class="b-btn">Смотреть каталог</a>
+			<a href="/catalog/krasiteli-chefmaster-ssha/" class="b-btn">Смотреть каталог</a>
 		</div>
-		<div class="b-index-top b-index-top-2">
-			<h6><span class="bold">Продавайте</span> свои работы дороже в&nbsp;2&nbsp;раза, уже сегодня управляя домашним бизнесом <span class="bold">с помощью приложения:</span></h6>
-			<a href="#" class="b-btn" onclick="return false;">Узнать&nbsp;подробнее</a>
-		</div>
+		<? $displayBanner1 = getParam('DISPLAY_BANNER_1'); ?>
+		<? if ($displayBanner1['VALUE'] !== 'N'): ?>
+			<div class="b-index-top b-index-top-2">
+				<h6><span class="bold">Продавайте</span> свои работы дороже в&nbsp;2&nbsp;раза, уже сегодня управляя домашним бизнесом <span class="bold">с помощью приложения:</span></h6>
+				<a href="#" class="b-btn" onclick="return false;">Узнать&nbsp;подробнее</a>
+			</div>
+		<? endif; ?>
 	</div>
 </div>
 <div class="b-catalog-preview">
@@ -68,9 +70,9 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				"CONVERT_CURRENCY" => "N",
 				"DETAIL_URL" => "",
 				"DISABLE_INIT_JS_IN_COMPONENT" => "N",
-				"DISPLAY_BOTTOM_PAGER" => "Y",
+				"DISPLAY_BOTTOM_PAGER" => "N",
 				"DISPLAY_TOP_PAGER" => "N",
-				"ELEMENT_SORT_FIELD" => "SORT",
+				"ELEMENT_SORT_FIELD" => "ACTIVE_FROM",
 				"ELEMENT_SORT_FIELD2" => "id",
 				"ELEMENT_SORT_ORDER" => "ASC",
 				"ELEMENT_SORT_ORDER2" => "DESC",
@@ -151,6 +153,9 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 			'ACTIVE_COMPONENT' => 'Y'
 		)
 		);?>
+
+		<? $GLOBALS["arrLeadersFilter"] = array("PROPERTY_HIT_VALUE" => "Да"); ?>	
+
 		<?$APPLICATION->IncludeComponent(
 			"bitrix:catalog.section",
 			"main",
@@ -176,13 +181,13 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				"CONVERT_CURRENCY" => "N",
 				"DETAIL_URL" => "",
 				"DISABLE_INIT_JS_IN_COMPONENT" => "N",
-				"DISPLAY_BOTTOM_PAGER" => "Y",
+				"DISPLAY_BOTTOM_PAGER" => "N",
 				"DISPLAY_TOP_PAGER" => "N",
 				"ELEMENT_SORT_FIELD" => "NAME",
 				"ELEMENT_SORT_FIELD2" => "id",
 				"ELEMENT_SORT_ORDER" => "ASC",
 				"ELEMENT_SORT_ORDER2" => "DESC",
-				"FILTER_NAME" => "arrFilter2",
+				"FILTER_NAME" => "arrLeadersFilter",
 				"HIDE_NOT_AVAILABLE" => "Y",
 				"IBLOCK_ID" => "1",
 				"IBLOCK_TYPE" => "catalog",
@@ -200,7 +205,7 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				"META_KEYWORDS" => "-",
 				"OFFERS_CART_PROPERTIES" => array(0=>"COLOR_REF",1=>"SIZES_CLOTHES",),
 				"OFFERS_FIELD_CODE" => array(0=>"",1=>"",),
-				"OFFERS_LIMIT" => "5",
+				"OFFERS_LIMIT" => "",
 				"OFFERS_PROPERTY_CODE" => array(0=>"COLOR_REF",1=>"SIZES_CLOTHES",2=>"SIZES_SHOES",3=>"",),
 				"OFFERS_SORT_FIELD" => "id",
 				"OFFERS_SORT_FIELD2" => "id",
@@ -215,7 +220,7 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				"PAGER_SHOW_ALWAYS" => "N",
 				"PAGER_TEMPLATE" => "main",
 				"PAGER_TITLE" => "Товары",
-				"PAGE_ELEMENT_COUNT" => 4,
+				"PAGE_ELEMENT_COUNT" => 16,
 				"PARTIAL_PRODUCT_PROPERTIES" => "N",
 				"PRICE_CODE" => array(0=>"PRICE",),
 				"PRICE_VAT_INCLUDE" => "N",
@@ -571,8 +576,10 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				<p>Мягкая пластичная масса для покрытия тортов или создания разных декоративных украшений для тортов и десертов.</p>
 			</div>
 			<div class="b-own-products-text right">
-				<h4>Кондитерская<br>упаковка <b>«Sweets bear»</b></h4>
-				<p>Кондитерская упаковка для ваших&nbsp;сладких десертов.<br>Удобная конструкция, высокое качество и&nbsp;экологичность материалов, выгодные цены.</p>
+				<h4>Кондитерская упаковка, кондитерские кольца и многое другое под маркой <b>«Sweets bear»</b></h4>
+				<p>Удобная конструкция, высокое качество и экологичность материалов, выгодные цены.</p>
+				<!-- <h4>Кондитерская<br>упаковка <b>«Sweets bear»</b></h4> -->
+				<!-- <p>Кондитерская упаковка для ваших&nbsp;сладких десертов.<br>Удобная конструкция, высокое качество и&nbsp;экологичность материалов, выгодные цены.</p> -->
 			</div>	
 		</div>
 	</div>
@@ -648,10 +655,10 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 </div>
 <div class="b-bonus">
 	<div class="b-block">
-		<div class="b-bonus-img">
+		<a href="/stocks/" class="b-bonus-img">
 			<h2>Бонусная программа</h2>
 			<p>от Первого магазина для кондитеров</p>
-		</div>
+		</a>
 	</div>
 </div>
 <div class="b-video-block">

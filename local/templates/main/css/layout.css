@@ -519,6 +519,12 @@ input[name="MAIL"]{
 .b-popup-sale{
 	max-width: 469px;
 }
+.b-delivery-popup ul{
+    column-count: 3;
+}
+.b-delivery-popup p{
+    font-size: 16px;
+}
 	.b-popup-sale-img{
 		background-size: cover;
 		background-position: 50% 50%;
@@ -2069,6 +2075,10 @@ select{
 			float: right;
 		    margin-top: 10px;
 		}
+		.b-big-tab-container.tab-link.hide{
+			visibility: hidden;
+			opacity: 0;
+		}
 		.b-big-tab-container:not(:first-child){
 			margin-left: 33px;
 		}
@@ -3103,7 +3113,11 @@ select{
 		background-size: cover;
 		background-position: 50%;
 		padding-top: 64px;
+		display: block;
 		text-align: center;
+	}
+	.b-bonus-img:hover{
+		color: inherit;
 	}
 		.b-bonus h2{
 
@@ -4912,7 +4926,7 @@ select{
 			}
 		.b-rounded-tile-list{
 		    width: 100%;
-		    justify-content: space-between;
+		    /*justify-content: space-between;*/
 		    display: flex;
 		    flex-wrap: wrap;
 		    align-items: stretch;
@@ -4960,6 +4974,10 @@ select{
 						line-height: 22px;
 						color: #282828;
 					}
+					.b-rounded-tile-name a{
+						font-size: 18px;
+						line-height: 22px;
+					}
 				.icon-courier{
 					background-image: url("../i/icon-courier.png");
 				}
@@ -4977,8 +4995,24 @@ select{
 				.icon-post{
 					background-image: url("../i/icon-post.png");
 				}
+				.icon-rus-post{
+					background-image: url("../i/russian-post.svg");
+					width: 140px;
+				}
+				.icon-ems{
+					background-image: url("../i/ems.svg");
+					width: 140px;
+				}
 				.icon-tc{
 					background-image: url("../i/icon-tc.png");
+				}
+				.icon-boxberry{
+					width: 140px;
+					background-image: url("../i/icon-boxberry.svg");
+				}
+				.icon-grastin{
+					width: 140px;
+					background-image: url("../i/icon-grastin.png");
 				}
 				.icon-pickup{
 					background-image: url("../i/icon-pickup.png");
@@ -8539,6 +8573,39 @@ div.bx-yellow .btn.btn-default{
 .b-stock-list{
 	margin-top: 40px;
 }
+
+#catalog-lead{
+	display: block;
+	visibility: hidden;
+	height: 0;
+	margin-top: 0;
+}
+#catalog-new{
+	margin-top: 35px;
+}
+	#catalog-lead .b-catalog-item{
+		margin: 0 16px;
+	}
+#catalog-lead.slick-initialized{
+	visibility: visible;
+	height: auto;
+}	
+	#catalog-lead .slick-list{
+	    margin: 0 -16px;
+    	padding: 0 16px;
+    	width: calc(100% + 16px);
+	}
+		#catalog-lead .slick-track{
+			padding-top: 35px;
+			padding-bottom: 50px;
+		}
+
+#catalog-lead.slick-initialized.hide{
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
+}
+
 
 @media only screen and (max-width: 1920px){
 	/*.b-news-preview:before{
