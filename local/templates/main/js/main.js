@@ -309,6 +309,27 @@ $(document).ready(function(){
         prevArrow: '<button type="button" class="slick-prev slick-arrow icon-arrow"></button>',
         nextArrow: '<button type="button" class="slick-next slick-arrow icon-arrow"></button>',
         touchThreshold: 100,
+        responsive: [
+            {
+              breakpoint: 1240,
+              settings: {
+                slidesToShow: 3,
+              }
+            },
+            {
+              breakpoint: 960,
+              settings: {
+                slidesToShow: 2,
+              }
+            },
+            {
+              breakpoint: 650,
+              settings: {
+                slidesToShow: 1,
+                adaptiveHeight: true,
+              }
+            },
+        ]
     });
 
     $('.b-detail-bottom-slider').slick({

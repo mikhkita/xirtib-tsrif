@@ -6,7 +6,7 @@ $urlArr = $GLOBALS["urlArr"] = explode("/", $curPage);
 $GLOBALS["isMain"] = $isMain = ( $curPage == "/" )?true:false;
 $page = $GLOBALS["page"] = ( $urlArr[2] == null || $urlArr[2] == "" )?$urlArr[1]:$urlArr[2];
 $subPage = $GLOBALS["subpage"] = $urlArr[2];
-$GLOBALS["version"] = 423;
+$GLOBALS["version"] = 424;
 
 $is404 = defined('ERROR_404') && ERROR_404=='Y' && !defined('ADMIN_SECTION');
 
@@ -162,7 +162,7 @@ $GLOBALS["depends"] = array(
 				</a>
 			</div>
 			<div class="b-header-block pink-header-block clearfix">
-				<a href="/catalog/lavka-kulinara/" class="b-catalog-menu icon-list" onclick="return false;">Каталог товаров</a>
+				<a href="/catalog/lavka-kulinara/" class="b-catalog-menu icon-list">Каталог товаров</a>
 				<div id="burger-menu" class="burger-menu icon-menu"></div>
 				<div class="b-search-form">
 					<?$APPLICATION->IncludeComponent("bitrix:search.title", "header", Array(

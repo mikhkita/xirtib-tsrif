@@ -1335,6 +1335,12 @@ a:focus{
 	.b-cabinet-right{
 		padding-bottom: 80px;
 	}
+	#catalog-lead .slick-track{
+		padding: 0;
+	}
+	.b-big-tab-container.tab-link.hide{
+		display: none;
+	}
 }
 
 @media screen and (max-width: 600px){
@@ -2063,6 +2069,9 @@ a:focus{
 	}
 	.b-profile{
 		padding: 44px 18px;
+	}
+	#catalog-lead .slick-list{
+		padding: 0;
 	}
 }
 

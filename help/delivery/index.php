@@ -92,12 +92,14 @@ $APPLICATION->SetTitle("Доставка и оплата");?>
 							<div class="b-rounded-tile-name">СДЭК. Самовывоз и доставка</div>
 						</div>
 					</div>
+					<?/*?>
 					<div class="b-rounded-tile-item">
 						<div class="b-rounded-tile-img icon-tc"></div>
 						<div class="b-rounded-tile-name-container">
 							<div class="b-rounded-tile-name">Наложенный платеж</div>
 						</div>
 					</div>
+					<?*/?>
 					<div class="b-rounded-tile-item">
 						<div class="b-rounded-tile-img icon-boxberry"></div>
 						<div class="b-rounded-tile-name-container">

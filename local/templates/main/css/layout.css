@@ -5521,10 +5521,11 @@ select{
 				vertical-align: top;
 			}
 				.b-news-item-img{
-					background-size: contain;
+					background-size: cover;
 					background-repeat: no-repeat;
 					background-position: 50% 50%;
 					height: 189px;
+					border-radius: 3px;
 				}
 				.b-news-item-soc-container{
 					margin-top: 10px;
@@ -5550,7 +5551,7 @@ select{
 				.b-news-item-head{
 					font-family: 'ProximaNova-Bold';
 					font-size: 24px;
-					line-height: 1;
+					line-height: 32px;
 					color: #282828;
 				}
 				.b-news-item-date{
@@ -8902,10 +8903,10 @@ div.bx-yellow .btn.btn-default{
 		color: #FF345F;
 	}
 	.underline:hover{
-		border-bottom: unset;
+		border-color: transparent;
 	}
 	.dashed:hover{
-		border-bottom: unset;
+		border-color: transparent;
 	}
 	.b-btn:hover{
 		/*background-color: #cf2c4e;*/
