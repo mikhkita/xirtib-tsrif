@@ -102,15 +102,91 @@ $GLOBALS["depends"] = array(
 			<li><a href="/help/">Помощь</a></li>
 			<li><a href="/help/contacts/">Контакты</a></li>
 			<li><a href="/catalog/">Каталог</a></li>
-			<?/*?><li><a href="/help/contacts/">Купить оптом</a></li><?*/?>
+			<li><a href="/wholesale/">Купить оптом</a></li>
 		</ul>
 		<div class="b-menu-schedule">
-			<p class="icon-clock">пн-пт: с 10:00 до 19:00, сб: с 10:00 до 18:00, вс – выходной</p>
+			<p class="icon-clock">пн-пт: с 10:00 до 19:00,<br>сб: с 10:00 до 18:00,<br>вс – выходной</p>
 		</div>
 		<div class="b-phone">
 			<a href="tel:+74959225055" class="phone">+ 7 495 922 50 55</a>
 			<a href="#b-popup-phone" class="pink dashed fancy">Заказать звонок</a>
 		</div>
+	</div>
+	<div id="mobile-catalog" class="mobile-catalog hide">
+		<? if ($isCatalog || $isWholesale): ?>
+			<h2>Каталог</h2>
+			<div class="menu-accordion">
+				<div class="menu-accodion-block ">
+					<h3 class="menu-header icon-arrow">Лавка кулинара</h3>
+					<?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "main_categories", Array(
+						"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+							"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+							"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+							"CACHE_TYPE" => "N",	// Тип кеширования
+							"COUNT_ELEMENTS" => "Y",	// Показывать количество элементов в разделе
+							"IBLOCK_ID" => "1",	// Инфоблок
+							"IBLOCK_TYPE" => "content",	// Тип инфоблока
+							"SECTION_CODE" => "",	// Код раздела
+							"SECTION_FIELDS" => array(	// Поля разделов
+								0 => "NAME",
+							),
+							"SECTION_ID" => 1,	// ID раздела
+							"SECTION_URL" => "",	// URL, ведущий на страницу с содержимым раздела
+							"SECTION_USER_FIELDS" => array(	// Свойства разделов
+							),
+							"SHOW_PARENT_NAME" => "Y",	// Показывать название раздела
+							"TOP_DEPTH" => "1",	// Максимальная отображаемая глубина разделов
+							"VIEW_MODE" => "LINE",	// Вид списка подразделов
+						),
+						false
+					);?>
+				</div>
+				<div class="menu-accodion-block">
+					<h3 class="menu-header icon-arrow">Кондитерский инвентарь</h3>
+					<?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "main_categories", Array(
+						"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+							"CACHE_GROUPS" => "Y",	// Учитывать права доступа
+							"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+							"CACHE_TYPE" => "N",	// Тип кеширования
+							"COUNT_ELEMENTS" => "Y",	// Показывать количество элементов в разделе
+							"IBLOCK_ID" => "1",	// Инфоблок
+							"IBLOCK_TYPE" => "content",	// Тип инфоблока
+							"SECTION_CODE" => "",	// Код раздела
+							"SECTION_FIELDS" => array(	// Поля разделов
+								0 => "NAME",
+							),
+							"SECTION_ID" => 2,	// ID раздела
+							"SECTION_URL" => "",	// URL, ведущий на страницу с содержимым раздела
+							"SECTION_USER_FIELDS" => array(	// Свойства разделов
+							),
+							"SHOW_PARENT_NAME" => "Y",	// Показывать название раздела
+							"TOP_DEPTH" => "1",	// Максимальная отображаемая глубина разделов
+							"VIEW_MODE" => "LINE",	// Вид списка подразделов
+						),
+						false
+					);?>
+				</div>
+			</div>
+		<? else: ?>
+			<h2>Помощь</h2>
+			<?$APPLICATION->IncludeComponent("bitrix:menu", "help", Array(
+				"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+					"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+					"DELAY" => "N",	// Откладывать выполнение шаблона меню
+					"MAX_LEVEL" => "2",	// Уровень вложенности меню
+					"MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+						0 => "",
+					),
+					"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+					"MENU_CACHE_TYPE" => "N",	// Тип кеширования
+					"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+					"ROOT_MENU_TYPE" => "help",	// Тип меню для первого уровня
+					"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+					'WITHOUT_BTN' => true,
+				),
+				false
+			);?>
+		<? endif; ?>
 	</div>
 	<div id="panel-page">
 		<div class="b-top-content clearfix">

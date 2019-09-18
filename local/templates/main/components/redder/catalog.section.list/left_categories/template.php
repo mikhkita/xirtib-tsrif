@@ -13,6 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <?if( count($arResult["SECTIONS"]) ): ?>
+	<a href="#" id="catalog-menu-btn" class="category-btn">Каталог</a>
 	<ul>
 		<?foreach($arResult["SECTIONS"] as $arItem):?>
 			<? if($arItem["ID"] == 1144 || $arItem["UF_HIDE"] ){

@@ -644,6 +644,7 @@
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-ui.min.js"></script>
 	<!-- <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.autosize.input.min.js"></script> -->
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/autosize.min.js"></script>
+	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/moxie.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/plupload.full.min.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/KitAnimate.js"></script>
 	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/KitProgress.js"></script>

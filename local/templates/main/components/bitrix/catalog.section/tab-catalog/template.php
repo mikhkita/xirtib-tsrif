@@ -52,6 +52,7 @@ $arCategories = array();?>
 				<? $i ++; ?>
 				<? $priceText = ''; ?>
 				<? $isQuantity = false; ?>
+				<? $discountClass = ''; ?>
 
 				<? if ($arItem["OFFERS"]): ?>
 					<? $minVal = 100000; ?>

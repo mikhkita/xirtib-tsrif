@@ -871,7 +871,11 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 						false
 					);?>
 				</div>
-				<a href="#b-popup-add-work" class="b-btn b-btn-full-white fancy">Загрузить свою работу</a>
+				<?if (isAuth()):?>
+					<a href="#b-popup-add-work" class="b-btn b-btn-full-white fancy">Загрузить свою работу</a>
+				<? else: ?>
+					<a href="#b-popup-auth" class="b-btn b-btn-full-white fancy">Загрузить свою работу</a>
+				<? endif; ?>
 			</div>
 		</div>
 	</div>

@@ -353,13 +353,17 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 				</form>
 			</div>
 			<?
-			if ($_GET['discount']=="on") {
-				$arDiscounts = getDiscountProducts();
-				$GLOBALS["arrCatalogFilter"][] = Array(
-					"LOGIC"=>"OR",
-					Array("ID" =>$arDiscounts["PRODUCTS"]),
-					Array("SECTION_ID" => $arDiscounts["SECTIONS"], "INCLUDE_SUBSECTIONS" => "Y"),
-				);	
+			if ($_REQUEST['discount']) {
+				$GLOBALS['arrCatalogFilter'][] = array(
+					"LOGIC" => "OR", 
+					array("!PROPERTY_DISCOUNT"=>false), 
+					array(
+						'ID' => CIBlockElement::SubQuery('PROPERTY_CML2_LINK', array(
+						    'IBLOCK_ID' => 2,
+						    "!PROPERTY_DISCOUNT" => false
+						)),
+					),
+				); 
 			}
 			if( $_REQUEST["wholesale"] ){
 				$GLOBALS["arrCatalogFilter"][] = array(

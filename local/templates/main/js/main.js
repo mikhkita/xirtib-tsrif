@@ -124,6 +124,12 @@ $(document).ready(function(){
     $(window).resize(resize);
     resize();
 
+    $(window).resize(function(){
+        if (myWidth < 960) {
+            // $('.b-category-left-list').addClass('hide');
+        }
+    });
+
     $.fn.placeholder = function() {
         if(typeof document.createElement("input").placeholder == 'undefined') {
             $('[placeholder]').focus(function() {
@@ -1717,8 +1723,7 @@ $(document).ready(function(){
                         if (up.files.length > 1) {
                             up.removeFile(up.files[0]);
                         }
-                        // document.getElementById('filelist').innerHTML = '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ') <b></b></div>';
-                        // document.getElementById("pickfiles").innerHTML = "Резюме выбрано";
+
                         $("#original_filename").val(file.name);
                         document.getElementById("pickfiles").className = "attach successful";
                     });
@@ -1940,9 +1945,30 @@ $(document).ready(function(){
                 },
                 FilesAdded: function(up, files) {
                     progress.start(1.5);
-                    plupload.each(files, function(file) {
-                        
-                    });
+                   
+                    // $.each(files, function(){
+        
+                    //     var img = new mOxie.Image();
+
+                    //     img.onload = function() {
+                    //         this.embed($('#preview').get(0), {
+                    //             width: 100,
+                    //             height: 100,
+                    //             crop: true
+                    //         });
+                    //     };
+
+                    //     img.onembedded = function() {
+                    //         this.destroy();
+                    //     };
+
+                    //     img.onerror = function() {
+                    //         this.destroy();
+                    //     };
+
+                    //     img.load(this.getSource());
+                    // })
+
                     up.start();
                 },
                 UploadProgress: function(up, file) {
@@ -1980,6 +2006,42 @@ $(document).ready(function(){
     if( $(".sticky").length && myWidth > 1150){
         Stickyfill.add($('.sticky'));
     }
+
+    $(document).on('click', '.b-load-more-works', function(){
+        var $container = $(this).parents('.pagination-container'),
+            $list = $container.find('.pagination-list'),
+            $pagination = $container.find('.b-load-more-container'),
+            $this = $(this),
+            url = $(this).attr('href');
+        $container.addClass('preloader');
+        if (!$this.hasClass('b-load-more-works')) {
+            $("body, html").animate({
+                scrollTop : $container.offset().top - 150
+            },800);
+        }
+        if (url !== undefined) {
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: 'html',
+                success: function(data){
+
+                    if ($this.hasClass('b-load-more-works')) {
+                        $list.append($(data).find('.pagination-list').html());
+                    } else { 
+                        $list.html($(data).find('.pagination-list').html());
+                    }
+
+                    $pagination.html($(data).find('.b-load-more-container').html());
+                },
+                complete: function(){
+                    $pagination.remove();
+                    $container.removeClass('preloader');
+                }
+            })
+        }
+        return false;
+    });
 
     // // Первая анимация элементов в слайде
     // $(".b-step-slide[data-slick-index='0'] .slider-anim").addClass("show");

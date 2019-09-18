@@ -10,12 +10,7 @@
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(true);
-
-?>
-
-<? $curPage = $APPLICATION->GetCurPage(); ?>
-<? $isMain = ( $curPage == "/" )?true:false; ?>
+$this->setFrameMode(true);?>
 
 <? if(count($arResult["ITEMS"])): ?>
 	<div class="b-works-list pagination-list">
@@ -55,12 +50,12 @@ $this->setFrameMode(true);
 				<div class="b-work-name"><?=$arItem['NAME']?></div>
 			</div>
 		<? endforeach; ?>
+		<? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
+			<div class="b-load-more-container">
+			<?=$arResult["NAV_STRING"];?>
+			</div>
+		<?endif;?>
 	</div>
-	<? if ($arParams["DISPLAY_BOTTOM_PAGER"]): ?>
-		<div class="b-load-more-container">
-		<?=$arResult["NAV_STRING"];?>
-		</div>
-	<?endif;?>
 <? else: ?>
 	<p>У вас ещё нет загруженных работ</p>
 <? endif; ?>

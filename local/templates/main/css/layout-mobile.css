@@ -87,7 +87,7 @@ select{
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 316px;
+  width: 300px;
   min-height: 100vh;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -125,8 +125,9 @@ select{
   text-align: left;
 }
 .slideout-menu h2{
+	border-bottom: 1px solid #CFD3E0;
 	font-size: 28px;
-	margin-bottom: 19px;
+	padding-bottom: 19px;
 }
 .b-menu-overlay{
 	display: none;
@@ -701,6 +702,21 @@ select{
 	top: 0;
 	margin-right: 0;
 }
+.b-category-left-list ul{
+	display: none;
+}
+.category-btn{
+	display: block;
+	font-size: 16px;
+}
+.b-subcategory .b-1-by-3-blocks .b-block-1{
+	max-width: 250px;
+	margin: 0 auto;
+	text-align: center;
+	display: block;
+	margin-bottom: 24px;
+    border: 2px solid #ebebeb;
+}
 .b-category-left-list li:before{
 	width: calc(100% - 32px);
 }
@@ -779,7 +795,7 @@ select{
 		}
 		/*на мобиле переносится js'ом*/
 		.b-detail-discount{
-			display: block;
+			/*display: block;*/
 			margin: 0px 0;
 		}
 		.b-detail-left-block{
@@ -866,6 +882,9 @@ select{
 					display: block;
 					margin-left: 86px;
 					margin-top: 16px;
+				}
+				.b-detail-buy.b-detail-buy-mobile .b-btn:hover{
+					color: #fff;
 				}
 				.b-detail-buy.b-detail-buy-mobile .b-btn.hide{
 					display: none;
@@ -1300,6 +1319,12 @@ a:focus{
 .b-contacts-bottom-form .b-faq-form-bottom .b-btn{
 	margin-right: 0;
 }
+.b-news-preview .b-news-img{
+    height: calc(100vw/2 - 100px);
+}
+	.b-news-preview .b-big-tabs{
+		padding-bottom: 20px;
+	}
 
 @media screen and (max-width: 768px){
 	.b-own-text{
@@ -1350,7 +1375,7 @@ a:focus{
 		margin-left: 0;
 	}
 	.basket-item-block-price{
-		padding-top: 0;
+		/*padding-top: 0;*/
 	}
 	.b-catalog-item{
 		width: 100%;
@@ -1554,6 +1579,34 @@ a:focus{
 	}
 	.b-delivery-popup ul{
 	    column-count: 2;
+	}
+	.b-catalog-list.list .description{
+		display: none;
+	}
+	.list .b-catalog-desc{
+	    width: calc(100% - 160px);
+	}
+	.b-catalog-list.list .b-catalog-item{
+		margin-bottom: 44px;
+	}
+	.b-catalog-list.list .b-catalog-item-top, 
+	.b-catalog-list.list .b-wholesale-price{
+		width: 100%;
+		padding: 0;
+		display: block;
+	}
+	.b-catalog-list.list .b-catalog-item-bottom{
+		display: block;
+		float: none;
+	}
+	.b-catalog-list.list .price-container{
+		display: inline-block;
+		margin-left: 0;
+		text-align: left;
+		margin-bottom: 0;
+	}
+	.b-block-2 .price-container{
+		max-width: 150px;
 	}
 }
 
@@ -2072,6 +2125,19 @@ a:focus{
 	}
 	#catalog-lead .slick-list{
 		padding: 0;
+	}
+	.b-tab-links.b-sale-tabs .b-tab{
+		margin-right: 8px;
+		font-size: 16px;
+	}
+	.b-tab-links.b-sale-tabs .b-tab:last-child{
+		margin-right: 0;
+	}
+	.b-order-history-column{
+		width: 100%;
+	}
+	.b-order-history-column:not(:last-child){
+		margin-right: 0;
 	}
 }
 

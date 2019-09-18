@@ -38,8 +38,8 @@ $this->setFrameMode(true);
 					$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 					?>
 					<div class="b-news-item">
-						<div class="b-news-img">
-							<img src="<?=$renderImage["src"]?>">
+						<div class="b-news-img" style="background-image: url('<?=$renderImage["src"]?>');">
+							<!-- <img src="<?=$renderImage["src"]?>"> -->
 						</div>
 						<div class="b-news-item-text">
 							<p class="date"><?=$arItem["ACTIVE_FROM"]?></p>

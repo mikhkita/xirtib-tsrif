@@ -19,11 +19,12 @@ $arFilters = Array(
 ?>
 
 <? if(count($arResult["ITEMS"])): ?>
-	<div class="b-catalog-list clearfix <?=$arParams["CLASS"]?> <?=$_REQUEST['view']?>" id="<?=$arParams["LIST_ID"]?>">
+	<div class="b-catalog-list pagination-list clearfix <?=$arParams["CLASS"]?> <?=$_REQUEST['view']?>" id="<?=$arParams["LIST_ID"]?>">
 		<?foreach($arResult["ITEMS"] as $arItem):?>
 
 			<? $priceText = ''; ?>
 			<? $isQuantity = false; ?>
+			<? $discountClass = null; ?>
 
 			<? if ($arItem["OFFERS"]): ?>
 				<? $minVal = 100000; ?>
@@ -42,8 +43,8 @@ $arFilters = Array(
 						<? $maxVal = $offer["PRICES"]["PRICE"]["DISCOUNT_VALUE"]; ?>
 					<? endif; ?>
 
-					<? $price = convertPrice($offer["PRICES"]["PRICE"]["VALUE"]); ?>
-					<? $discountPrice = convertPrice($offer["PRICES"]["PRICE"]["DISCOUNT_VALUE"]); ?>
+					<? $price = $offer["PRICES"]["PRICE"]["VALUE"]; ?>
+					<? $discountPrice = $offer["PRICES"]["PRICE"]["DISCOUNT_VALUE"]; ?>
 				<? endforeach; ?>
 
 				<? foreach ($arItem['OFFERS'] as $offer): ?> <?/*?> отдельный цикл для перебора количества <?*/?>
@@ -65,8 +66,8 @@ $arFilters = Array(
 					<? $isQuantity = true; ?>
 				<? endif ?>
 
-				<? $price = convertPrice($arItem["PRICES"]["PRICE"]["VALUE"]); ?>
-				<? $discountPrice = convertPrice($arItem["PRICES"]["PRICE"]["DISCOUNT_VALUE"]); ?>
+				<? $price = $arItem["PRICES"]["PRICE"]["VALUE"]; ?>
+				<? $discountPrice = $arItem["PRICES"]["PRICE"]["DISCOUNT_VALUE"]; ?>
 
 			<? endif; ?>
 
@@ -83,7 +84,7 @@ $arFilters = Array(
 				<div class="b-catalog-back"></div>
 				<a href="<?=detailPageUrl($arItem["DETAIL_PAGE_URL"])?>" class="b-catalog-img" style="background-image:url('<?=$renderImage['src']?>');">
 					<? if(!empty($discountClass)): ?>
-						<? $percent = 100 - ($arItem["PRICES"]["PRICE"]["DISCOUNT_VALUE"]*100/$arItem["PRICES"]["PRICE"]["VALUE"]);?>
+						<? $percent = 100 - ($discountPrice*100/$price);?>
 						<div class="catalog-item-discount icon-discount-full"><p>-<?=round($percent)?>%</p></div>
 					<?endif;?>
 				</a>
@@ -91,6 +92,7 @@ $arFilters = Array(
 					<div class="b-catalog-item-top">
 						<h6><a href="<?=detailPageUrl($arItem["DETAIL_PAGE_URL"])?>"><?=$arItem["NAME"]?></a></h6>
 						<p class="article b-catalog-item-country"><?=$arItem["PROPERTIES"]["COUNTRY"]["VALUE"]?></p>
+						<p class="description"><?=$arItem["PREVIEW_TEXT"]?></p>
 					</div>
 					<? if($arParams["SHOW_REMOVE_BUTTON"] == "Y"): ?>
 						<a href="/ajax/?action=FAVOURITE_REMOVE&ID=<?=$arItem['ID']?>" class="b-catalog-remove-link" title="Удалить из избранного">Удалить</a>
@@ -101,14 +103,14 @@ $arFilters = Array(
 								<? foreach ($arItem["ITEM_PRICES"] as $kp => $itemPrice): ?>
 									<? if( $kp == 0 ) continue; ?>
 									<div class="b-discount-price b-dynamic-price b-dynamic-discount-price" style="display:none;" data-from="<?=$itemPrice["QUANTITY_FROM"]?>">
-										<div class="old-price icon-rub"><?=$discountPrice?></div>
+										<div class="old-price icon-rub"><?=convertPrice($discountPrice)?></div>
 										<div class="new-price icon-rub"><?=convertPrice($itemPrice["BASE_PRICE"])?></div>
 									</div>
 								<? endforeach; ?>
 							<? endif; ?>
 							<div class="b-default-price">
-								<div class="old-price icon-rub"><?=$price?></div>
-								<div class="new-price icon-rub"><?=$priceText?><?=$discountPrice?></div>
+								<div class="old-price icon-rub"><?=convertPrice($price)?></div>
+								<div class="new-price icon-rub"><?=$priceText?><?=convertPrice($discountPrice)?></div>
 								<? if( isset($arItem["MEASURE"]) ): ?>
 									<p class="article"><?=$arItem["MEASURE"]?></p>
 								<? endif; ?>

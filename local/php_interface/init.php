@@ -1356,6 +1356,7 @@ function getAllDiscounts()
 
 function getDiscountProducts(){
 	$arDiscounts = getAllDiscounts();
+	vardump($arDiscounts);
 
 	$out = array(
 		"PRODUCTS" => array(),

@@ -23,6 +23,7 @@ $arFilters = Array(
 
 	<? $priceText = ''; ?>
 	<? $isQuantity = false; ?>
+	<? $discountClass = '' ?>
 
 	<? if ($arItem["OFFERS"]): ?>
 		<? $minVal = 100000; ?>

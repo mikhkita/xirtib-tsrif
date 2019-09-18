@@ -2,7 +2,7 @@
 $APPLICATION->SetTitle("Акции");?>
 
 <div class="b-block">
-	<div class="b-tabs-container-underline b-tab-links">
+	<div class="b-tabs-container-underline b-tab-links b-sale-tabs">
 		<a href="/stocks/" class="b-tab active">
 			<span>Акции</span>
 		</a>

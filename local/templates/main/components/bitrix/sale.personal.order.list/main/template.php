@@ -122,7 +122,7 @@ else
 			$orderHeaderStatus = $order['ORDER']['STATUS_ID'];
 			$date = $order['ORDER']['DATE_INSERT']->format($arParams['ACTIVE_DATE_FORMAT']);
 			$arDate = explode(".", $date);
-			$date = $arDate[0]." ".getRusMonth($arDate[1])." ".$arDate[2];
+			$date = $arDate[0]."&nbsp;".getRusMonth($arDate[1])."&nbsp;".$arDate[2];
 			$price = 0;
 			$discount = 0;
 			$tracking = "";
@@ -162,7 +162,7 @@ else
 			<a href="orders/<?=$order["ORDER"]["ID"]?>" class="b-order-history-item">
 				<div class="b-order-history-column b-order-history-1-column">
 					<div class="b-order-history-column-top">
-						Заказ № <b><?=$order['ORDER']['ACCOUNT_NUMBER']?> от <?=$date?></b>
+						Заказ № <b><?=$order['ORDER']['ACCOUNT_NUMBER']?> от&nbsp;<?=$date?></b>
 					</div>
 					<div class="b-order-history-column-bottom">
 						Вид доставки: <?=$order['SHIPMENT'][0]["DELIVERY_NAME"]?><br>
@@ -175,11 +175,11 @@ else
 						Статус: <div class="b-history-status"><?=$status?></div>
 					</div>
 					<div class="b-order-history-column-bottom">
-						Сумма без скидки: <?=convertPrice($price)?> <span class="icon-rub"></span><br>
+						Сумма без скидки: <?=convertPrice($price)?>&nbsp;<span class="icon-rub"></span><br>
 						<? if ($discount != 0 ): ?>
-							Скидка: <?=convertPrice($discount)?> <span class="icon-rub"></span><br>
+							Скидка: <?=convertPrice($discount)?>&nbsp;<span class="icon-rub"></span><br>
 						<? endif; ?>
-						Стоимость доставки: <?=convertPrice($order['SHIPMENT'][0]["PRICE_DELIVERY"])?> <span class="icon-rub"></span><br>
+						Стоимость доставки: <?=convertPrice($order['SHIPMENT'][0]["PRICE_DELIVERY"])?>&nbsp;<span class="icon-rub"></span><br>
 						Итого: <b><?=convertPrice($order['ORDER']["PRICE"])?>&nbsp;</b><span class="icon-rub"></span>
 					</div>
 				</div>
