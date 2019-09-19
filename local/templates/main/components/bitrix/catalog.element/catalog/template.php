@@ -18,6 +18,7 @@ $bigImage = $arImg['DETAIL_PHOTO'][0]['BIG'];
 $isSliderImg = false;
 $quantity = intval($arResult['OFFERS'] ? $arResult['OFFERS'][0]["PRODUCT"]["QUANTITY"] : $arResult["PRODUCT"]["QUANTITY"]);
 $id = $arResult['OFFERS'] ? $arResult['OFFERS'][0]['ID'] : $arResult['ID'];
+$name = $arResult['OFFERS'] ? $arResult['OFFERS'][0]['NAME'] : $arResult['NAME'];
 
 foreach ($arImg['DETAIL_PHOTO'] as $img) {
 	if ($bigImage != $img['BIG']) {
@@ -182,9 +183,11 @@ if (isset($discountClass)) {
 					</div>
 				<? endif; ?>
 			</div>
+
 			<div class="b-detail-count-block">
 				<?if($quantity <= 0){
 						$inputVal = 0;
+						$btnClass = "unavailable-btn";
 					} else {
 						$infoClass = "hide";
 						$inputVal = 1;
@@ -198,20 +201,44 @@ if (isset($discountClass)) {
 				<div class="b-product-quantity-info <?=$infoClass?>">
 					<span>В наличии:&nbsp;</span><span id="quantity-info"><?=$quantity?></span>
 				</div>
-				<div class="b-detail-buy b-detail-buy-mobile">
+				<?/*?>
+				<div class="b-detail-buy b-detail-buy-mobile <?=$btnClass?>">
 					<a href="/ajax/?action=ADD2BASKET" class="b-btn b-btn-to-cart b-btn-to-cart-detail icon-cart" data-id="<?=$id?>"><p>В корзину</p></a>
+
+					<a href="/ajax/?action=ADD2RESERVE"  id="<?=$id?>" class="b-btn b-green-btn bx-catalog-subscribe-button <?=$isDisabled?>" data-id="<?=$id?>" data-name="<?=$name?>"><p>Оставить&nbsp;заявку</p></a>
+					<a href="#b-popup-success-reserved" class="b-thanks-link fancy" style="display:none;"></a>
+					<a href="#b-popup-error-reserved" class="b-error-link fancy" style="display:none;"></a>
+
 					<div href="#" onclick="return false;" class="b-btn b-btn-to-cart-cap hide">
 						<span class="b-cap-text">Товар успешно добавлен</span>
 					</div>
 				</div>
+				<?*/?>
 			</div>
-			<div class="b-detail-buy">
+
+			<div class="b-detail-buy <?=$btnClass?>">
 				<a href="/ajax/?action=ADD2BASKET" class="b-btn b-btn-to-cart b-btn-to-cart-detail icon-cart" data-id="<?=$id?>"><p>Добавить в корзину</p></a>
+
+				<? $isDisabled = (!isAuth())? "disabled": "" ; ?>
+
+				<a href="/ajax/?action=ADD2RESERVE" class="b-btn b-green-btn bx-catalog-subscribe-button <?=$isDisabled?>" data-id="<?=$id?>" data-name="<?=$name?>"><p>Оставить&nbsp;заявку</p></a>
+
+				<a href="#b-popup-success-reserved" class="b-thanks-link fancy" style="display:none;"></a>
+				<a href="#b-popup-error-reserved" class="b-error-link fancy" style="display:none;"></a>
+
 				<div href="#" onclick="return false;" class="b-btn b-btn-to-cart-cap hide">
 					<span class="b-cap-text">Товар успешно добавлен</span>
 				</div>
+
+				<? if (!isAuth()): ?>
+					<div class="b-detail-empty-text">Авторизуйтесь, чтобы оставить заявку. Когда товар будет в наличии, Вам автоматически придет письмо на почту.</div>
+				<? else: ?>	
+					<div class="b-detail-empty-text green">Вы можете оставить заявку на данный товар.<br>Когда товар будет в наличии, Вам автоматически придет&nbsp;письмо на почту.</div>
+				<? endif; ?>
+
 				<?/*?><div class="b-detail-one-click">или <a href="#" class="pink dashed">купить в один клик</a></div><?*/?>
 			</div>
+
 			<div class="b-detail-tabs">
 				<div class="b-tabs-container b-catalog-tabs-slider b-tabs-container-underline">
 					<div class="b-tab active" data-tab="description">Описание</div>

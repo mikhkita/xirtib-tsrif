@@ -127,20 +127,24 @@ $this->setFrameMode(true);?>
 										<!-- <input type="hidden" name="section_id" value="<?=$GLOBALS["SECTION_ID"]?>"> -->
 									</div>
 								</div>
-								<div class="b-sort-item b-sort-discount">
-									<label class="checkbox">
-										<? $discountChecked = $_REQUEST['discount'] == 'on' ? 'checked' : '' ?>
-										<input type="checkbox" name="discount" <?=$discountChecked?>>
-										<span>Только со скидкой</span>
-									</label>
-								</div>
-								<div class="b-sort-item b-sort-wholesale">
-									<label class="checkbox">
-										<? $wholesaleChecked = $_REQUEST['wholesale'] == 'on' ? 'checked' : '' ?>
-										<input type="checkbox" name="wholesale" <?=$wholesaleChecked?>>
-										<span>Купить оптом</span>
-									</label>
-								</div>
+								<? if (!$GLOBALS['isWholesale']): ?>
+									<div class="b-sort-item b-sort-discount">
+										<label class="checkbox">
+											<? $discountChecked = $_REQUEST['discount'] == 'on' ? 'checked' : '' ?>
+											<input type="checkbox" name="discount" <?=$discountChecked?>>
+											<span>Только со скидкой</span>
+										</label>
+									</div>
+									<div class="b-sort-item b-sort-wholesale">
+										<label class="checkbox">
+											<? $wholesaleChecked = $_REQUEST['wholesale'] == 'on' ? 'checked' : '' ?>
+											<input type="checkbox" name="wholesale" <?=$wholesaleChecked?>>
+											<span>Купить оптом</span>
+										</label>
+									</div>
+								<? else: ?>
+									<? $_REQUEST['wholesale'] = 'on'; ?>
+								<? endif; ?>
 							</div>
 							<div class="b-sort-container">
 								<div class="b-sort-item b-sort-count">

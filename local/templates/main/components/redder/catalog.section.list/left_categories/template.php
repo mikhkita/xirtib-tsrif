@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <?if( count($arResult["SECTIONS"]) ): ?>
-	<a href="#" id="catalog-menu-btn" class="category-btn">Каталог</a>
+	<a href="#" id="catalog-menu-btn" class="category-btn">Каталог товаров</a>
 	<ul>
 		<?foreach($arResult["SECTIONS"] as $arItem):?>
 			<? if($arItem["ID"] == 1144 || $arItem["UF_HIDE"] ){
@@ -22,7 +22,13 @@ $this->setFrameMode(true);
 			<? if( !$arItem["PICTURE"] ): ?>
 				<? $isSectionActive = isSectionActive($arItem["ID"]); ?>
 				<li>
-					<a href="<?=detailPageUrl($arItem["SECTION_PAGE_URL"])?>" class="<? if( $GLOBALS["SECTION_ID"] == $arItem["ID"] ): ?>active<? endif; ?><?=(($arItem["UF_HIGHLIGHT"])?" highlight":"")?>">
+					<? $arrUrl = explode('/', $arItem["SECTION_PAGE_URL"]); ?>
+					<? if ($arrUrl[2] == 'wholesale'): ?>
+						<? $url = '/wholesale/'; ?>
+					<? else: ?>
+						<? $url = '/'.$arrUrl[1].'/'.$arrUrl[2].'/'; ?>
+					<? endif; ?>
+					<a href="<?=$url?>" class="<? if( $GLOBALS["SECTION_ID"] == $arItem["ID"] ): ?>active<? endif; ?><?=(($arItem["UF_HIGHLIGHT"])?" highlight":"")?>">
 						<?=$arItem["NAME"]?>
 					</a>
 					<?

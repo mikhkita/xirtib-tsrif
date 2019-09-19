@@ -4,7 +4,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 	include_once($_SERVER['DOCUMENT_ROOT'].'/bitrix/js/'.CDeliverySDEK::$MODULE_ID.'/jsloader.php');
 	global $APPLICATION;
 	if($arParams['NOMAPS']!='Y')
-		$APPLICATION->AddHeadString('<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>');
+		$APPLICATION->AddHeadString('<script type="text/javascript" src="https://api-maps.yandex.ru/2.1?apikey=048b8b66-cd85-4d81-9e59-cdef1c31e76c&lang=ru-RU&load=package.full"></script>');
 	// $APPLICATION->AddHeadString('<link href="/bitrix/js/'.CDeliverySDEK::$MODULE_ID.'/jquery.jscrollpane.css" type="text/css"  rel="stylesheet" />');
 
 	$order = ($arParams['CNT_DELIV'] == 'Y') ? CUtil::PhpToJSObject($arResult['ORDER']) : 'false';
@@ -398,6 +398,11 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 				},
 
 				setPrices: function(){
+					
+					if( typeof IPOLSDEK_pvz.prices.pickup == "undefined" ){
+						return true;
+					}
+
 					var price = IPOLSDEK_pvz.prices.pickup[0],
 						date = IPOLSDEK_pvz.prices.pickup[1];
 					if( $("#cdek_type").val() == 2 ){

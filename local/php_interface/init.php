@@ -32,6 +32,7 @@ AddEventHandler("sale", "OnOrderAdd", Array("MyClass", "OnOrderAddHandler"));
 AddEventHandler("sale", "OnBeforeUserAdd", Array("MyClass", "OnBeforeUserAddHandler"));
 AddEventHandler("sale", "OnOrderDelete", Array("MyClass", "OnOrderDeleteHandler"));
 AddEventHandler("main", "OnBeforeUserUpdate", Array("MyClass", "OnBeforeUserUpdateHandler"));
+AddEventHandler("main", "OnBeforeUserRegister", Array("MyClass", "OnBeforeUserRegisterHandler"));
 
 AddEventHandler('main','OnAdminTabControlBegin','RemoveYandexDirectTab');
 function RemoveYandexDirectTab(&$TabControl){
@@ -190,7 +191,7 @@ class MyEventHandlers
 				$processing = "Выбран <strong>".$arProps["CALL"]."</strong>";
 				$processinginfo = "<br>Вы выбрали Звонок оператора. В ближайшее время (обычно не более суток) операторы свяжутся с Вами по указанному телефону для подтверждения и уточнения по доставке.<br> 
 					Если операторы не смогли связаться по заказу, то отправляется письмо покупателю, что телефон был недоступен.<br>
-					Если Вы не дождались звонка в течении суток после отправки заказа, напишите нам info@nevkusno.ru, указав номер заказа.<br>
+					Если Вы не дождались звонка в течении суток после отправки заказа, напишите нам info@first.ru, указав номер заказа.<br>
 					Без подтверждения заказа мы не отправляем товар!<br>
 					Если Вы хотите внести изменения в заказ или изменить способ доставки - дождитесь звонка оператора, или перезвоните сами по рекламным телефонам магазина.<br><br>";
 			} else {
@@ -426,7 +427,7 @@ class MyEventHandlers
 				                "<td>Ссылка на заказ в админке: </td>".
 			                    "<td>&nbsp;</td>".
 			                    "<td>".
-			                    	"<a href='https://www.nevkusno.ru/bitrix/admin/sale_order_view.php?ID=".$arFields["ORDER_ID"]."'>Заказ № ".$arFields["ORDER_ID"]."</a>".
+			                    	"<a href='http://first.ca03222.tmweb.ru/bitrix/admin/sale_order_view.php?ID=".$arFields["ORDER_ID"]."'>Заказ № ".$arFields["ORDER_ID"]."</a>".
 			                    "</td>".
 				            "</tr>".
 				        "</tbody>".
@@ -925,6 +926,17 @@ class MyClass {
 			}
 		}
     }
+
+    function OnBeforeUserRegisterHandler(&$arFields){
+    	if (!empty($arFields['LAST_NAME'])) {
+    		$arFields['NAME'] = $arFields['NAME'].' '.$arFields['LAST_NAME'];
+    		$arFields['LAST_NAME'] = '';
+    	}
+    	if (!empty($arFields['SECOND_NAME'])) {
+    		$arFields['NAME'] = $arFields['NAME'].' '.$arFields['SECOND_NAME'];
+    		$arFields['SECOND_NAME'] = '';
+    	}
+    }
 }
 
 function letsLogin($login, $password){
@@ -1356,7 +1368,7 @@ function getAllDiscounts()
 
 function getDiscountProducts(){
 	$arDiscounts = getAllDiscounts();
-	vardump($arDiscounts);
+	// vardump($arDiscounts);
 
 	$out = array(
 		"PRODUCTS" => array(),

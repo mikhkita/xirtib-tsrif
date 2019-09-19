@@ -18,6 +18,7 @@ $APPLICATION->SetTitle("О магазине");?>
 		</div>
 	</div>
 </div>
+<?/*?>
 <div class="b-sweet-container b-about-sweet wave-bottom wave-top">
 	<div class="b-sweet-block b-block">
 		<div class="b-sweet-block-1">Вы не можете не воспользоваться данным предложением!</div>
@@ -27,36 +28,7 @@ $APPLICATION->SetTitle("О магазине");?>
 		<a href="#" class="b-btn b-btn-white">Узнать подробнее</a>
 	</div>
 </div>
-<div class="b-about-widget-block">
-	<div class="b-block">
-		<div class="b-about-left-widget-block">
-			<h3>Первый магазин для кондитеров – лидер на рынке товаров для&nbsp;кондитеров</h3>
-			<p>Вкусный магазин - это магазин профессиональных продуктов для кулинаров, кондитерского инвентаря, товаров для хобби и творчества.</p>
-			<p>Наша компания - это профессиональная команда, специализирующаяся на принципах качества и высокого сервиса.  
-			В нашем магазине представлен широкий ассортимент для кулинара - это и кондитерские ингредиенты, и кондитерский инвентарь, и многое другое. Теперь вы можете покупать все необходимое для приготовления кулинарных шедевров в одном месте.</p>
-			<p>Более 3000 пунктов выдачи по всей России! Много видов доставки - СДЭК, ПикПойнт, Почта России, ЕМС Почта, собственные пункты выдачи в Москве. Доставка курьерами по Москве и России до двери.</p>
-			<p>Можно купить небольшие количества мастики, марципана, орехов, муки и др. Мы развешиваем наш товар в удобных для «не массового приготовления» количествах, что дает веские преимущества для потребителя – можно попробовать и выбрать наиболее подходящий продукт, и каждый раз покупать свежий продукт для новых кондитерских творений. При желании покупателя товар продается в заводской упаковке (обычно, это ведра весом от 5 кг.)</p> 
-			<p>Практически весь ассортимент поддерживается в наличии. Однажды купив понравившийся продукт, вы в следующий раз сможете снова у нас его заказать.</p>
-			<p>В нашем магазине только свежие продукты. Мы тщательно отслеживаем сроки годности на продукцию.  У нас много заказов, поэтому наш товар не залеживается. Покупать во Вкусном магазине не скучно. Ассортимент магазина постоянно пополняется, появляются новые и новые украшения и продукты. Вы можете продолжать экспериментировать!</p>
-		</div>	
-		<div class="b-about-right-widget-block">
-			<div class="youtube-widget">
-				<iframe width="560" height="315" src="https://www.youtube.com/embed/27YlKbUSVvk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-			</div>
-			<div class="widget-item vk-widget">
-				<script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
-				<div id="vk_groups"></div>
-				<script type="text/javascript">
-				VK.Widgets.Group("vk_groups", {mode: 3, width: "267"}, 54370948);
-				</script>
-			</div>
-			<div class="widget-item instagram-widget">
-				<iframe src='/inwidget/index.php?width=267&skin=myskin' data-inwidget scrolling='no' frameborder='no' style='border:none;width:267px;height:274px;overflow:hidden;'></iframe>
-			</div>
-		</div>
-	</div>
-</div>
-
+<?*/?>
 <div class="b-delivery-advantages">
 	<? includeArea('advantages'); ?>
 </div>

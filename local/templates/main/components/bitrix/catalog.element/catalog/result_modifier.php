@@ -64,6 +64,7 @@ if ($arResult["OFFERS"]) {
 			$color = $offer['PROPERTIES']['COLOR']['VALUE_XML_ID'];
 			$size = $offer['PROPERTIES']['SIZE']['VALUE_XML_ID'];
 
+			$jsonOffers[$color][$size]['NAME'] = $offer['NAME'];
 			$jsonOffers[$color][$size]['PRICE'] = $offer['PRICES']['PRICE']['VALUE'];
 			$jsonOffers[$color][$size]['DISCOUNT_PRICE'] = $offer['PRICES']['PRICE']['DISCOUNT_VALUE'];
 			$jsonOffers[$color][$size]['QUANTITY'] = $offer["PRODUCT"]["QUANTITY"];
@@ -74,6 +75,7 @@ if ($arResult["OFFERS"]) {
 
 			$option = ($hasColors) ? $offer['PROPERTIES']['COLOR']['VALUE_XML_ID'] : $offer['PROPERTIES']['SIZE']['VALUE_XML_ID'];
 
+			$jsonOffers[$option]['NAME'] = $offer['NAME'];
 			$jsonOffers[$option]['PRICE'] = $offer['PRICES']['PRICE']['VALUE'];
 			$jsonOffers[$option]['DISCOUNT_PRICE'] = $offer['PRICES']['PRICE']['DISCOUNT_VALUE'];
 			$jsonOffers[$option]['QUANTITY'] = $offer["PRODUCT"]["QUANTITY"];

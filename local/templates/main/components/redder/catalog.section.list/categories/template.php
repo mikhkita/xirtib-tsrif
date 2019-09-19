@@ -59,6 +59,17 @@ $this->setFrameMode(true);
 				</div>
 			<?endforeach;?>
 		</div>
+		
+		<div class="b-subcategory mobile">
+			<div class="b-1-by-3-blocks">
+				<div class="b-block-1">
+					<div class="b-category-left-list">
+						<a href="#" id="catalog-menu-btn" class="category-btn">Каталог товаров</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</div>	
 </div>
 <? endif; ?>

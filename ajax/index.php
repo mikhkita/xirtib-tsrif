@@ -237,9 +237,9 @@ switch ($action) {
 			if ($id = $el->Add($arLoadProductArray)) {
 
 				if ($product_id) {
-					$href = "https://www.nevkusno.ru/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=2&type=content&ID=".$id."&lang=ru&find_section_section=-1&WF=Y";
+					$href = "http://first.ca03222.tmweb.ru/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=2&type=content&ID=".$id."&lang=ru&find_section_section=-1&WF=Y";
 				} else {
-					$href = "https://www.nevkusno.ru/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=3&type=content&ID=".$id."&lang=ru&find_section_section=".$review_id ."&WF=Y";
+					$href = "http://first.ca03222.tmweb.ru/bitrix/admin/iblock_element_edit.php?IBLOCK_ID=3&type=content&ID=".$id."&lang=ru&find_section_section=".$review_id ."&WF=Y";
 				}
 
 				$message = "";
@@ -351,7 +351,7 @@ switch ($action) {
 				$user = new CUser;
 				$hash = md5($email.$hashKey);
 				
-				$link = "https://www.nevkusno.ru/ajax/?action=CONFIRM_USER&email=".$email."&hash=".$hash;
+				$link = "http://first.ca03222.tmweb.ru/ajax/?action=CONFIRM_USER&email=".$email."&hash=".$hash;
 
 				$arFields = Array(
 				  // "NAME"              => "Пользователь",

@@ -425,6 +425,8 @@ $(document).ready(function(){
         $('#wholesale-text').html('');
         $('.b-default-price').removeClass('.b-discount-price');
         $('.b-detail-discount').addClass('hide');
+        $('.b-detail-buy').removeClass('unavailable-btn');
+        $('.bx-catalog-subscribe-button').removeClass('disabled');
 
         if ($(document).find('.detail-select-block select').length == 2) {
             var color = $('#colorSelect option:selected').attr('data-id');
@@ -448,8 +450,16 @@ $(document).ready(function(){
             // console.log(offers[color][size].OFFER_ID);
             showPhotoColor(offers[color][size].OFFER_ID);
             $('.b-btn-to-cart').attr('data-id', offers[color][size].OFFER_ID);
+            console.log(offers[color][size]);
+            $('.bx-catalog-subscribe-button').attr('data-id', offers[color][size].OFFER_ID);
+            $('.bx-catalog-subscribe-button').attr('data-name', offers[color][size].NAME);
+
             $('.quantity-input').attr('data-quantity', offers[color][size].QUANTITY).val(1).trigger('change');
             $('#quantity-info').text(offers[color][size].QUANTITY);
+            
+            if (offers[color][size].QUANTITY <= 0) {
+                $('.b-detail-buy').addClass('unavailable-btn');
+            }
 
             if (parseInt(offers[color][size].PRICE) !== parseInt(offers[color][size].DISCOUNT_PRICE)){
                 $('.price-container').addClass('b-discount-price');
@@ -485,8 +495,15 @@ $(document).ready(function(){
             showPhotoColor(offers[option].OFFER_ID);
             
             $('.b-btn-to-cart').attr('data-id', offers[option].OFFER_ID);
+            $('.bx-catalog-subscribe-button').attr('data-id', offers[option].OFFER_ID);
+            $('.bx-catalog-subscribe-button').attr('data-name', offers[option].NAME);
+            
             $('.quantity-input').attr('data-quantity', offers[option].QUANTITY).val(1).trigger('change');
             $('#quantity-info').text(offers[option].QUANTITY);
+
+            if (offers[option].QUANTITY <= 0) {
+                $('.b-detail-buy').addClass('unavailable-btn');
+            }
 
             if (parseInt(offers[option].PRICE) !== parseInt(offers[option].DISCOUNT_PRICE)){
                 $('.price-container').addClass('b-discount-price');
@@ -537,8 +554,9 @@ $(document).ready(function(){
 
     function showPhotoColor(ID) {
         $('.b-detail-bottom-slider').each(function(){
-            var slickID = parseInt($(this).find('.b-detail-small-pic[data-id='+ID+']').index() + 1);
-            $(this).slick('slickGoTo', slickID);
+            $(this).find('.b-detail-small-pic[data-id='+ID+']').click();
+            // var slickID = parseInt($(this).find('.b-detail-small-pic[data-id='+ID+']').index() + 1);
+            // $(this).slick('slickGoTo', slickID);
         }); 
     }
 
@@ -905,6 +923,7 @@ $(document).ready(function(){
                 }
 
             } else {
+                $this = $(document).find('.detail-select-block select');
                 var option = $this.find('option:selected').attr('data-id');
 
                 $('.new-price').text(new Intl.NumberFormat('ru-RU').format(offers[option].DISCOUNT_PRICE));
@@ -998,7 +1017,7 @@ $(document).ready(function(){
     $('.bx-catalog-subscribe-button').on("click",function(){
         if (!$(this).hasClass('disabled')) {
             var href = $(this).attr("href"),
-                id = $(this).attr("id"),
+                id = $(this).attr("data-id"),
                 name = $(this).attr('data-name'),
                 $this = $(this);
 
@@ -1390,7 +1409,7 @@ $(document).ready(function(){
             // alert($(this).val());
             // console.log($(this).val()+Math.random());
             if( $("select#delivery").val() == "120" ){
-                IPOLSDEK_pvz.chooseCity($(this).val());
+                // IPOLSDEK_pvz.chooseCity($(this).val());
             }
         });
     }

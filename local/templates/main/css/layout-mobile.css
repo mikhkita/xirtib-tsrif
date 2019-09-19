@@ -702,12 +702,30 @@ select{
 	top: 0;
 	margin-right: 0;
 }
+.b-subcategory.mobile{
+	display: block;
+}
 .b-category-left-list ul{
 	display: none;
 }
-.category-btn{
-	display: block;
+a.category-btn{
+	display: inline-block;
 	font-size: 16px;
+	position: relative;
+	padding-left: 32px;
+}
+a.category-btn:before{
+    font-family: 'icomoon';
+    position: absolute;
+    content: '\e908';
+    color: #282828;
+    font-size: 13px;
+    top: 50%;
+    left: 4px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 .b-subcategory .b-1-by-3-blocks .b-block-1{
 	max-width: 250px;
@@ -863,12 +881,14 @@ select{
 			display: block;
 		}
 			.b-detail-count-block{
-				margin-top: 0;
+				margin-top: 25px;
+				margin-bottom: 20px;
 			}
 			.b-detail-count-block a.cheaper{
 				display: none;
 			}
 		.b-detail-buy{
+			/*display: none;*/
 			margin-top: 0;
 		}
 		.b-detail-buy .b-detail-one-click{
@@ -891,7 +911,8 @@ select{
 				}
 				.b-detail-buy .b-btn{
 					padding: 17px 22px 19px 22px;
-					display: none;
+					/*display: none;*/
+					max-width: 100%;
 				}
 				.b-detail-buy .b-btn:before{
 				    opacity: 1;
@@ -909,6 +930,15 @@ select{
 				}
 				.b-detail-buy .b-btn p{
 			    	padding-left: 35px;
+				}
+				.b-detail-buy .b-btn.b-green-btn p{
+					padding-left: 0;
+				}
+				.b-detail-buy .b-btn.b-green-btn:hover p{
+					color: #00a224;
+				}
+				.b-detail-buy.unavailable-btn .b-green-btn.disabled:hover p{
+					color: #8c8b8b;
 				}
 	.detail-advantages .about-advantages-item{
 		width: 100%;
@@ -1325,6 +1355,9 @@ a:focus{
 	.b-news-preview .b-big-tabs{
 		padding-bottom: 20px;
 	}
+.b-category-list{
+	display: none;
+}
 
 @media screen and (max-width: 768px){
 	.b-own-text{
@@ -1890,7 +1923,7 @@ a:focus{
 			display: block;
 		}
 			.b-detail-count-block:after{
-				content: '';
+				/*content: '';*/
 				width: 100%;
 				display: inline-block;
 			}
@@ -2138,6 +2171,9 @@ a:focus{
 	}
 	.b-order-history-column:not(:last-child){
 		margin-right: 0;
+	}
+	.b-detail-buy.unavailable-btn .b-green-btn{
+
 	}
 }
 

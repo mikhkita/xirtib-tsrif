@@ -876,6 +876,10 @@ input[name="MAIL"]{
 	    font-size: 16px;
 	    color: #FF345F;
 	}
+	.b-popup .b-btn:hover,
+	.b-popup .b-btn{
+		color: #FFF;
+	}
 	
 /****POPUP*****/
 
@@ -2386,7 +2390,7 @@ select{
 										transition: background-color 0ms ease-out, opacity 300ms ease-out, visibility 300ms ease-out;
 							}
 								.b-catalog-item-bottom .b-btn-to-cart span{
-									font-family: 'MuseoSansCyrl-700';
+									font-family: 'ProximaNova-Bold';
 									color: #fff;
 									position: relative;
 									width: 114px;
@@ -2531,7 +2535,7 @@ select{
 								.b-basket-added{
 									font-size: 12px;
 									text-align: center;
-									font-family: "MuseoSansCyrl-700";
+									font-family: "ProximaNova-Bold";
 									margin-top: 10px;
 									color: #00C82C;
 								}
@@ -3799,6 +3803,9 @@ select{
 .b-subcategory{
 	text-align: left;
 }
+.b-subcategory.mobile{
+	display: none;
+}
 .b-subcategory:after{
 	bottom: -200px;
 }
@@ -4287,8 +4294,47 @@ select{
 				margin-left: 21px;
 			}
 		.b-detail-buy{
-			margin-top: 35px;
+			margin-top: 25px;
 		}
+		.b-detail-buy.unavailable-btn{
+			position: relative;
+		}
+		.b-detail-empty-text{
+			max-width: 380px;
+			margin-top: 25px;
+			display: none;
+		}
+		.b-detail-empty-text.green{
+			color: #02a225;
+		}
+		.unavailable-btn .b-detail-empty-text{
+			display: block;
+		}
+		/*.b-detail-buy.unavailable-btn:after{
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			left: 0;
+			top: 0;
+		}*/
+			/*.b-detail-buy.unavailable-btn .b-btn{
+				background-color: #cecece;
+				border-color: #cecece;
+			}*/
+			.b-detail-buy.unavailable-btn .b-btn-to-cart{
+				display: none;
+			}
+			.b-detail-buy .b-green-btn{
+				display: none;
+			}
+			.b-detail-buy.unavailable-btn .b-green-btn{
+				display: block;
+			}
+			.b-detail-buy.unavailable-btn .b-green-btn.disabled{
+				background-color: #FFF;
+				color: #8c8b8b;
+			}
 		.b-detail-buy.small-mt{
 			margin-top: 15px;
 		}
@@ -6520,6 +6566,7 @@ select{
 		}
 			.b-404-menu ul{
 				display: inline-block;
+				vertical-align: top;
 			}
 				.b-404-menu li{
 					margin-bottom: 11px;
@@ -7525,7 +7572,7 @@ select{
 	padding: 10px 5px 10px 5px;
 	width: 105px;
 	color: #FFF;
-	font-family: 'MuseoSansCyrl-700';
+	font-family: 'ProximaNova-Regular';
 	z-index: 2;
 	display: inline-block;
 	background: #FF345F;
@@ -7631,7 +7678,7 @@ div.bx-pink .btn.btn-default{
 	position: relative;
 	padding: 14px 24px;
 	color: #FFF;
-	font-family: 'MuseoSansCyrl-700';
+	font-family: 'ProximaNova-Bold';
 	z-index: 2;
 	display: inline-block;
 	background: #FF345F;
@@ -8657,7 +8704,7 @@ div.bx-yellow .btn.btn-default{
 	opacity: 0;
 	visibility: hidden;
 }
-.category-btn{
+a.category-btn{
 	display: none;
 }
 
@@ -9068,6 +9115,10 @@ div.bx-yellow .btn.btn-default{
 	.b-catalog-item-bottom .b-btn-to-cart:hover{
 		/*background: #eb9e00;*/
 	}
+	.b-detail-buy.unavailable-btn .b-green-btn.disabled:hover{
+		background-color: #FFF;
+		color: #8c8b8b;
+	}
 	.b-btn.disabled:hover{
 		background-color: #FFF;
 	}
@@ -9077,6 +9128,7 @@ div.bx-yellow .btn.btn-default{
 		-o-transform: unset;
 		transform: unset;
 	}
+	.b-detail-buy.unavailable-btn .b-green-btn:hover,
 	.b-green-btn:hover{
 		background-color: #00a224;
 		color: #FFF;

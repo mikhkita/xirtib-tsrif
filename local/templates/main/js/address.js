@@ -15,8 +15,13 @@ ymaps.ready(['AddressDelivery']).then(function init() {
         autoReverseGeocode: true
     })
     .then(function (result) {
+         // alert();
+
+        // console.log(1);
         var response = result.geoObjects.get(0).properties.get('metaDataProperty');
+        // console.log(2);
         if(response){
+            // console.log(3);
             defaultOptions.city = response.GeocoderMetaData.text;
 
             var addr = response.GeocoderMetaData.Address.Components;

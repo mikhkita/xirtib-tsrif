@@ -63,7 +63,7 @@
 		</div>
 		<div class="b-underfooter">
 			<div class="b-underfooter-item left-underfooter-item">
-				© 2002–2018 <a href="1KONDITER.RU" target="_blank" class="underline underfooter-link">1KONDITER.RU</a> – Первый магазин для кондитеров.<br>
+				© 2002–2019 <a href="/" target="_blank" class="underline underfooter-link">1KONDITER.RU</a> – Первый магазин для кондитеров.<br>
 				Все права защищены. Доставка по всей России!
 			</div>
 			<div class="b-underfooter-item">
