@@ -1014,7 +1014,7 @@ $(document).ready(function(){
 
     var quantityDelays = [];
 
-    $('.bx-catalog-subscribe-button').on("click",function(){
+    $(document).on("click", '.bx-catalog-subscribe-button', function(){
         if (!$(this).hasClass('disabled')) {
             var href = $(this).attr("href"),
                 id = $(this).attr("data-id"),

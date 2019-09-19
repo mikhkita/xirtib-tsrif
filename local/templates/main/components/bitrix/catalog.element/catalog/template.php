@@ -86,7 +86,7 @@ if (isset($discountClass)) {
 			<h3><?$APPLICATION->ShowTitle();?></h3>
 			<div class="b-detail-bonus-container">
 				<div class="b-detail-bonus green-bonus">-5% при оплате онлайн</div>
-				<div class="b-detail-bonus purple-bonus bonus-with-add icon-info">
+				<div class="b-detail-bonus purple-bonus <?/*?>bonus-with-add icon-info<?*/?>">
 					Вернем 50% от стоимости доставки
 					<!-- <div class="b-detail-bonus-add">Возврат осуществляется в случае</div> -->
 				</div>
