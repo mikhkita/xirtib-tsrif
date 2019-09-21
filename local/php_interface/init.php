@@ -638,6 +638,16 @@ function OnBeforeUserAddHandler1(&$event){
 
 	$event["PERSONAL_PHONE"] = convertPhoneNumber($event["PERSONAL_PHONE"]);
 
+	if (!empty($event['LAST_NAME'])) {
+		$event['NAME'] = $event['NAME'].' '.$event['LAST_NAME'];
+		$event['LAST_NAME'] = '';
+	}
+	
+	if (!empty($event['SECOND_NAME'])) {
+		$event['NAME'] = $event['NAME'].' '.$event['SECOND_NAME'];
+		$event['SECOND_NAME'] = '';
+	}
+
 }
 
 Main\EventManager::getInstance()->addEventHandler(

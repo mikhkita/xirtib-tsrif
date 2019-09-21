@@ -1721,6 +1721,9 @@ $(document).ready(function(){
             container: document.getElementById('pluploadCont'), // ... or DOM Element itself
             url : $('#b-form-review').attr("data-file-action"),
             multi_selection: false,
+            resize: {
+                preserve_headers: false
+            },
             
             filters : {
                 max_file_size : '20mb',
@@ -1948,8 +1951,8 @@ $(document).ready(function(){
 
         var uploaderEdit = new plupload.Uploader({
             runtimes : 'html5,flash,silverlight,html4',
-            browse_button : 'pickfilesEdit', // you can pass an id...
-            container: document.getElementById('editForm'), // ... or DOM Element itself
+            browse_button : 'pickfilesEdit',
+            container: document.getElementById('editForm'),
             url : $('#editForm').attr("data-file-action"),
             multi_selection: false,
             filters : {
@@ -1957,6 +1960,9 @@ $(document).ready(function(){
                 mime_types: [
                     {title : "Image files", extensions : "jpg,jpeg,gif,png,bmp"},
                 ]
+            },
+            resize: {
+                preserve_headers: false
             },
             init: {
                 PostInit: function() {
@@ -1967,7 +1973,7 @@ $(document).ready(function(){
                    
                     // $.each(files, function(){
         
-                    //     var img = new mOxie.Image();
+                    //     var img = new moxie.Image();
 
                     //     img.onload = function() {
                     //         this.embed($('#preview').get(0), {

@@ -240,13 +240,13 @@
 				<div class="b-popup-form">
 					<div class="b-input-container">
 						<div class="b-input-string">
-							<input class="b-popup-input" type="text" name="ask-name" placeholder="Имя" required/>
+							<input class="b-popup-input" type="text" name="name" placeholder="Имя" required/>
 						</div>
 						<div class="b-input-string">
-							<input class="b-popup-input" type="text" name="ask-email" placeholder="E-mail" required/>
+							<input class="b-popup-input" type="text" name="email" placeholder="E-mail" required/>
 						</div>
 						<div class="b-input-string">
-							<input class="b-popup-input" type="text" name="ask-phone" placeholder="Телефон" required/>
+							<input class="b-popup-input" type="text" name="phone" placeholder="Телефон" required/>
 						</div>
 						<div class="b-input-string">
 							<textarea name="question" class="b-popup-input" placeholder="Ваш вопрос" rows="5"></textarea>
@@ -270,10 +270,10 @@
 				<div class="b-popup-form">
 					<div class="b-input-container">
 						<div class="b-input-string">
-							<input type="text" class="b-popup-input" name="phone-name" placeholder="Имя" required/>
+							<input type="text" class="b-popup-input" name="name" placeholder="Имя" required/>
 						</div>
 						<div class="b-input-string">
-							<input type="text" class="b-popup-input" name="phone-phone" placeholder="Телефон" required/>
+							<input type="text" class="b-popup-input" name="phone" placeholder="Телефон" required/>
 						</div>
 						<input type="text" name="MAIL">
 					</div>

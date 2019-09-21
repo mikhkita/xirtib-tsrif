@@ -85,6 +85,8 @@ $this->setFrameMode(true);
 	</div>
 </div>
 <? if($arResult["PROPERTIES"]["DISALLOW_COMMENTS"]["VALUE"] != 'Y'): ?>
+	<? $placeholder = (isAuth()) ? 'Ваш комментарий' : 'Комментарии могут оставлять только зарегистрированные пользователи'; ?>
+	<? $isDisabled = (isAuth()) ? '' : 'disabled'; ?>
 <div class="b-comment-block wave-bottom">
 	<div class="b-block">
 		<div class="b-comment-block-title">
@@ -94,11 +96,15 @@ $this->setFrameMode(true);
 		<div class="b-comment-block-form-container">
 			<form action="/ajax/?action=ADDCOMMENT" method="POST" class="clearfix">
 				<div class="b-comment-block-form-textarea">
-					<textarea name="comment_textarea" placeholder="Комментарии могут оставлять только зарегистрированные пользователи" rows="4" required></textarea>
+					<textarea name="comment_textarea" placeholder="<?=$placeholder?>" rows="4" required <?=$isDisabled?>></textarea>
 					<input type="hidden" name="id" value="<?=$arResult["ID"]?>">
 				</div>
 				<a href="#b-popup-success-comment" class="b-thanks-link fancy" style="display:none;"></a>
-				<a href="#" class="b-btn b-comment-btn ajax">Оставить комментарий</a>
+				<? if (isAuth()): ?>
+					<a href="#" class="b-btn b-comment-btn ajax">Оставить комментарий</a>
+				<? else: ?>
+					<a href="#b-popup-auth" class="b-btn b-comment-btn fancy">Войти</a>
+				<? endif; ?>
 			</form>
 		</div>
 		<div class="b-comment-list-container">

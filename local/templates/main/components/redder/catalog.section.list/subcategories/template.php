@@ -11,11 +11,13 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);?>
+<?/*?>
 <? $subclass = 'full'; ?>
 <? if ($arParams['FULL_CATALOG'] == 'Y'): ?>
 	<? $subclass = 'full'; ?>
 <? endif; ?>
-<div class="b-subcategory wave-bottom <?=$subclass?>">
+<?*/?>
+<div class="b-subcategory wave-bottom full">
 	<div class="b-block">
 		<div class="b-1-by-3-blocks">
 			<div class="b-block-1">
@@ -57,19 +59,12 @@ $this->setFrameMode(true);?>
 				<?if( count($arResult["SECTIONS"]) ): ?>
 					<div class="b-category-list">
 						<?foreach($arResult["SECTIONS"] as $key => $arItem):
-							$arFilter = array('SECTION_ID' => intval($arItem['ID']));
-							$rsSect = CIBlockSection::GetList(array('left_margin' => 'asc'),$arFilter);
+							$rsSect = CIBlockSection::GetList(array('left_margin' => 'asc'), array('SECTION_ID' => intval($arItem['ID'])));
 							$arSect = array();
 							while ($arSect[] = $rsSect->GetNext()){};
-							$isEmpty = 'empty-item';
-							if (count($arSect) > 1) {$isEmpty = '';}
-							$arFilterCount = array(
-								"IBLOCK_ID" => 1, 
-								"ACTIVE" => "Y", 
-								"SECTION_ID" => intval($arItem['ID']),
-								"INCLUDE_SUBSECTIONS" => "Y",
-							);
-							$resCount = CIBlockElement::GetList(array(), $arFilterCount, array(), false, array());
+							$resCount = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 1, "ACTIVE" => "Y", "SECTION_ID" => intval($arItem['ID']),"INCLUDE_SUBSECTIONS" => "Y"), array(), false, array());
+							$isEmpty = (count($arSect) > 1) ? '' : 'empty-item';
+
 							?>
 							<div class="b-catalog-item b-category-item">
 								<? if($arItem['PICTURE']['SRC']): ?>
