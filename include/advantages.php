@@ -25,13 +25,13 @@
 			<div class="about-advantages-item-img" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-4.svg');"></div>
 			<div class="about-advantages-text">
 				<h4>Ассортимент</h4>
-				<p>В наличии на складе<br>более 7 000 наименований</p>
+				<p>В наличии на складе<br>более 8 000 наименований</p>
 			</div>
 		</div>
 		<div class="about-advantages-item">
 			<div class="about-advantages-item-img" style="background-image: url('<?=SITE_TEMPLATE_PATH?>/i/about-adv-5.svg');"></div>
 			<div class="about-advantages-text">
-				<h4>Пункты самовывозом</h4>
+				<h4>Пункты самовывоза</h4>
 				<p>Более 2 000 пунктов<br>самовывоза</p>
 			</div>
 		</div>

@@ -55,8 +55,8 @@
 			<div class="b-bottom-menu-list">
 				<h4>Следуйте за нами</h4>
 				<div class="b-soc">
-					<a href="http://vk.com" target="_blank" class="b-soc-item icon-vk"></a>
-					<a href="http://facebook.com" target="_blank" class="b-soc-item icon-facebook"></a>
+					<!-- <a href="http://vk.com" target="_blank" class="b-soc-item icon-vk"></a> -->
+					<!-- <a href="http://facebook.com" target="_blank" class="b-soc-item icon-facebook"></a> -->
 					<a href="http://instagram.com" target="_blank" class="b-soc-item icon-instagram"></a>
 				</div>
 			</div>

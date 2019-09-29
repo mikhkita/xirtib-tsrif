@@ -53,7 +53,7 @@ $this->setFrameMode(true);?>
 			</div>
 			<div class="b-block-2">
 				<? if($ar_res['PICTURE']): ?>
-					<?$renderImage = CFile::ResizeImageGet($ar_res['PICTURE'], Array("width" => 847, "height" => 262), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, false, $arFilters ); ?>
+					<?$renderImage = CFile::ResizeImageGet($ar_res['PICTURE'], Array("width" => 1694, "height" => 524), BX_RESIZE_IMAGE_PROPORTIONAL, false, $arFilters ); ?>
 				<div class="b-subcategory-back" style="background-image: url(<?=$renderImage['src']?>);"></div>
 				<?endif;?>
 				<?if( count($arResult["SECTIONS"]) ): ?>
@@ -68,7 +68,7 @@ $this->setFrameMode(true);?>
 							?>
 							<div class="b-catalog-item b-category-item">
 								<? if($arItem['PICTURE']['SRC']): ?>
-									<? $renderImage = CFile::ResizeImageGet($arItem['PICTURE'], Array("width" => 267, "height" => 178), BX_RESIZE_IMAGE_PROPORTIONAL_ALT, false, $arFilters ); ?>
+									<? $renderImage = CFile::ResizeImageGet($arItem['PICTURE'], Array("width" => 534, "height" => 356), BX_RESIZE_IMAGE_PROPORTIONAL, false, $arFilters ); ?>
 									<a href="<?=detailPageUrl($arItem["SECTION_PAGE_URL"])?>" class="b-catalog-img" style="background-image:url('<?=$renderImage['src']?>');"></a>
 								<? else: ?>
 									<a href="<?=detailPageUrl($arItem["SECTION_PAGE_URL"])?>" class="b-catalog-img" style="background-image:url('<?=SITE_TEMPLATE_PATH?>/i/about-img.jpg');"></a>

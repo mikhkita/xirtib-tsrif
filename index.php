@@ -3,11 +3,14 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("keywords", "Товары для кондитера, инструменты для кондитера");
 $APPLICATION->SetPageProperty("description", "Магазин по продаже товаров для профессионального кондитера");
 $APPLICATION->SetTitle("Первый магазин для кондитеров");
+
+$displayBanner1 = getParam('DISPLAY_BANNER_1');
+$bannerClass = ($displayBanner1['VALUE'] == 'N') ? 'full' : '';
 ?>
 
 <div class="b-index-tops">
 	<div class="b-block">
-		<div class="b-index-top b-index-top-1">
+		<div class="b-index-top b-index-top-1 <?=$bannerClass?>">
 			<h4><span class="bold">«Первый магазин» – </span><br>эксклюзивный дистрибьютор в России</h4>
 			<img src="<?=SITE_TEMPLATE_PATH?>/i/banner-back-1-info.png">
 			<h5>Лидер на рынке <span class="bold">пищевых красителей</span></h5>
@@ -17,7 +20,7 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 			</div>
 			<a href="/catalog/krasiteli-chefmaster-ssha/" class="b-btn">Смотреть каталог</a>
 		</div>
-		<? $displayBanner1 = getParam('DISPLAY_BANNER_1'); ?>
+		
 		<? if ($displayBanner1['VALUE'] !== 'N'): ?>
 			<div class="b-index-top b-index-top-2">
 				<h6><span class="bold">Продавайте</span> свои работы дороже в&nbsp;2&nbsp;раза, уже сегодня управляя домашним бизнесом <span class="bold">с помощью приложения:</span></h6>
@@ -576,7 +579,7 @@ $APPLICATION->SetTitle("Первый магазин для кондитеров"
 				<p>Мягкая пластичная масса для покрытия тортов или создания разных декоративных украшений для тортов и десертов.</p>
 			</div>
 			<div class="b-own-products-text right">
-				<h4>Кондитерская упаковка, кондитерские кольца и многое другое под маркой <b>«Sweets bear»</b></h4>
+				<h4>Кондитерская упаковка, кондитерские кольца и многое другое под маркой <b>Sweet bear</b></h4>
 				<p>Удобная конструкция, высокое качество и экологичность материалов, выгодные цены.</p>
 				<!-- <h4>Кондитерская<br>упаковка <b>«Sweets bear»</b></h4> -->
 				<!-- <p>Кондитерская упаковка для ваших&nbsp;сладких десертов.<br>Удобная конструкция, высокое качество и&nbsp;экологичность материалов, выгодные цены.</p> -->

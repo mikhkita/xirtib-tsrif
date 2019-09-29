@@ -28,66 +28,78 @@ $APPLICATION->SetTitle("Оплата");?>
 			<div class="b-block-2">
 				<h3>Выберите интересущий вас способ оплаты</h3>
 				<div class="b-rounded-tile-list">
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-visa"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Онлайн банковской картой</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-spasibo"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">СПАСИБО от Сбербанка</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-bank"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Банковский перевод</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-sber"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Сбербанк Онлайн</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-paypal"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">PayPal</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-yandex"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Яндекс.Деньги</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-webmoney"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">WebMoney</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
-						<div class="b-rounded-tile-img icon-qiwi"></div>
-						<div class="b-rounded-tile-name-container">
-							<div class="b-rounded-tile-name">Киви Кошелек</div>
-						</div>
-					</a>
-					<a href="#" class="b-rounded-tile-item">
+					<a href="#payment-1" class="b-rounded-tile-item fancy">
 						<div class="b-rounded-tile-img icon-cash"></div>
 						<div class="b-rounded-tile-name-container">
 							<div class="b-rounded-tile-name">Наличными</div>
 						</div>
 					</a>
-					<a href="#" class="b-rounded-tile-item">
+					<a href="#payment-2" class="b-rounded-tile-item fancy">
+						<div class="b-rounded-tile-img icon-bank"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">Банковский перевод</div>
+						</div>
+					</a>
+					<a href="#payment-3" class="b-rounded-tile-item fancy">
+						<div class="b-rounded-tile-img icon-sber"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">Сбербанк Онлайн</div>
+						</div>
+					</a>
+					<a href="#payment-4" class="b-rounded-tile-item fancy">
 						<div class="b-rounded-tile-img icon-deliverycash"></div>
 						<div class="b-rounded-tile-name-container">
 							<div class="b-rounded-tile-name">Наложенный платеж</div>
 						</div>
 					</a>
+					<a href="#payment-5" class="b-rounded-tile-item fancy">
+						<div class="b-rounded-tile-img icon-visa"></div>
+						<div class="b-rounded-tile-name-container">
+							<div class="b-rounded-tile-name">Онлайн банковской картой</div>
+						</div>
+					</a>
+				</div>
+				<div style="display: none;">
+					<div class="b-popup" id="payment-1">
+						<div class="b-popup-header">
+							<h3>Наличными</h3>
+						</div>
+						<div class="b-text">
+							<p>Описание оплаты</p>
+						</div>
+					</div>
+					<div class="b-popup" id="payment-2">
+						<div class="b-popup-header">
+							<h3>Банковский перевод</h3>
+						</div>
+						<div class="b-text">
+							<p>Описание оплаты</p>
+						</div>
+					</div>
+					<div class="b-popup" id="payment-3">
+						<div class="b-popup-header">
+							<h3>Сбербанк Онлайн</h3>
+						</div>
+						<div class="b-text">
+							<p>Описание оплаты</p>
+						</div>
+					</div>
+					<div class="b-popup" id="payment-4">
+						<div class="b-popup-header">
+							<h3>Наложенный платеж</h3>
+						</div>
+						<div class="b-text">
+							<p>Описание оплаты</p>
+						</div>
+					</div>
+					<div class="b-popup" id="payment-5">
+						<div class="b-popup-header">
+							<h3>Онлайн банковской картой</h3>
+						</div>
+						<div class="b-text">
+							<p>Описание оплаты</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

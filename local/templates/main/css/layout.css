@@ -2044,10 +2044,13 @@ select{
 		background-image: url('../i/banner-back-1.jpg');
 		background-size: cover;
 		background-repeat: no-repeat;
-		background-position: 50% 0;
+		background-position: 50% 50%;
 		width: calc(100% - 440px);
 		text-align: left;
 		padding: 48px 50px 55px;
+	}
+	.b-index-top-1.full{
+		width: 100%;
 	}
 		.b-index-top-1 h4{
 			font-size: 24px;
@@ -9336,8 +9339,8 @@ a.category-btn{
 		text-decoration: underline;
 	}
 	.b-rounded-tile-item:hover{
-		cursor: default;
-		/*border: 1px solid #38C7BF;*/
+		/*cursor: default;*/
+		border: 1px solid #38C7BF;
 	}
 	.b-faq-header:hover .b-faq-header-icon-line{
 		background-color: #38C7BF;

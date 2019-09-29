@@ -57,7 +57,7 @@ $APPLICATION->SetTitle("Контакты");?>
 						<div class="b-contacts-right-big">5167746291070</div>
 					</div>
 				</div>
-				<div id="contacts-map" class="b-contacts-map"></div>
+				<!-- <div id="contacts-map" class="b-contacts-map"></div> -->
 			</div>
 		</div>
 	</div>
