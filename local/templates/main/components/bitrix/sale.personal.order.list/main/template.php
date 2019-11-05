@@ -3,8 +3,8 @@
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 use Bitrix\Main,
-	Bitrix\Main\Localization\Loc,
-	Bitrix\Main\Page\Asset;
+Bitrix\Main\Localization\Loc,
+Bitrix\Main\Page\Asset;
 
 Asset::getInstance()->addJs("/bitrix/components/bitrix/sale.order.payment.change/templates/.default/script.js");
 Asset::getInstance()->addCss("/bitrix/components/bitrix/sale.order.payment.change/templates/.default/style.css");
@@ -61,14 +61,15 @@ else
 		}
 	}
 	?>
-	<div class="row col-md-12 col-sm-12">
-		<?
-		$nothing = !isset($_REQUEST["filter_history"]) && !isset($_REQUEST["show_all"]);
-		$clearFromLink = array("filter_history","filter_status","show_all", "show_canceled");
+	<div class="pagination-list">
+		<div class="row col-md-12 col-sm-12">
+			<?
+			$nothing = !isset($_REQUEST["filter_history"]) && !isset($_REQUEST["show_all"]);
+			$clearFromLink = array("filter_history","filter_status","show_all", "show_canceled");
 
-		if ($nothing || $_REQUEST["filter_history"] == 'N')
-		{
-			?>
+			if ($nothing || $_REQUEST["filter_history"] == 'N')
+			{
+				?>
 			<!-- <a class="sale-order-history-link" href="<?=$APPLICATION->GetCurPageParam("filter_history=Y", $clearFromLink, false)?>">
 				<?echo Loc::getMessage("SPOL_TPL_VIEW_ORDERS_HISTORY")?>
 			</a> -->
@@ -289,24 +290,24 @@ else
 
 	}
 	?>
-	
 	<div class="b-load-more-container">
 		<?echo $arResult["NAV_STRING"];?>
 	</div>
+</div>
 
-	<?if ($_REQUEST["filter_history"] !== 'Y'){
-		$javascriptParams = array(
-			"url" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
-			"templateFolder" => CUtil::JSEscape($templateFolder),
-			"templateName" => $this->__component->GetTemplateName(),
-			"paymentList" => $paymentChangeData
-		);
-		$javascriptParams = CUtil::PhpToJSObject($javascriptParams);
-		?>
-		<script>
-			BX.Sale.PersonalOrderComponent.PersonalOrderList.init(<?=$javascriptParams?>);
-		</script>
-		<?
-	}
+<?if ($_REQUEST["filter_history"] !== 'Y'){
+	$javascriptParams = array(
+		"url" => CUtil::JSEscape($this->__component->GetPath().'/ajax.php'),
+		"templateFolder" => CUtil::JSEscape($templateFolder),
+		"templateName" => $this->__component->GetTemplateName(),
+		"paymentList" => $paymentChangeData
+	);
+	$javascriptParams = CUtil::PhpToJSObject($javascriptParams);
+	?>
+	<script>
+		BX.Sale.PersonalOrderComponent.PersonalOrderList.init(<?=$javascriptParams?>);
+	</script>
+	<?
+}
 }
 ?>

@@ -16,7 +16,7 @@ $APPLICATION->SetTitle("Товары со скидкой");?>
 	<div class="b-catalog-preview b-subcategory-catalog-preview pagination-container">
 		<div class="b-sort">
 			<?
-				$arCount = array('12', '24', '48');
+				$arCount = array('12', '24', '48', '9');
 				$arSort = array(
 					'SORT' => 'Популярности',
 					'NAME' => 'Алфавиту',
@@ -69,7 +69,8 @@ $APPLICATION->SetTitle("Товары со скидкой");?>
 									<? if (isset($_REQUEST['count'])): ?>
 										<? $selected = ($_REQUEST['count'] == $value) ? 'selected' : '' ;?>
 									<? endif; ?>
-									<option value="<?=$value?>" <?=$selected?>><?=$value?></option>
+									<? $text = ($value == '9') ? 'Все' : $value; ?>
+									<option value="<?=$value?>" <?=$selected?>><?=$text?></option>
 								<? endforeach; ?>
 							</select>
 						</div>

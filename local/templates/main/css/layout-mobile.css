@@ -1410,10 +1410,14 @@ a:focus{
 	.basket-item-block-price{
 		/*padding-top: 0;*/
 	}
-	.b-catalog-item{
+	.b-catalog-item,
+	.b-2-items .b-catalog-item{
 		width: 100%;
 		margin-right:0;
 		margin-left:0;
+	}
+	.b-catalog-list.b-2-items .b-catalog-item:nth-child(2n){
+		margin-left: 0;
 	}
 		.b-catalog-item:nth-child(3n){
 			margin-right: 0;

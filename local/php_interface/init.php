@@ -629,6 +629,135 @@ function OnSaleOrderSavedHandler(Main\Event $event){
 }
 
 Main\EventManager::getInstance()->addEventHandler(
+   'iblock',
+   'OnBeforeIBlockElementUpdate',
+   'OnBeforeIBlockElementUpdateHandler'
+);
+
+function OnBeforeIBlockElementUpdateHandler(&$arParams){
+	// vardump($arParams);
+	// if($arParams['IBLOCK_ID'] == '1'){
+	// 	$res = CPrice::GetList(array(),array("PRODUCT_ID" => $arParams['ID']));
+	//     if ($arr = $res->Fetch()) {
+	//     	vardump($arr['PRICE']);
+
+	//     	$id = $arr["ID"];
+
+	//     	unset($arr["ID"]);
+	//     	unset($arr["TIMESTAMP_X"]);
+
+	//     	$arMargin = getParam('MARGIN'); // наценка в %
+
+	//     	// vardump($arr['PRICE']/100*$arMargin['VALUE']);
+
+	//     	$rubMargin = intval($arr['PRICE'])/100*intval($arMargin['VALUE']); // наценка в рублях
+	//     	$arr['PRICE'] = intval($arr['PRICE']) + $rubMargin;
+	    	
+	//     	$arr['PRICE'] = 109;
+	//     	vardump($arr['PRICE']);
+	//     	// vardump($arr);
+
+	//     	CPrice::Update($id, $arr);
+	//     }
+	// }
+	// die();
+}
+
+Main\EventManager::getInstance()->addEventHandler(
+   'main',
+   'OnAdminTabControlBegin',
+   'OnAdminTabControlBeginHandler'
+);
+
+function OnAdminTabControlBeginHandler(&$form){
+
+
+	// $arItem = $form->{'customTabber'}->{'arArgs'};
+	// vardump($arItem);
+	// die();
+
+	// if($arItem['IBLOCK']['ID'] == '1'){
+
+	// 	// global $APPLICATION;
+	// 	// $APPLICATION->RestartBuffer();
+
+	// 	$res = CPrice::GetList(array(),array("PRODUCT_ID" => $arItem['ID']));
+	//     if ($arr = $res->Fetch()) {
+	//     	vardump($arr['PRICE']);
+
+	//     	$id = $arr["ID"];
+	//     	unset($arr["ID"]);
+	//     	unset($arr["TIMESTAMP_X"]);
+
+	//     	$arMargin = getParam('MARGIN'); // наценка в %
+
+	//     	// vardump($arr['PRICE']/100*$arMargin['VALUE']);
+
+	//     	$rubMargin = intval($arr['PRICE'])/100*intval($arMargin['VALUE']); // наценка в рублях
+	//     	$arr['PRICE'] = intval($arr['PRICE']) + $rubMargin;
+	    	
+	//     	$arr['PRICE'] = 109;
+	//     	vardump($arr['PRICE']);
+	//     	// vardump($arr);
+
+	//     	CPrice::Update($id, $arr);
+	//     }
+    	// die();
+	// }
+}
+
+function BXIBlockAfterSave($arFields) {
+	IBlockElementAfterSaveHandler($arFields);
+}
+
+function IBlockElementAfterSaveHandler($arg1, $arg2 = false) {
+
+	CModule::IncludeModule("iblock");
+	CModule::IncludeModule("catalog");
+
+	$element_id = false;
+
+	if (is_array($arg2) && $arg2["PRODUCT_ID"] > 0) {
+		$element_id = $arg2["PRODUCT_ID"];
+	} elseif (is_array($arg1) && $arg1["ID"] > 0) {
+		$arElementFields = CIBlockElement::GetByID($arg1["ID"])->GetNext();
+		if(in_array($arElementFields["IBLOCK_ID"],array(1,2,13))) {
+    		$element_id = $arg1["ID"];
+		}
+	}
+
+	if($element_id) {
+
+		$arJsonPrice = array();
+
+		$res = CPrice::GetList(array(),array("PRODUCT_ID" => $element_id));
+		while ($arr = $res->Fetch()) {
+
+	    	$arJsonPrice[] = array(
+	    		"ID" => $arr['ID'],
+				"PRICE" => $arr['PRICE'],
+				"QUANTITY_FROM" => $arr['QUANTITY_FROM'],
+				"QUANTITY_TO" => $arr['QUANTITY_TO']
+			);
+
+			$arMargin = getParam('MARGIN'); // наценка в %
+			$rubMargin = intval($arr['PRICE'])/100*intval($arMargin['VALUE']); // наценка в рублях
+			$arr['PRICE'] = round(intval($arr['PRICE']) + $rubMargin);
+
+			$id = $arr["ID"];
+
+	    	unset($arr["ID"]);
+	    	unset($arr["TIMESTAMP_X"]);
+
+			CPrice::Update($id, $arr);
+		};
+
+		CIBlockElement::SetPropertyValueCode($element_id, "JSON_PRICE", json_encode($arJsonPrice));
+
+	}
+}
+
+Main\EventManager::getInstance()->addEventHandler(
    'main',
    'OnBeforeUserAdd',
    'OnBeforeUserAddHandler1'
@@ -878,9 +1007,13 @@ class MyClass {
 		$res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>1000), $arSelect);
 
 		$ids = array();
+
 		foreach ($arFields["BASKET_ITEMS"] as $key => $item) {
-			array_push($ids, intval($item["PRODUCT_ID"]));
+			$arItem = explode('#', $item["PRODUCT_XML_ID"]);
+			array_push($ids, intval($arItem[0]));
 		}
+
+
 		addFavourites($ids);
 
 		while($ob = $res->GetNextElement()){
@@ -1801,7 +1934,7 @@ function resizePhotos($photo, $isList){
 }
 
 function convertPrice($price){
-	return rtrim(rtrim(number_format($price, 1, '.', ' '),"0"),".");
+	return rtrim(rtrim(number_format(round($price), 1, '.', ' '),"0"),".");
 }
 
 function checkResendOrders(){

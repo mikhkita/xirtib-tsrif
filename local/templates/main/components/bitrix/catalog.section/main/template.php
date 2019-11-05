@@ -21,7 +21,6 @@ $arFilters = Array(
 <? if(count($arResult["ITEMS"])): ?>
 	<div class="b-catalog-list pagination-list clearfix <?=$arParams["CLASS"]?> <?=$_REQUEST['view']?>" id="<?=$arParams["LIST_ID"]?>">
 		<?foreach($arResult["ITEMS"] as $arItem):?>
-
 			<? $priceText = ''; ?>
 			<? $isQuantity = false; ?>
 			<? $discountClass = null; ?>

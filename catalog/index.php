@@ -282,7 +282,7 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 		<div class="b-block">
 			<div class="b-sort">
 				<?
-					$arCount = array('12', '24', '48');
+					$arCount = array('12', '24', '48', '9');
 					$arSort = array(
 						'SORT' => 'Популярности',
 						'NAME' => 'Алфавиту',
@@ -336,7 +336,8 @@ $component = $GLOBALS["SECTION_ID"] ? 'subcategories' : 'categories';
 										<? if (isset($_REQUEST['count'])): ?>
 											<? $selected = ($_REQUEST['count'] == $value) ? 'selected' : '' ;?>
 										<? endif; ?>
-										<option value="<?=$value?>" <?=$selected?>><?=$value?></option>
+										<? $text = ($value == '9') ? 'Все' : $value; ?>
+										<option value="<?=$value?>" <?=$selected?>><?=$text?></option>
 									<? endforeach; ?>
 								</select>
 							</div>

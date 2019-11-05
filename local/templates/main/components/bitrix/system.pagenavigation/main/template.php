@@ -13,7 +13,7 @@ $strNavQueryString = ($arResult["NavQueryString"] != "" ? $arResult["NavQueryStr
 $strNavQueryStringFull = ($arResult["NavQueryString"] != "" ? "?".$arResult["NavQueryString"] : "");
 ?>
 
-<?if( $arResult["NavPageNomer"] < $arResult["NavPageCount"] ):?>
+<?if( ($arResult["NavPageNomer"] < $arResult["NavPageCount"]) && (!$GLOBALS["isPersonal"])):?>
 
 	<a href="<?=$arResult["sUrlPath"]?>?<?=$strNavQueryString?>PAGEN_<?=$arResult["NavNum"]?>=<?=($arResult["NavPageNomer"]+1)?>" class="b-load-more b-load-more-works icon-load">
 		<p class="pink dashed">Загрузить еще</p>

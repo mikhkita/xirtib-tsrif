@@ -75,6 +75,31 @@ if (strlen($_REQUEST['ORDER_ID']) > 0){
             <div class="b-btn-addressee"></div>
         </div>
     </div> -->
+    <? 
+
+    if (isAuth()) {
+        $delivery_sale = getParam("DELIVERY_SALE");
+        $basket = getBasketCount();
+        
+        $USER_ID = $USER->GetID();
+
+        $arFilter = Array(
+            "USER_ID" => $USER_ID,
+            ">=DATE_INSERT" => date("d.m.Y", strtotime("-1 year"))
+        );
+
+        $orderCount = CSaleOrder::GetList(array("DATE_INSERT" => "ASC"), $arFilter, array());
+        
+        if ((isset($delivery_sale)) && (intval(str_replace(' ', '', $basket['sum'])) > intval($delivery_sale['VALUE'])) && ($orderCount > 0)) {
+            $data_sale = 'Y';
+            $deliverySalePrice = getParam("DELIVERY_SALE_PRICE");
+        } else {
+            $data_sale = 'N';
+        }
+    }
+
+    ?>
+
     <form class="b-data-order-form" method="POST" name="ORDER_FORM" id="ORDER_FORM" enctype="multipart/form-data" action="<?=$APPLICATION->GetCurPage();?>">
         <?=bitrix_sessid_post()?>
         <input type="hidden" id="PERSON_TYPE_1" name="PERSON_TYPE" value="1">
@@ -84,7 +109,7 @@ if (strlen($_REQUEST['ORDER_ID']) > 0){
         <input type="hidden" name="location_type" value="code">
         <input type="hidden" name="ORDER_DESCRIPTION" value="">
         <input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="0">
-        <input type="hidden" name="DELIVERY_PRICE" id="b-delivery-price-input">
+        <input type="hidden" name="DELIVERY_PRICE" id="b-delivery-price-input" data-sale="<?=$data_sale?>" data-count="<?=$deliverySalePrice['VALUE']?>">
         <? /* ?><input type="hidden" name="account_only" value="N"><? */ ?>
         <? /* ?><input type="hidden" name="PAY_CURRENT_ACCOUNT" value="N"><? */ ?>
         <? /* ?><input type="hidden" name="confirmorder" id="confirmorder" value="Y"><? */ ?>
